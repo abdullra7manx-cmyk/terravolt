@@ -59,7 +59,7 @@ td,th{padding:10px 14px;border-bottom:1px solid var(--line);text-align:right;fon
 .cta section{padding:56px 16px}
 footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 .dlnote{color:var(--mut);font-size:13px;margin-top:10px}
-@media (max-width:760px){ .nav nav{display:none} .show{grid-template-columns:1fr} .hero{min-height:480px} }
+@media (max-width:760px){ .nav nav{display:none} .ubtn span{max-width:90px} .show{grid-template-columns:1fr} .hero{min-height:480px} }
 
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
 .plan{background:var(--panel);border:3px solid #000;box-shadow:inset 0 0 0 2px var(--line);padding:22px;display:flex;flex-direction:column;gap:10px;position:relative}
@@ -75,10 +75,29 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 #promoMsg{font-size:14px;min-height:22px}#promoMsg.ok{color:#8fd85e}#promoMsg.bad{color:#ff8a80}
 .buynote{color:var(--mut);font-size:13px;margin-top:10px}
 @media (max-width:860px){.plans{grid-template-columns:1fr}}
+
+.ubtn{display:inline-flex;align-items:center;gap:8px;background:#1d2024;border:2px solid #000;box-shadow:inset 0 0 0 1px var(--line);color:#fff;font:600 14px 'IBM Plex Sans Arabic',sans-serif;padding:6px 12px 6px 8px;cursor:pointer;white-space:nowrap;max-width:200px}
+.ubtn:hover{background:#262a2f}.ubtn .av{width:24px;height:24px;display:grid;place-items:center;background:var(--grn);border:2px solid #000;font:700 13px 'Pixelify Sans',monospace;flex:none}.ubtn span{overflow:hidden;text-overflow:ellipsis}
+#acct{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:rgba(0,0,0,.65);padding:16px}#acct[hidden]{display:none}
+#acct .box{width:min(440px,100%);background:var(--panel);border:3px solid #000;box-shadow:inset 0 0 0 2px var(--line);padding:22px}
+#acct h3{margin:0 0 4px;font:700 22px 'Pixelify Sans','IBM Plex Sans Arabic',monospace;color:#fff}#acct p{margin:0 0 14px;color:var(--mut);font-size:14px}
+#acct label{display:block;font-size:13px;color:var(--mut);margin:10px 0 4px}#acct label b{color:#ff8a80;font-weight:500}
+#acct input{width:100%;box-sizing:border-box;padding:11px 12px;font:500 15px 'IBM Plex Sans Arabic',sans-serif;background:#0b0c0e;color:#fff;border:2px solid #000;box-shadow:inset 0 0 0 1px var(--line)}#acct input[type=email]{direction:ltr;text-align:left}
+#acctErr{color:#ff8a80;font-size:13px;min-height:20px;margin-top:6px}
+#acct .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}#acct .btn{padding:10px 18px;font-size:15px}#acct .btn.alt{background:#2a2d31;box-shadow:inset 0 -4px 0 #15171a,0 0 0 3px #000}
+#acct .links{margin-top:14px;font-size:13px;display:flex;gap:16px;flex-wrap:wrap}#acct .links a,#acct .links button{color:var(--sun);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-decoration:underline}
 </style>
 </head>
 <body>
-<header><div class="nav"><a class="logo" href="#"><img src="img/grass.png" alt="" style="width:30px;height:30px;vertical-align:-6px;margin-left:8px;image-rendering:auto">TERRA<b>VOLT</b></a><nav><a href="#game">اللعبة</a><a href="#buy">الأسعار</a><a href="#install">التثبيت</a><a href="#updates">التحديثات</a><a href="#req">المتطلبات</a></nav><a class="btn sm dl" href="#install">تحميل</a></div></header>
+<div id="acct" hidden role="dialog" aria-modal="true" aria-labelledby="acctT"><form class="box" id="acctF" novalidate>
+<h3 id="acctT">حسابك</h3><p id="acctP">سجّل بإيميلك عشان تنحفظ مشترياتك عليه.</p>
+<label for="aName">الاسم</label><input id="aName" maxlength="40" autocomplete="name">
+<label for="aMail">الإيميل <b id="aReq" hidden>(مطلوب للشراء)</b></label><input id="aMail" type="email" maxlength="120" autocomplete="email" placeholder="name@example.com">
+<div id="acctErr" role="alert"></div>
+<div class="row"><button class="btn" type="submit" id="aSave">حفظ</button><button class="btn alt" type="button" id="aSkip" hidden>متابعة بدون تسجيل</button><button class="btn alt" type="button" id="aClose">إغلاق</button></div>
+<div class="links"><a href="https://app.lemonsqueezy.com/my-orders" target="_blank" rel="noopener">مشترياتي وأكواد التفعيل</a><button type="button" id="aOut" hidden>تسجيل خروج</button></div>
+</form></div>
+<header><div class="nav"><button class="ubtn" id="ubtn" type="button" aria-haspopup="dialog"><b class="av" id="uav">?</b><span id="uname">تسجيل الدخول</span></button><a class="logo" href="#"><img src="img/grass.png" alt="" style="width:30px;height:30px;vertical-align:-6px;margin-left:8px;image-rendering:auto">TERRA<b>VOLT</b></a><nav><a href="#game">اللعبة</a><a href="#buy">الأسعار</a><a href="#install">التثبيت</a><a href="#updates">التحديثات</a><a href="#req">المتطلبات</a></nav><a class="btn sm dl" href="#install">تحميل</a></div></header>
 
 <div class="hero">
   <img class="bg" src="img/shot1.jpg" alt=""><img class="bg" src="img/shot2.jpg" alt=""><img class="bg" src="img/shot3.jpg" alt="">
@@ -158,7 +177,7 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 (()=>{ const $=q=>document.querySelector(q); let SHOP=null, CODE='', DEAL=null;
   const fmt=n=>n>0?'$'+n.toFixed(2):'$0';
   async function sha(t){ const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''); }
-  function link(ed){ const e=SHOP&&SHOP.editions[ed]; if(!e||!e.checkout) return ''; const u=new URL(e.checkout); u.searchParams.set('embed','1'); if(CODE&&DEAL&&DEAL.ed.includes(ed)) u.searchParams.set('checkout[discount_code]',CODE); return u.toString(); }
+  function link(ed){ const e=SHOP&&SHOP.editions[ed]; if(!e||!e.checkout) return ''; const u=new URL(e.checkout); u.searchParams.set('embed','1'); const ac=window.TV_ACCOUNT&&window.TV_ACCOUNT(); if(ac){ u.searchParams.set('checkout[email]',ac.email); if(ac.name) u.searchParams.set('checkout[name]',ac.name); } if(CODE&&DEAL&&DEAL.ed.includes(ed)) u.searchParams.set('checkout[discount_code]',CODE); return u.toString(); }
   function render(){ document.querySelectorAll('.plan').forEach(p=>{ const ed=p.dataset.ed, e=SHOP&&SHOP.editions[ed]; if(!e) return; const pr=p.querySelector('[data-p]'), hit=DEAL&&DEAL.ed.includes(ed);
       const now=hit?Math.max(0,e.price*(1-DEAL.off/100)):e.price; pr.innerHTML=(hit&&e.price?'<s>'+fmt(e.price)+'</s>':'')+fmt(now); p.classList.toggle('free-now',!!(hit&&now===0));
       const b=p.querySelector('.buy'); if(!b) return; const u=link(ed);
@@ -166,6 +185,7 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
       else if(hit&&window.TV_CODE){ b.href='#buy'; b.removeAttribute('aria-disabled'); b.dataset.get='1'; b.textContent='تحميل '+e.name; }
       else { b.href='#buy'; delete b.dataset.get; b.setAttribute('aria-disabled','true'); b.textContent='الشراء قريباً'; } });
     try{ window.createLemonSqueezy&&window.createLemonSqueezy(); }catch(e){} }
+  window.TV_RENDER=()=>render();
   $('#promo').addEventListener('submit',async ev=>{ ev.preventDefault(); const c=$('#promoIn').value.trim().toUpperCase(), m=$('#promoMsg');
     if(!c){ CODE=''; DEAL=null; m.textContent=''; m.className=''; render(); return; }
     m.className=''; m.textContent='جاري التحقق…';
@@ -208,6 +228,31 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
     draw(4); document.getElementById('moreB').onclick=()=>draw(shown+6);
   }).catch(()=>{ document.getElementById('notes').innerHTML='<div class="note">ما قدرت أجيب التحديثات الحين.</div>'; });
 })();
+</script>
+<script>
+// account: name + email kept on this device; the email goes to the checkout so the purchase is recorded on it
+(()=>{ const $=q=>document.querySelector(q), K='tv-account'; let A=null, pend=null, skipped=false;
+  try{ A=JSON.parse(localStorage.getItem(K)||'null'); }catch(e){}
+  const okMail=m=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m);
+  function paint(){ const n=A&&(A.name||A.email.split('@')[0]); $('#uname').textContent=n||'تسجيل الدخول'; $('#uav').textContent=n?n.trim()[0].toUpperCase():'?'; $('#ubtn').title=A?A.email:''; }
+  window.TV_ACCOUNT=()=>A;
+  function open(forBuy){ $('#acctErr').textContent=''; $('#aName').value=A&&A.name||''; $('#aMail').value=A&&A.email||'';
+    $('#acctT').textContent=forBuy?'سجّل قبل الشراء':(A?'حسابك':'تسجيل الدخول'); $('#acctP').textContent=forBuy?'اكتب إيميلك عشان تنسجل اللعبة عليه ويوصلك كود التفعيل.':'سجّل بإيميلك عشان تنحفظ مشترياتك عليه.';
+    $('#aReq').hidden=!forBuy; $('#aSkip').hidden=!forBuy; $('#aOut').hidden=!A; $('#acct').hidden=false; setTimeout(()=>(A?$('#aName'):$('#aMail')).focus(),30); }
+  function close(){ $('#acct').hidden=true; }
+  function go(){ const p=pend; pend=null; close(); if(p){ window.TV_RENDER&&window.TV_RENDER(); p.dataset.ok='1'; p.click(); delete p.dataset.ok; } }
+  $('#ubtn').onclick=()=>open(false); $('#aClose').onclick=()=>{ pend=null; close(); };
+  $('#aSkip').onclick=()=>{ skipped=true; go(); };
+  $('#aOut').onclick=()=>{ A=null; try{ localStorage.removeItem(K); }catch(e){} paint(); window.TV_RENDER&&window.TV_RENDER(); close(); };
+  $('#acctF').addEventListener('submit',e=>{ e.preventDefault(); const name=$('#aName').value.trim(), email=$('#aMail').value.trim().toLowerCase();
+    if(!okMail(email)){ $('#acctErr').textContent='اكتب إيميل صحيح'; $('#aMail').focus(); return; }
+    A={name,email}; try{ localStorage.setItem(K,JSON.stringify(A)); }catch(e){} paint(); go(); });
+  $('#acct').addEventListener('click',e=>{ if(e.target.id==='acct'){ pend=null; close(); } });
+  addEventListener('keydown',e=>{ if(e.key==='Escape'&&!$('#acct').hidden){ pend=null; close(); } });
+  // ask only when someone tries to buy / get a paid edition
+  document.addEventListener('click',e=>{ const b=e.target.closest('.plan .buy'); if(!b||b.dataset.ok||b.getAttribute('aria-disabled')) return;
+    if(A||skipped) return; e.preventDefault(); e.stopImmediatePropagation(); pend=b; open(true); },true);
+  paint(); })();
 </script>
 </body>
 </html>
