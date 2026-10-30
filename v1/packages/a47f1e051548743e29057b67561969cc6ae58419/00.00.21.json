@@ -1,0 +1,45 @@
+{
+ "id": "00.00.21",
+ "type": "release",
+ "time": "2026-10-30T12:00:00+03:00",
+ "releaseTime": "2026-10-30T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "1e3fe3ccdea5644f983ff5bf32fb8b286312d19d",
+   "size": 38209,
+   "url": "v1/objects/1e3fe3ccdea5644f983ff5bf32fb8b286312d19d/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d7d68f4d73f4c55709fd6ae3db9829d877a9365f",
+   "size": 118043,
+   "url": "v1/objects/d7d68f4d73f4c55709fd6ae3db9829d877a9365f/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "42583c8a838a166d476953c850bbca373c193a40",
+   "size": 1059312,
+   "url": "v1/objects/42583c8a838a166d476953c850bbca373c193a40/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "طور القصة، يد التحكم، الصعوبة، الدموية، والمرتزقة",
+ "notes": [
+  "طور القصة: 5 فصول من 2998 إلى 3001",
+  "يد PS5 و Xbox",
+  "الصعوبة: سهل، متوسط، صعب",
+  "جودة الرسومات: ضعيف، متوسط، عالي، مخصص",
+  "دموية بأعلى مستوى: رذاذ، برك دم، تقطيع أطراف، تفجير الرأس",
+  "الجثث تبقى 20 دقيقة وتقدر تشيلها وتسحبها وترميها (F)",
+  "أعداء بشر: مرتزقة معهم AK-47 ومدرّع ضخم معه رشاش PKM"
+ ],
+ "size": 6741099
+}
