@@ -1,0 +1,40 @@
+{
+ "id": "00.00.19",
+ "type": "release",
+ "time": "2026-10-30T12:00:00+03:00",
+ "releaseTime": "2026-10-30T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "3584c67a36a89e74deea8e0b66d603ac408dcf05",
+   "size": 36985,
+   "url": "v1/objects/3584c67a36a89e74deea8e0b66d603ac408dcf05/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d7d68f4d73f4c55709fd6ae3db9829d877a9365f",
+   "size": 118043,
+   "url": "v1/objects/d7d68f4d73f4c55709fd6ae3db9829d877a9365f/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "cc755fa1bcf840ed100500d64cbaecb4c1477071",
+   "size": 992080,
+   "url": "v1/objects/cc755fa1bcf840ed100500d64cbaecb4c1477071/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "الاسم الجديد: BLOCKFALL 3001",
+ "notes": [
+  "اسم اللعبة صار BLOCKFALL 3001",
+  "شعار وشاشة بداية جديدة بالاسم الجديد"
+ ],
+ "size": 6672643
+}
