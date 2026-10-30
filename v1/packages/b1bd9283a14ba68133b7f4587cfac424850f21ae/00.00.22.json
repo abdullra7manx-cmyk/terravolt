@@ -1,0 +1,41 @@
+{
+ "id": "00.00.22",
+ "type": "release",
+ "time": "2026-10-31T12:00:00+03:00",
+ "releaseTime": "2026-10-31T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "1e3fe3ccdea5644f983ff5bf32fb8b286312d19d",
+   "size": 38209,
+   "url": "v1/objects/1e3fe3ccdea5644f983ff5bf32fb8b286312d19d/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d7d68f4d73f4c55709fd6ae3db9829d877a9365f",
+   "size": 118043,
+   "url": "v1/objects/d7d68f4d73f4c55709fd6ae3db9829d877a9365f/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "7b6b2271c44fc4d2ec265cf7d833ce6130224997",
+   "size": 1059768,
+   "url": "v1/objects/7b6b2271c44fc4d2ec265cf7d833ce6130224997/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "إصلاح طور القصة",
+ "notes": [
+  "شاشة الفصل تنقفل بالماوس أو أي زر",
+  "ما تطلع قائمة الإيقاف فوق شاشة الفصل",
+  "الفصول تشتغل حتى لو عندك 10 عوالم"
+ ],
+ "size": 6741555
+}
