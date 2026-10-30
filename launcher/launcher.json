@@ -1,11 +1,11 @@
 {
- "version": "01.04.00",
+ "version": "01.05.00",
  "files": [
   {
    "path": "index.html",
-   "sha1": "27e95e572cddd6537af7f5ae70d63dec210bc840",
-   "size": 254584,
-   "url": "launcher/objects/27e95e572cddd6537af7f5ae70d63dec210bc840/index.html"
+   "sha1": "ae092ec676461cff4ade9932ca36b85d8498c1b8",
+   "size": 579471,
+   "url": "launcher/objects/ae092ec676461cff4ade9932ca36b85d8498c1b8/index.html"
   }
  ],
  "app": {

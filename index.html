@@ -26,7 +26,10 @@ header{position:sticky;top:0;z-index:10;background:rgba(14,16,18,.92);border-bot
 .btn.sm{padding:8px 16px;font-size:14px}
 .btn svg{width:22px;height:22px}
 .hero{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;border-bottom:4px solid #000}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.55)}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.95) brightness(.62);opacity:0;animation:hx 18s infinite}.hero .bg:nth-child(2){animation-delay:6s}.hero .bg:nth-child(3){animation-delay:12s}
+@keyframes hx{0%{opacity:0;transform:scale(1.04)}5%,33%{opacity:1}39%,100%{opacity:0;transform:scale(1.12)}}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.gal figure{margin:0;background:var(--panel);border:3px solid #000;overflow:hidden}.gal img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .4s}.gal figure:hover img{transform:scale(1.05)}.gal figcaption{padding:12px 14px}.gal b{display:block;color:#fff;font-size:17px}.gal span{color:var(--mut);font-size:14px}
+@media (max-width:760px){.gal{grid-template-columns:1fr}}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,rgba(14,16,18,.92) 0,rgba(14,16,18,.55) 45%,rgba(14,16,18,.1) 100%)}
 .hero .in{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:60px 16px;width:100%}
 .hero h1{font:700 clamp(44px,8vw,86px)/1 'Pixelify Sans',monospace;margin:0 0 8px;color:#fff;text-shadow:5px 5px 0 #000;letter-spacing:2px}
@@ -63,7 +66,7 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 <header><div class="nav"><a class="logo" href="#"><img src="img/grass.png" alt="" style="width:30px;height:30px;vertical-align:-6px;margin-left:8px;image-rendering:auto">TERRA<b>VOLT</b></a><nav><a href="#game">اللعبة</a><a href="#install">التثبيت</a><a href="#updates">التحديثات</a><a href="#req">المتطلبات</a></nav><a class="btn sm dl" href="#install">تحميل</a></div></header>
 
 <div class="hero">
-  <img src="img/war.jpg" alt="">
+  <img class="bg" src="img/shot1.jpg" alt=""><img class="bg" src="img/shot2.jpg" alt=""><img class="bg" src="img/shot3.jpg" alt="">
   <div class="in">
     <img src="img/grass.png" alt="" style="width:110px;height:110px;display:block;margin-bottom:10px;filter:drop-shadow(6px 8px 0 rgba(0,0,0,.5))">
     <h1>TERRAVOLT</h1>
@@ -85,7 +88,12 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 </section>
 
 <section>
-  <div class="show"><img src="img/zombies.jpg" alt="زومبي TERRAVOLT"><div><h2>الظلام مو آمن</h2><p style="color:var(--mut)">الزومبي ما يطلعون في الشمس، بس يتجمعون في الكهوف والأماكن المظلمة. حط شعلة، وخل سلاحك محشو.</p></div></div>
+  <h2>من داخل اللعبة</h2>
+  <div class="gal">
+    <figure><img src="img/shot1.jpg" alt="" loading="lazy"><figcaption><b>شروق على الأرض الخربة</b><span>عالم بحجم الأرض الحقيقي، من −100 إلى +300 متر.</span></figcaption></figure>
+    <figure><img src="img/shot2.jpg" alt="" loading="lazy"><figcaption><b>الظلام مو آمن</b><span>ست أنواع زومبي يطلعون مع الليل ويسمعون صوت الرصاص.</span></figcaption></figure>
+    <figure><img src="img/shot3.jpg" alt="" loading="lazy"><figcaption><b>انفجار وسط الجموع</b><span>انفجارات تكسر البلوكات وترمي الزومبي.</span></figcaption></figure>
+  </div>
 </section>
 
 <section id="install">
