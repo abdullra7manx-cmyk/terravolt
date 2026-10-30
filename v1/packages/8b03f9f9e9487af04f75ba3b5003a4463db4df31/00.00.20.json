@@ -1,0 +1,39 @@
+{
+ "id": "00.00.20",
+ "type": "release",
+ "time": "2026-10-30T12:00:00+03:00",
+ "releaseTime": "2026-10-30T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "ea976f85ebab4e7c5a88fbc89499145259efe08b",
+   "size": 37077,
+   "url": "v1/objects/ea976f85ebab4e7c5a88fbc89499145259efe08b/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d7d68f4d73f4c55709fd6ae3db9829d877a9365f",
+   "size": 118043,
+   "url": "v1/objects/d7d68f4d73f4c55709fd6ae3db9829d877a9365f/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "1f6f359a9692ecdea615675374689c5bcffb3aae",
+   "size": 992080,
+   "url": "v1/objects/1f6f359a9692ecdea615675374689c5bcffb3aae/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "قصة الحرب",
+ "notes": [
+  "الحرب بدأت 1 يناير 2998: ثلاث سنين من الكارثة قبل 3001"
+ ],
+ "size": 6672735
+}

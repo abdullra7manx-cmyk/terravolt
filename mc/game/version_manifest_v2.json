@@ -1,9 +1,23 @@
 {
  "latest": {
-  "release": "00.00.19",
-  "snapshot": "00.00.19"
+  "release": "00.00.20",
+  "snapshot": "00.00.20"
  },
  "versions": [
+  {
+   "id": "00.00.20",
+   "type": "release",
+   "url": "v1/packages/8b03f9f9e9487af04f75ba3b5003a4463db4df31/00.00.20.json",
+   "time": "2026-10-30T12:00:00+03:00",
+   "releaseTime": "2026-10-30T12:00:00+03:00",
+   "sha1": "8b03f9f9e9487af04f75ba3b5003a4463db4df31",
+   "complianceLevel": 1,
+   "title": "قصة الحرب",
+   "notes": [
+    "الحرب بدأت 1 يناير 2998: ثلاث سنين من الكارثة قبل 3001"
+   ],
+   "size": 6672735
+  },
   {
    "id": "00.00.19",
    "type": "release",
