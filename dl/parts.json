@@ -1,0 +1,24 @@
+{
+ "name": "TERRAVOLT-Launcher-Windows.zip",
+ "size": 114652697,
+ "sha1": "3ecf7275338652ce32f0fbb1afde2eed1a999a19",
+ "version": "1.1.0",
+ "parts": [
+  {
+   "url": "dl/part0.bin",
+   "size": 29000000
+  },
+  {
+   "url": "dl/part1.bin",
+   "size": 29000000
+  },
+  {
+   "url": "dl/part2.bin",
+   "size": 29000000
+  },
+  {
+   "url": "dl/part3.bin",
+   "size": 27652697
+  }
+ ]
+}

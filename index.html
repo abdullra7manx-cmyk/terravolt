@@ -125,7 +125,7 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
   if(/\.github\.io$/.test(h)){ const owner=h.split('.')[0], repo=seg[0]||(owner+'.github.io'); dl=`https://github.com/${owner}/${repo}/releases/latest/download/TERRAVOLT-Launcher-Windows.zip`; }
   document.querySelectorAll('a.dl').forEach(a=>{ if(dl){ a.href=dl; } else { a.href='#install'; } });
   // no GitHub release here: the launcher is stored in pieces next to this page; put them back together and save
-  if(!dl) fetch('dl/parts.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(P=>{ if(!P) return;
+  fetch('dl/parts.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(P=>{ if(!P) return;
     document.querySelectorAll('a.dl').forEach(a=>a.addEventListener('click',async e=>{ e.preventDefault(); if(a._busy) return; a._busy=1; const t0=a.innerHTML, bufs=[]; let got=0;
       try{ for(const part of P.parts){ const r=await fetch(part.url); if(!r.ok) throw new Error(r.status); const rd=r.body.getReader(); for(;;){ const {done,value}=await rd.read(); if(done) break; bufs.push(value); got+=value.length; a.textContent='جاري التحميل '+Math.round(got/P.size*100)+'%'; } }
         const url=URL.createObjectURL(new Blob(bufs,{type:'application/zip'})); const x=document.createElement('a'); x.href=url; x.download=P.name; document.body.appendChild(x); x.click(); x.remove(); setTimeout(()=>URL.revokeObjectURL(url),60000); a.innerHTML=t0; }
