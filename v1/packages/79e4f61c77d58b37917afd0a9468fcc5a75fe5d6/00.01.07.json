@@ -1,0 +1,39 @@
+{
+ "id": "00.01.07",
+ "type": "release",
+ "time": "2026-10-30T12:00:00+03:00",
+ "releaseTime": "2026-10-30T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "742c2bd1ec06baf48234dc20da4c488076ded07c",
+   "size": 35665,
+   "url": "v1/objects/742c2bd1ec06baf48234dc20da4c488076ded07c/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "ed033a71ab9f05dfd03072d79ed83804d7531b00",
+   "size": 118043,
+   "url": "v1/objects/ed033a71ab9f05dfd03072d79ed83804d7531b00/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "dba51fe47fc0b88ac92c38d2673ae6b5fa5f3c6c",
+   "size": 991585,
+   "url": "v1/objects/dba51fe47fc0b88ac92c38d2673ae6b5fa5f3c6c/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "أرقام الإصدارات الجديدة",
+ "notes": [
+  "أرقام الإصدارات صارت بالشكل 00.00.00 للعبة واللانشر"
+ ],
+ "size": 6670828
+}

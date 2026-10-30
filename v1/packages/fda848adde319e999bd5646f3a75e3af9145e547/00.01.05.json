@@ -1,0 +1,42 @@
+{
+ "id": "00.01.05",
+ "type": "release",
+ "time": "2026-10-30T12:00:00+03:00",
+ "releaseTime": "2026-10-30T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "22a70f51d0ccf6d4662e11eadda9fe0af7ead14d",
+   "size": 35467,
+   "url": "v1/objects/22a70f51d0ccf6d4662e11eadda9fe0af7ead14d/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "ed033a71ab9f05dfd03072d79ed83804d7531b00",
+   "size": 118043,
+   "url": "v1/objects/ed033a71ab9f05dfd03072d79ed83804d7531b00/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "8ae5087a7ed38e74764e7c50be9e71bd19217b9d",
+   "size": 991583,
+   "url": "v1/objects/8ae5087a7ed38e74764e7c50be9e71bd19217b9d/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "الشنطة",
+ "notes": [
+  "رجعت الشنطة الأصلية (E) للبقاء والإبداع",
+  "الأسلحة الكبيرة تاخذ خانتين أو ثلاث بالعرض بصورة السلاح كاملة، والباب خانتين بالطول",
+  "إصلاح التعليق عند فتح الشنطة وقفلها",
+  "العالم ما يوقف لما تفتح الشنطة أو أي نافذة"
+ ],
+ "size": 6670628
+}

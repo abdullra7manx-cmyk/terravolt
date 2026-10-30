@@ -1,0 +1,41 @@
+{
+ "id": "00.01.04",
+ "type": "release",
+ "time": "2026-10-30T12:00:00+03:00",
+ "releaseTime": "2026-10-30T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "22a70f51d0ccf6d4662e11eadda9fe0af7ead14d",
+   "size": 35467,
+   "url": "v1/objects/22a70f51d0ccf6d4662e11eadda9fe0af7ead14d/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "82a56e3d1986161b0dac142e1c7813f467584a71",
+   "size": 117355,
+   "url": "v1/objects/82a56e3d1986161b0dac142e1c7813f467584a71/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "0af3eca54d9c0b2009f904481b7b969975d0783f",
+   "size": 989375,
+   "url": "v1/objects/0af3eca54d9c0b2009f904481b7b969975d0783f/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "إصلاح الزومبي + أيقونة",
+ "notes": [
+  "أيدي الزومبي صارت لقدام، وجسمهم ينحني لقدام",
+  "أيقونة اللانشر بلوكة جراس",
+  "اللانشر صار يحدّث برنامجه وأيقونته لحاله"
+ ],
+ "size": 6667732
+}

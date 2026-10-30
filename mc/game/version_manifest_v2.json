@@ -1,16 +1,30 @@
 {
  "latest": {
-  "release": "0.01.6",
-  "snapshot": "0.01.6"
+  "release": "00.01.07",
+  "snapshot": "00.01.07"
  },
  "versions": [
   {
-   "id": "0.01.6",
+   "id": "00.01.07",
    "type": "release",
-   "url": "v1/packages/e5f2ad3ab5a2dd3044057bd814faddd2e52c265a/0.01.6.json",
+   "url": "v1/packages/79e4f61c77d58b37917afd0a9468fcc5a75fe5d6/00.01.07.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "e5f2ad3ab5a2dd3044057bd814faddd2e52c265a",
+   "sha1": "79e4f61c77d58b37917afd0a9468fcc5a75fe5d6",
+   "complianceLevel": 1,
+   "title": "أرقام الإصدارات الجديدة",
+   "notes": [
+    "أرقام الإصدارات صارت بالشكل 00.00.00 للعبة واللانشر"
+   ],
+   "size": 6670828
+  },
+  {
+   "id": "00.01.06",
+   "type": "release",
+   "url": "v1/packages/fd707c0a32ce003a323047a8ece8e4b573b3d82f/00.01.06.json",
+   "time": "2026-10-30T12:00:00+03:00",
+   "releaseTime": "2026-10-30T12:00:00+03:00",
+   "sha1": "fd707c0a32ce003a323047a8ece8e4b573b3d82f",
    "complianceLevel": 1,
    "title": "لانشر حقيقي",
    "notes": [
@@ -22,12 +36,12 @@
    "size": 6670826
   },
   {
-   "id": "0.01.5",
+   "id": "00.01.05",
    "type": "release",
-   "url": "v1/packages/5867eea27aa6549e3407156849d1f40c27b35568/0.01.5.json",
+   "url": "v1/packages/fda848adde319e999bd5646f3a75e3af9145e547/00.01.05.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "5867eea27aa6549e3407156849d1f40c27b35568",
+   "sha1": "fda848adde319e999bd5646f3a75e3af9145e547",
    "complianceLevel": 1,
    "title": "الشنطة",
    "notes": [
@@ -39,12 +53,12 @@
    "size": 6670628
   },
   {
-   "id": "0.01.4",
+   "id": "00.01.04",
    "type": "release",
-   "url": "v1/packages/db1396642ff2ab980e6722a9a751d5f1ccc4ce24/0.01.4.json",
+   "url": "v1/packages/580703e697d0888f7241ad3a90ac914559748e4b/00.01.04.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "db1396642ff2ab980e6722a9a751d5f1ccc4ce24",
+   "sha1": "580703e697d0888f7241ad3a90ac914559748e4b",
    "complianceLevel": 1,
    "title": "إصلاح الزومبي + أيقونة",
    "notes": [
@@ -55,12 +69,12 @@
    "size": 6667732
   },
   {
-   "id": "0.01.3",
+   "id": "00.01.03",
    "type": "release",
-   "url": "v1/packages/934a48d568d73d2c9d555f9f6e309acb6c8bbcb6/0.01.3.json",
+   "url": "v1/packages/20cf3248a9b139a7a62bdeb402554abd8a9278ba/00.01.03.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "934a48d568d73d2c9d555f9f6e309acb6c8bbcb6",
+   "sha1": "20cf3248a9b139a7a62bdeb402554abd8a9278ba",
    "complianceLevel": 1,
    "title": "بيض المخلوقات + إصلاحات",
    "notes": [
@@ -75,12 +89,12 @@
    "size": 6667655
   },
   {
-   "id": "0.01.2",
+   "id": "00.01.02",
    "type": "release",
-   "url": "v1/packages/af9d8247614ae7b007414834431b26aaec06e8ea/0.01.2.json",
+   "url": "v1/packages/c982e936a03e0511d8427d7d766b816b283e6ec7/00.01.02.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "af9d8247614ae7b007414834431b26aaec06e8ea",
+   "sha1": "c982e936a03e0511d8427d7d766b816b283e6ec7",
    "complianceLevel": 1,
    "title": "الزومبي",
    "notes": [
@@ -98,12 +112,12 @@
    "size": 6663682
   },
   {
-   "id": "0.01.1",
+   "id": "00.01.01",
    "type": "release",
-   "url": "v1/packages/221381c9ff2f0a3b4ca499efe07b79233acdb687/0.01.1.json",
+   "url": "v1/packages/6503277f1faff81aeed82275a05218e7a0bd3121/00.01.01.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "221381c9ff2f0a3b4ca499efe07b79233acdb687",
+   "sha1": "6503277f1faff81aeed82275a05218e7a0bd3121",
    "complianceLevel": 1,
    "title": "أسلحة بكسل + مخزون ماينكرافت",
    "notes": [
@@ -119,12 +133,12 @@
    "size": 6635085
   },
   {
-   "id": "0.01.0",
+   "id": "00.01.00",
    "type": "release",
-   "url": "v1/packages/462b3e6d5a7f421296a58e4b386ed844f64b3ceb/0.01.0.json",
+   "url": "v1/packages/c7a69642de18a8ce55ba5d758d2f09ab3f86c3e2/00.01.00.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "462b3e6d5a7f421296a58e4b386ed844f64b3ceb",
+   "sha1": "c7a69642de18a8ce55ba5d758d2f09ab3f86c3e2",
    "complianceLevel": 1,
    "title": "100 سلاح حقيقي",
    "notes": [
@@ -140,12 +154,12 @@
    "size": 6614419
   },
   {
-   "id": "0.00.9",
+   "id": "00.00.09",
    "type": "release",
-   "url": "v1/packages/fd1caf17575579fa4d9b0eda59b06894e181aedd/0.00.9.json",
+   "url": "v1/packages/d3442fb9620b0404d4ef20cadb11b2ba4a0e708b/00.00.09.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "fd1caf17575579fa4d9b0eda59b06894e181aedd",
+   "sha1": "d3442fb9620b0404d4ef20cadb11b2ba4a0e708b",
    "complianceLevel": 1,
    "title": "بعد الحرب الأخيرة",
    "notes": [
@@ -159,12 +173,12 @@
    "size": 6566839
   },
   {
-   "id": "0.00.8",
+   "id": "00.00.08",
    "type": "release",
-   "url": "v1/packages/d1512aac72d71141872c72bf6fd234b7fec85cf3/0.00.8.json",
+   "url": "v1/packages/b0085bda35f3703e59b15903b8650b1d160fbb43/00.00.08.json",
    "time": "2026-10-28T12:00:00+03:00",
    "releaseTime": "2026-10-28T12:00:00+03:00",
-   "sha1": "d1512aac72d71141872c72bf6fd234b7fec85cf3",
+   "sha1": "b0085bda35f3703e59b15903b8650b1d160fbb43",
    "complianceLevel": 1,
    "title": "قبر الموت + حركة ماينكرافت + خامات",
    "notes": [
@@ -182,12 +196,12 @@
    "size": 6519460
   },
   {
-   "id": "0.00.7",
+   "id": "00.00.07",
    "type": "release",
-   "url": "v1/packages/e830604626c1c80ffd497499e12449ae5d6ae0a9/0.00.7.json",
+   "url": "v1/packages/5cb4c5a54c629676014d8a536b6a84ac7e33cbcd/00.00.07.json",
    "time": "2026-10-28T12:00:00+03:00",
    "releaseTime": "2026-10-28T12:00:00+03:00",
-   "sha1": "e830604626c1c80ffd497499e12449ae5d6ae0a9",
+   "sha1": "5cb4c5a54c629676014d8a536b6a84ac7e33cbcd",
    "complianceLevel": 1,
    "title": "إصلاح الأشجار + صنع مثل ماينكرافت",
    "notes": [
@@ -204,12 +218,12 @@
    "size": 6510299
   },
   {
-   "id": "0.00.6",
+   "id": "00.00.06",
    "type": "release",
-   "url": "v1/packages/47baec295ab58e919a15f66270e73cc2d7157cb8/0.00.6.json",
+   "url": "v1/packages/91d1459b472ff26d49d2d4930ed99efa0025b95d/00.00.06.json",
    "time": "2026-10-28T12:00:00+03:00",
    "releaseTime": "2026-10-28T12:00:00+03:00",
-   "sha1": "47baec295ab58e919a15f66270e73cc2d7157cb8",
+   "sha1": "91d1459b472ff26d49d2d4930ed99efa0025b95d",
    "complianceLevel": 1,
    "title": "اللعب عبر الشبكة (هوست)",
    "notes": [
@@ -226,12 +240,12 @@
    "size": 6489661
   },
   {
-   "id": "0.00.5",
+   "id": "00.00.05",
    "type": "release",
-   "url": "v1/packages/ac6b00367609ff61d5bbe7a97b7d3eb75169e51e/0.00.5.json",
+   "url": "v1/packages/9fa8c24bd2288402d029de9178c3f17f5ae620c3/00.00.05.json",
    "time": "2026-10-28T12:00:00+03:00",
    "releaseTime": "2026-10-28T12:00:00+03:00",
-   "sha1": "ac6b00367609ff61d5bbe7a97b7d3eb75169e51e",
+   "sha1": "9fa8c24bd2288402d029de9178c3f17f5ae620c3",
    "complianceLevel": 1,
    "title": "خريطة JourneyMap + بلوكات ماينكرافت",
    "notes": [
@@ -248,12 +262,12 @@
    "size": 6462807
   },
   {
-   "id": "0.00.4",
+   "id": "00.00.04",
    "type": "release",
-   "url": "v1/packages/126e8ca22aa9447479996a933fadf1428ff6e33b/0.00.4.json",
+   "url": "v1/packages/a663646a5980eca53796494028a9241aab8c032c/00.00.04.json",
    "time": "2026-10-28T12:00:00+03:00",
    "releaseTime": "2026-10-28T12:00:00+03:00",
-   "sha1": "126e8ca22aa9447479996a933fadf1428ff6e33b",
+   "sha1": "a663646a5980eca53796494028a9241aab8c032c",
    "complianceLevel": 1,
    "title": "بدون تقطيع + الأرض كرة",
    "notes": [
@@ -268,12 +282,12 @@
    "size": 6365176
   },
   {
-   "id": "0.00.3",
+   "id": "00.00.03",
    "type": "release",
-   "url": "v1/packages/f2103d7b26b90b657082f3d669a0539670f5742f/0.00.3.json",
+   "url": "v1/packages/fa5ac32b23abe16a99014a3bb494f9224856f2cb/00.00.03.json",
    "time": "2026-10-27T12:00:00+03:00",
    "releaseTime": "2026-10-27T12:00:00+03:00",
-   "sha1": "f2103d7b26b90b657082f3d669a0539670f5742f",
+   "sha1": "fa5ac32b23abe16a99014a3bb494f9224856f2cb",
    "complianceLevel": 1,
    "title": "أداء أسرع وحقيبة مثل الصورة",
    "notes": [
@@ -288,12 +302,12 @@
    "size": 6343866
   },
   {
-   "id": "0.00.2",
+   "id": "00.00.02",
    "type": "release",
-   "url": "v1/packages/e864946ba82ae555a45d139549f539983894e5dc/0.00.2.json",
+   "url": "v1/packages/5fddf6327fd9b0eb57c85781f975251b3e7bb1ee/00.00.02.json",
    "time": "2026-10-27T12:00:00+03:00",
    "releaseTime": "2026-10-27T12:00:00+03:00",
-   "sha1": "e864946ba82ae555a45d139549f539983894e5dc",
+   "sha1": "5fddf6327fd9b0eb57c85781f975251b3e7bb1ee",
    "complianceLevel": 1,
    "title": "الحقيبة المضيئة والقرويين والعالم العميق",
    "notes": [
@@ -306,12 +320,12 @@
    "size": 6337339
   },
   {
-   "id": "0.00.1",
+   "id": "00.00.01",
    "type": "release",
-   "url": "v1/packages/1164ddb1d9763c67f559e823e39abc2395563339/0.00.1.json",
+   "url": "v1/packages/9eff60e09645dc3bcce2a719cd6b907764c39957/00.00.01.json",
    "time": "2026-10-26T12:00:00+03:00",
    "releaseTime": "2026-10-26T12:00:00+03:00",
-   "sha1": "1164ddb1d9763c67f559e823e39abc2395563339",
+   "sha1": "9eff60e09645dc3bcce2a719cd6b907764c39957",
    "complianceLevel": 1,
    "title": "الإصدار الأول من TERRAVOLT",
    "notes": [
