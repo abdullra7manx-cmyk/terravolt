@@ -1,0 +1,40 @@
+{
+ "id": "00.00.18",
+ "type": "release",
+ "time": "2026-10-30T12:00:00+03:00",
+ "releaseTime": "2026-10-30T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "437c91a8af10f342da2345c511ffb4556eabc613",
+   "size": 36588,
+   "url": "v1/objects/437c91a8af10f342da2345c511ffb4556eabc613/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "ed033a71ab9f05dfd03072d79ed83804d7531b00",
+   "size": 118043,
+   "url": "v1/objects/ed033a71ab9f05dfd03072d79ed83804d7531b00/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "4d6f1406639d71415eac6785bebb008be1eedc38",
+   "size": 991585,
+   "url": "v1/objects/4d6f1406639d71415eac6785bebb008be1eedc38/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "النسخ: Demo و TERRAVOLT و Gold",
+ "notes": [
+  "اسم النسخة يطلع في اللعبة: DEMO أو GOLD",
+  "تفعيل كود الشراء من اللانشر"
+ ],
+ "size": 6671751
+}

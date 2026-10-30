@@ -60,10 +60,25 @@ td,th{padding:10px 14px;border-bottom:1px solid var(--line);text-align:right;fon
 footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 .dlnote{color:var(--mut);font-size:13px;margin-top:10px}
 @media (max-width:760px){ .nav nav{display:none} .show{grid-template-columns:1fr} .hero{min-height:480px} }
+
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.plan{background:var(--panel);border:3px solid #000;box-shadow:inset 0 0 0 2px var(--line);padding:22px;display:flex;flex-direction:column;gap:10px;position:relative}
+.plan h3{margin:0;font:700 22px 'Pixelify Sans','IBM Plex Sans Arabic',monospace;color:#fff}
+.plan .pr{font:700 38px 'Pixelify Sans',monospace;color:#fff;direction:ltr;text-align:right}.plan .pr s{font-size:20px;color:var(--mut);margin-inline-end:8px}.plan .pr small{font-size:15px;color:var(--mut)}
+.plan ul{margin:0;padding:0 18px 0 0;color:var(--mut);font-size:14px;flex:1}.plan .btn{justify-content:center}
+.plan.gold{box-shadow:inset 0 0 0 2px #b58a10,0 0 30px rgba(255,200,60,.15)}.plan.gold h3,.plan.gold .pr{color:var(--sun)}
+.plan .tag{position:absolute;top:-14px;left:16px;background:var(--sun);color:#1a1300;font:700 12px 'IBM Plex Sans Arabic';padding:3px 10px;border:2px solid #000}
+.plan.free-now{outline:3px solid var(--grn2)}
+.promo{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.promo input{flex:0 1 260px;padding:12px 14px;font:700 16px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;direction:ltr;background:#0b0c0e;color:#fff;border:3px solid #000;box-shadow:inset 0 0 0 2px var(--line)}
+.promo .btn{padding:10px 20px;font-size:15px;background:#2a2d31;box-shadow:inset 0 -4px 0 #15171a,0 0 0 3px #000}
+#promoMsg{font-size:14px;min-height:22px}#promoMsg.ok{color:#8fd85e}#promoMsg.bad{color:#ff8a80}
+.buynote{color:var(--mut);font-size:13px;margin-top:10px}
+@media (max-width:860px){.plans{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header><div class="nav"><a class="logo" href="#"><img src="img/grass.png" alt="" style="width:30px;height:30px;vertical-align:-6px;margin-left:8px;image-rendering:auto">TERRA<b>VOLT</b></a><nav><a href="#game">اللعبة</a><a href="#install">التثبيت</a><a href="#updates">التحديثات</a><a href="#req">المتطلبات</a></nav><a class="btn sm dl" href="#install">تحميل</a></div></header>
+<header><div class="nav"><a class="logo" href="#"><img src="img/grass.png" alt="" style="width:30px;height:30px;vertical-align:-6px;margin-left:8px;image-rendering:auto">TERRA<b>VOLT</b></a><nav><a href="#game">اللعبة</a><a href="#buy">الأسعار</a><a href="#install">التثبيت</a><a href="#updates">التحديثات</a><a href="#req">المتطلبات</a></nav><a class="btn sm dl" href="#install">تحميل</a></div></header>
 
 <div class="hero">
   <img class="bg" src="img/shot1.jpg" alt=""><img class="bg" src="img/shot2.jpg" alt=""><img class="bg" src="img/shot3.jpg" alt="">
@@ -94,6 +109,17 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
     <figure><img src="img/shot2.jpg" alt="" loading="lazy"><figcaption><b>الظلام مو آمن</b><span>ست أنواع زومبي يطلعون مع الليل ويسمعون صوت الرصاص.</span></figcaption></figure>
     <figure><img src="img/shot3.jpg" alt="" loading="lazy"><figcaption><b>انفجار وسط الجموع</b><span>انفجارات تكسر البلوكات وترمي الزومبي.</span></figcaption></figure>
   </div>
+</section>
+
+<section id="buy">
+  <h2>النسخ والأسعار</h2>
+  <div class="plans">
+    <div class="plan" data-ed="demo"><h3>TERRAVOLT Demo</h3><div class="pr" data-p>$0</div><ul><li>نسخة مجانية للتجربة</li><li>تحميل اللانشر مباشرة</li></ul><a class="btn dl" href="#">تحميل مجاني</a></div>
+    <div class="plan" data-ed="std"><h3>TERRAVOLT</h3><div class="pr" data-p>$39.99</div><ul><li>اللعبة الكاملة</li><li>كود تفعيل يوصلك على الإيميل</li><li>كل التحديثات</li></ul><a class="btn buy" href="#">شراء</a></div>
+    <div class="plan gold" data-ed="gold"><span class="tag">GOLD</span><h3>TERRAVOLT Gold</h3><div class="pr" data-p>$99.99</div><ul><li>اللعبة الكاملة بنسخة Gold</li><li>كود تفعيل يوصلك على الإيميل</li><li>كل التحديثات</li></ul><a class="btn buy" href="#">شراء</a></div>
+  </div>
+  <form class="promo" id="promo" autocomplete="off"><input id="promoIn" placeholder="كود الخصم" maxlength="32" aria-label="كود الخصم"><button class="btn" type="submit">تطبيق</button><span id="promoMsg" role="status"></span></form>
+  <div class="buynote">الدفع آمن عن طريق Lemon Squeezy (فيزا، مدى، Apple Pay، PayPal). بعد الدفع يوصلك كود التفعيل على الإيميل، حمّل اللانشر واضغط «تفعيل كود الشراء» واكتبه.</div>
 </section>
 
 <section id="install">
@@ -127,6 +153,27 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 <div class="cta"><section><h2>جاهز؟</h2><a class="btn dl" href="#"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 2l6.5-.9v6.3H0zm7.3-1L16 0v7.4H7.3zM0 8.2h6.5v6.3L0 13.6zm7.3.1H16V16l-8.7-1.2z"/></svg>تحميل TERRAVOLT</a></section></div>
 <footer>TERRAVOLT · لعبة مستقلة</footer>
 
+<script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+<script>
+(()=>{ const $=q=>document.querySelector(q); let SHOP=null, CODE='', DEAL=null;
+  const fmt=n=>n>0?'$'+n.toFixed(2):'$0';
+  async function sha(t){ const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''); }
+  function link(ed){ const e=SHOP&&SHOP.editions[ed]; if(!e||!e.checkout) return ''; const u=new URL(e.checkout); u.searchParams.set('embed','1'); if(CODE&&DEAL&&DEAL.ed.includes(ed)) u.searchParams.set('checkout[discount_code]',CODE); return u.toString(); }
+  function render(){ document.querySelectorAll('.plan').forEach(p=>{ const ed=p.dataset.ed, e=SHOP&&SHOP.editions[ed]; if(!e) return; const pr=p.querySelector('[data-p]'), hit=DEAL&&DEAL.ed.includes(ed);
+      const now=hit?Math.max(0,e.price*(1-DEAL.off/100)):e.price; pr.innerHTML=(hit&&e.price?'<s>'+fmt(e.price)+'</s>':'')+fmt(now); p.classList.toggle('free-now',!!(hit&&now===0));
+      const b=p.querySelector('.buy'); if(!b) return; const u=link(ed);
+      if(u){ b.href=u; b.classList.add('lemonsqueezy-button'); b.removeAttribute('aria-disabled'); b.textContent=hit&&now===0?'احصل عليها مجاناً':'شراء'; }
+      else { b.href='#buy'; b.setAttribute('aria-disabled','true'); b.textContent='الشراء قريباً'; } });
+    try{ window.createLemonSqueezy&&window.createLemonSqueezy(); }catch(e){} }
+  $('#promo').addEventListener('submit',async ev=>{ ev.preventDefault(); const c=$('#promoIn').value.trim().toUpperCase(), m=$('#promoMsg');
+    if(!c){ CODE=''; DEAL=null; m.textContent=''; m.className=''; render(); return; }
+    const d=SHOP&&SHOP.codes&&SHOP.codes[await sha(c)];
+    if(d){ CODE=c; DEAL=d; m.className='ok'; m.textContent='✓ تم تطبيق الكود: '+(d.off>=100?'مجاناً':'خصم '+d.off+'%')+' على '+d.ed.map(x=>SHOP.editions[x].name).join(' و '); }
+    else { CODE=''; DEAL=null; m.className='bad'; m.textContent='الكود غير صحيح'; } render(); });
+  document.addEventListener('click',e=>{ const b=e.target.closest('.buy[aria-disabled]'); if(b){ e.preventDefault(); const m=$('#promoMsg'); m.className='bad'; m.textContent='الشراء بيفتح قريباً'; } });
+  fetch('shop.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{ SHOP=j; render(); }).catch(()=>{});
+})();
+</script>
 <script>
 // where the launcher is downloaded from: the latest GitHub release of this site's repository (owner.github.io/repo)
 (function(){

@@ -1,0 +1,32 @@
+{
+ "_help": "Fill these from your Lemon Squeezy dashboard. checkout = the product's 'Share' link (https://STORE.lemonsqueezy.com/buy/...). storeId/productId/variantId are numbers from the dashboard (Settings > Stores, and each product).",
+ "storeId": 0,
+ "editions": {
+  "demo": {
+   "name": "TERRAVOLT Demo",
+   "price": 0
+  },
+  "std": {
+   "name": "TERRAVOLT",
+   "price": 39.99,
+   "productId": 0,
+   "variantId": 0,
+   "checkout": ""
+  },
+  "gold": {
+   "name": "TERRAVOLT Gold",
+   "price": 99.99,
+   "productId": 0,
+   "variantId": 0,
+   "checkout": ""
+  }
+ },
+ "codes": {
+  "f2e0c4aac5cd4edeca5b6c53854444532bad0f380cf691e135228a4a7e1eee93": {
+   "ed": [
+    "gold"
+   ],
+   "off": 100
+  }
+ }
+}
