@@ -1,0 +1,587 @@
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;font:14px sans-serif}[hidden]{display:none!important}</style></head><body>
+<title>TERRAVOLT Launcher</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: TLauncher-style shell — top bar with tabs, scrolling content over a pixel landscape, fixed bottom bar (profile · version · force update · PLAY · tools). One deliberate dark look. */
+:root{
+  --ink:#0d1114; --slab:#171d22; --slab2:#20282f; --line:#2f3a43; --text:#e8ede9; --muted:#97a5ad;
+  --grass:#5fae3a; --grassDeep:#3a7a1f; --grassHi:#8fd85e; --sun:#ffcf4a; --bad:#e2574c; --info:#4fa3e0; --local:#c08af0;
+  --display:'Pixelify Sans','IBM Plex Sans Arabic',system-ui,sans-serif;
+  --body:'IBM Plex Sans Arabic',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--ink);color:var(--text);font:15px/1.6 var(--body);overflow:hidden;direction:rtl}
+#bg{position:fixed;inset:0;width:100%;height:100%;image-rendering:pixelated;z-index:0}
+.veil{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,rgba(10,14,18,.25),rgba(10,14,18,.55) 45%,rgba(10,14,18,.92));pointer-events:none}
+.app{position:relative;z-index:1;height:100%;display:flex;flex-direction:column}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--sun);outline-offset:2px}
+/* top bar */
+.top{display:flex;align-items:center;gap:18px;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:rgba(13,17,20,.82);border-bottom:2px solid #000;box-shadow:inset 0 -1px 0 var(--line);backdrop-filter:blur(6px)}
+.logo{display:flex;align-items:baseline;gap:8px;direction:ltr;flex:none}
+.logo b{font:700 26px var(--display);letter-spacing:.06em;color:#f2f2f2;text-shadow:0 2px 0 #6b6b6b,0 4px 0 #2b2b2b}
+.logo small{font:700 11px var(--display);letter-spacing:.3em;color:var(--grassHi)}
+.tabs{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.tab{background:none;border:0;padding:8px 14px;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
+.tab:hover{color:var(--text)}.tab[aria-selected="true"]{color:var(--text);border-bottom-color:var(--grass)}
+.tab .dot{display:inline-block;width:8px;height:8px;background:var(--sun);margin-inline-start:6px;vertical-align:middle;box-shadow:0 0 8px var(--sun)}
+.lver{font:500 12px var(--mono);color:var(--muted);direction:ltr;flex:none}
+/* content */
+.main{flex:1;min-height:0;overflow-y:auto;padding-block:20px 24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.view[hidden]{display:none}
+.panel{background:rgba(23,29,34,.9);border:2px solid #000;box-shadow:inset 0 0 0 1px var(--line),0 10px 30px rgba(0,0,0,.35);padding:18px}
+.panel h2{margin:0 0 10px;font:700 20px var(--display);letter-spacing:.02em;text-wrap:balance}
+.panel h3{margin:0 0 8px;font-size:15px}
+.eyebrow{font:600 11px var(--mono);letter-spacing:.14em;color:var(--grassHi);text-transform:uppercase;direction:ltr;display:inline-block}
+.muted{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px}
+@media (max-width:860px){.grid2{grid-template-columns:minmax(0,1fr)}}
+/* hero */
+.hero{display:flex;flex-direction:column;gap:10px;background:linear-gradient(160deg,rgba(32,48,30,.92),rgba(18,24,22,.94));}
+.hero .vnum{font:700 clamp(38px,6vw,64px)/1 var(--display);color:#f4f4f4;direction:ltr;text-align:right;text-shadow:0 3px 0 #3a4a33,0 6px 0 #10160e}
+.hero h2{font-size:22px;margin:0}
+.notes{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.notes li{display:flex;gap:10px;align-items:flex-start}
+.notes li::before{content:'';flex:none;width:8px;height:8px;margin-top:9px;background:var(--grass);box-shadow:inset -2px -2px 0 var(--grassDeep)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{background:var(--slab2);border:2px solid #000;box-shadow:inset 0 -3px 0 rgba(0,0,0,.35),inset 0 2px 0 rgba(255,255,255,.08);padding:8px 14px;font-weight:600;color:var(--text)}
+.btn:hover{background:#2a343c}.btn:active{transform:translateY(1px)}
+.btn.go{background:var(--grass);color:#0e1a08;box-shadow:inset 0 -4px 0 var(--grassDeep),inset 0 2px 0 var(--grassHi)}
+.btn.go:hover{background:#6cc044}
+.btn.bad{background:#5a2420}.btn.bad:hover{background:#6e2b26}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.badge{display:inline-flex;align-items:center;gap:4px;font:600 11px var(--mono);padding:2px 7px;border:1px solid currentColor;direction:ltr;white-space:nowrap}
+.b-release{color:var(--grassHi)}.b-beta{color:var(--sun)}.b-local{color:var(--local)}.b-inst{color:var(--info)}
+/* news list */
+.vlist{display:flex;flex-direction:column;gap:10px}
+.vcard{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;padding:12px;background:rgba(0,0,0,.25);border:1px solid var(--line)}
+.vcard .id{font:700 22px var(--display);direction:ltr;grid-row:span 2;align-self:center;color:#dfe7dc}
+.vcard .t{font-weight:700}.vcard .m{font-size:13px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.stat{background:rgba(0,0,0,.25);border:1px solid var(--line);padding:10px}
+.stat b{display:block;font:700 22px var(--display);font-variant-numeric:tabular-nums;direction:ltr;text-align:right}
+.stat span{font-size:12px;color:var(--muted)}
+.worlds{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.world{display:flex;justify-content:space-between;gap:10px;padding:7px 10px;background:rgba(0,0,0,.22);border-inline-start:3px solid var(--grass);font-size:14px}
+.world span:last-child{color:var(--muted);font:500 12px var(--mono);direction:ltr}
+/* updates */
+.ulayout{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:18px}
+@media (max-width:860px){.ulayout{grid-template-columns:minmax(0,1fr)}}
+.vpick{display:flex;flex-direction:column;gap:6px;max-height:420px;overflow-y:auto}
+.vitem{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 10px;background:rgba(0,0,0,.25);border:1px solid var(--line);text-align:start}
+.vitem[aria-pressed="true"]{border-color:var(--grass);background:rgba(95,174,58,.14)}
+.vitem .n{font:700 17px var(--display);direction:ltr}
+.drop{border:2px dashed var(--line);background:rgba(0,0,0,.25);padding:22px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center;transition:border-color .15s,background .15s;outline:none}
+.drop.over,.drop:focus{border-color:var(--grass);background:rgba(95,174,58,.08)}
+.drop.ok{border-style:solid;border-color:var(--grass)}
+.drop .big{font:700 18px var(--display)}
+.fields{display:grid;grid-template-columns:140px minmax(0,1fr);gap:10px;margin-top:12px}
+@media (max-width:560px){.fields{grid-template-columns:minmax(0,1fr)}}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+input[type=text],textarea,select{background:#0b0f12;border:2px solid #000;box-shadow:inset 0 0 0 1px var(--line);color:var(--text);font:inherit;padding:8px 10px;min-width:0}
+textarea{resize:vertical;min-height:70px}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;font-size:13px;color:var(--muted)}
+.steps span{padding:3px 8px;background:rgba(0,0,0,.3);border:1px solid var(--line)}
+/* files tree */
+.tree{font:13px/1.9 var(--mono);direction:ltr;text-align:left;overflow-x:auto;background:#0b0f12;border:1px solid var(--line);padding:12px 14px;white-space:pre}
+.tree .d{color:var(--sun)}.tree .ok{color:var(--grassHi)}.tree .no{color:var(--muted)}.tree .lc{color:var(--local)}
+.flist{display:flex;flex-direction:column;gap:8px}
+.fitem{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;padding:10px;background:rgba(0,0,0,.25);border:1px solid var(--line)}
+.fitem .n{font:700 17px var(--display);direction:ltr}
+/* settings */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
+.set{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.set:last-child{border-bottom:0}
+.set .l{display:flex;flex-direction:column;min-width:0}.set .l small{color:var(--muted);font-size:12px}
+.seg{display:flex;border:2px solid #000;flex:none}
+.seg button{background:var(--slab2);border:0;padding:6px 10px;font-size:13px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--grass);color:#0e1a08;font-weight:700}
+.tog{appearance:none;width:44px;height:24px;background:#0b0f12;border:2px solid #000;box-shadow:inset 0 0 0 1px var(--line);position:relative;cursor:pointer;flex:none}
+.tog::after{content:'';position:absolute;top:2px;right:2px;width:16px;height:16px;background:var(--muted);transition:right .15s,background .15s}
+.tog:checked{background:#1d3313}.tog:checked::after{right:22px;background:var(--grassHi)}
+input[type=range]{accent-color:var(--grass);width:150px}
+/* bottom bar */
+.bar{position:relative;background:rgba(15,19,22,.96);border-top:2px solid #000;box-shadow:inset 0 1px 0 var(--line);padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.prog{position:absolute;left:0;right:0;top:-2px;height:4px;background:transparent}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--grassHi),var(--grass));box-shadow:0 0 10px var(--grass);transition:width .2s}
+.profile{display:flex;align-items:center;gap:10px;min-width:0}
+#head{width:40px;height:40px;image-rendering:pixelated;border:2px solid #000;flex:none;background:#333}
+.profile input{width:170px}
+.vsel{display:flex;flex-direction:column;gap:2px;min-width:0}
+.vsel small,.profile small{font-size:11px;color:var(--muted)}
+.vsel select{width:220px;direction:ltr;text-align:left;font-family:var(--mono)}
+.chk{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none}
+.chk input{accent-color:var(--grass);width:16px;height:16px}
+.play{margin-inline-start:auto;min-width:220px;padding:12px 26px;font:700 20px var(--display);letter-spacing:.04em;background:var(--grass);color:#0e1a08;border:2px solid #000;box-shadow:inset 0 -5px 0 var(--grassDeep),inset 0 3px 0 var(--grassHi),0 0 0 1px rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.play small{font:600 11px var(--body);letter-spacing:0;opacity:.8}
+.play:hover{background:#6cc044}.play:active{transform:translateY(1px)}.play:disabled{filter:grayscale(.6);opacity:.7;cursor:wait}
+.tools{display:flex;gap:6px}
+.ib{width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--slab2);border:2px solid #000;box-shadow:inset 0 -3px 0 rgba(0,0,0,.35)}
+.ib:hover{background:#2a343c}.ib svg{width:20px;height:20px;fill:none;stroke:var(--text);stroke-width:2;stroke-linecap:square}
+.ib.on{background:#1d3313}
+.status{font-size:12px;color:var(--muted);min-width:0;flex-basis:100%;order:9;display:flex;justify-content:space-between;gap:10px}
+.status b{color:var(--text);font-weight:600}
+@media (max-width:760px){.play{margin-inline-start:0;flex:1;min-width:0}.profile input,.vsel select{width:100%}.profile,.vsel{flex:1 1 160px}}
+/* console */
+.console{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:130px;width:min(520px,calc(100% - 24px));max-height:40%;z-index:5;background:rgba(5,8,10,.95);border:2px solid #000;box-shadow:inset 0 0 0 1px var(--line),0 12px 30px rgba(0,0,0,.5);display:flex;flex-direction:column}
+.console header{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;border-bottom:1px solid var(--line);font:600 12px var(--mono);direction:ltr}
+.console header button{background:none;border:0;color:var(--muted)}
+.log{overflow-y:auto;padding:8px 10px;font:12px/1.6 var(--mono);direction:ltr;text-align:left}
+.log div{white-space:pre-wrap;word-break:break-word}.log .t{color:#5d6a72}.log .w{color:var(--sun)}.log .e{color:var(--bad)}.log .g{color:var(--grassHi)}
+/* banner + toast */
+.banner{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between;padding:12px 16px;background:linear-gradient(90deg,rgba(255,207,74,.16),rgba(255,207,74,.04));border:2px solid #000;box-shadow:inset 0 0 0 1px rgba(255,207,74,.5)}
+.toast{position:fixed;left:50%;top:calc(70px + env(safe-area-inset-top,0px));transform:translate(-50%,-20px);opacity:0;z-index:30;background:#0b0f12;border:2px solid #000;box-shadow:inset 0 0 0 1px var(--grass),0 10px 30px rgba(0,0,0,.5);padding:10px 16px;font-weight:600;transition:.25s;pointer-events:none;max-width:90vw}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+/* game */
+#game{position:fixed;inset:0;z-index:50;background:#000}
+#game iframe{width:100%;height:100%;border:0;display:block}
+#boot{position:fixed;inset:0;z-index:60;background:#0d1114;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px;text-align:center}
+#boot b{font:700 34px var(--display);letter-spacing:.06em;direction:ltr}
+#boot .bb{width:min(360px,80vw);height:10px;border:2px solid #fff;padding:2px}#boot .bb i{display:block;height:100%;width:0;background:#fff;transition:width .2s}
+#boot span{color:var(--muted);font-size:13px}
+.confirm{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:20px}
+.confirm .panel{max-width:420px;width:100%}
+@media (max-width:700px){.top{flex-wrap:wrap;gap:6px 12px}.tabs{order:3;flex-basis:100%}.lver{display:none}.logo b{font-size:22px}.bar{gap:8px}.tools{flex:1 1 100%;order:7;justify-content:space-between}.play{flex:1 1 100%;order:6;min-width:0;margin:0}.chk{order:5}.profile,.vsel{flex:1 1 140px;min-width:0}.profile input,.vsel select{width:100%}.profile .vsel{flex:1 1 auto}.status{display:none}}
+.app,.main,.wrap{min-width:0;max-width:100%}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<canvas id="bg" aria-hidden="true"></canvas><div class="veil"></div>
+<div class="app">
+  <header class="top">
+    <div class="logo"><b>TERRAVOLT</b><small>LAUNCHER</small></div>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" data-v="news" aria-selected="true">الأخبار</button>
+      <button class="tab" role="tab" data-v="updates" id="tabUp">التحديثات</button>
+      <button class="tab" role="tab" data-v="files">ملفات اللعبة</button>
+      <button class="tab" role="tab" data-v="prefs">الإعدادات</button>
+      <button class="tab" role="tab" data-v="install">تثبيت على الجهاز</button>
+    </nav>
+    <span class="lver">Launcher 1.0.0</span>
+  </header>
+
+  <main class="main"><div class="wrap">
+    <div class="banner" id="newBanner" hidden><div><span class="eyebrow">update available</span><div id="newTxt"></div></div><button class="btn go" id="newGo">تثبيت التحديث</button></div>
+
+    <section class="view" data-view="news">
+      <div class="grid2">
+        <article class="panel hero" id="hero"></article>
+        <aside class="panel">
+          <span class="eyebrow">your game</span>
+          <h2>لعبتك</h2>
+          <div class="stats" id="stats"></div>
+          <div class="worlds" id="worlds"></div>
+        </aside>
+      </div>
+      <div class="panel" style="margin-top:18px"><span class="eyebrow">changelog</span><h2>سجل الإصدارات</h2><div class="vlist" id="vlist"></div></div>
+    </section>
+
+    <section class="view" data-view="updates" hidden>
+      <div class="ulayout">
+        <div class="panel">
+          <div class="row" style="justify-content:space-between"><h2 style="margin:0">الإصدارات</h2><button class="btn" id="checkUp">التحقق من التحديثات</button></div>
+          <p class="muted" style="margin:6px 0 12px;font-size:13px">اختر إصدار وشغّله، مثل تي لانشر.</p>
+          <div class="vpick" id="vpick"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+          <div class="panel" id="vdetail"></div>
+          <div class="panel">
+            <span class="eyebrow">install update</span>
+            <h2>إضافة تحديث</h2>
+            <p class="muted" style="margin:0 0 10px">انسخ ملف التحديث والصقه هنا، واللانشر يكمل الباقي: يعطيه رقم إصدار، يثبّته، ويضيفه للقائمة.</p>
+            <div class="drop" id="drop" tabindex="0" aria-label="مكان لصق التحديث">
+              <span class="big" id="dropBig">الصق التحديث هنا (Ctrl+V)</span>
+              <span class="muted" id="dropSub">أو اسحب الملف وأفلته · يقبل ملف اللعبة HTML أو حزمة تحديث JSON</span>
+              <div class="row" style="justify-content:center"><button class="btn" id="pickFile" type="button">اختيار ملف</button><input type="file" id="fileIn" accept=".html,.htm,.json,.txt" hidden></div>
+            </div>
+            <div class="fields">
+              <label class="f">رقم الإصدار<input type="text" id="upVer" dir="ltr" placeholder="0.00.4"></label>
+              <label class="f">العنوان<input type="text" id="upTitle" placeholder="وش الجديد في هذا التحديث؟"></label>
+            </div>
+            <label class="f" style="margin-top:10px">الملاحظات (كل سطر نقطة)<textarea id="upNotes" placeholder="مثال: إضافة سيارات جديدة"></textarea></label>
+            <div class="row" style="margin-top:12px"><button class="btn go" id="upInstall" disabled>تثبيت التحديث</button><button class="btn" id="upClear" type="button">مسح</button></div>
+            <div class="steps" id="upSteps"><span>١ · الصق</span><span>٢ · فحص الملف</span><span>٣ · رقم الإصدار</span><span>٤ · تثبيت</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" data-view="files" hidden>
+      <div class="grid2">
+        <div class="panel"><span class="eyebrow">.terravolt</span><h2>مجلد اللعبة</h2><div class="tree" id="tree"></div></div>
+        <div class="panel"><h2>الإصدارات المثبتة</h2><div class="flist" id="flist"></div>
+          <h3 style="margin-top:18px">العوالم والحفظ</h3>
+          <p class="muted" style="margin:0 0 10px;font-size:13px">العوالم مشتركة بين كل الإصدارات. خذ نسخة احتياطية قبل ما تجرب إصدار قديم.</p>
+          <div class="row"><button class="btn" id="bkCopy">نسخ احتياطي للعوالم</button><button class="btn" id="bkPaste">استرجاع نسخة</button></div>
+          <textarea id="bkBox" hidden placeholder="الصق النسخة الاحتياطية هنا ثم اضغط استرجاع" style="width:100%;margin-top:10px"></textarea>
+          <div class="row" style="margin-top:10px"><button class="btn bad" id="bkDo" hidden>استرجاع الحين</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" data-view="install" hidden>
+      <div class="banner" id="deskOk" hidden><div><span class="eyebrow">installed</span><div>اللانشر مثبت على جهازك ✓ تلقاه في سطح المكتب وقائمة ابدأ باسم TERRAVOLT</div></div></div>
+      <div class="panel"><span class="eyebrow">install launcher</span><h2>ثبّت اللانشر على جهازك</h2>
+        <p class="muted" style="margin:0 0 12px">اللانشر يصير أيقونة على الشاشة الرئيسية وينفتح مثل التطبيق. أول خطوة: افتح رابط اللانشر في متصفح Google Chrome (أو Safari في الآيفون).</p>
+        <div class="row"><input type="text" id="lnk" dir="ltr" readonly style="flex:1;min-width:0"><button class="btn go" id="lnkCopy">نسخ الرابط</button></div>
+        <p class="muted" style="margin:8px 0 0;font-size:13px">الرابط خاص فيك. إذا تبي أحد ثاني يثبّته، شاركه أول من زر المشاركة في الصفحة.</p>
+      </div>
+      <div class="sgrid" id="plat">
+        <div class="panel" data-p="android"><span class="eyebrow">android · chrome</span><h2>أندرويد</h2><ul class="notes"><li>افتح الرابط في Chrome</li><li>اضغط ⋮ فوق يمين</li><li>اختر «إضافة إلى الشاشة الرئيسية» ثم «تثبيت»</li><li>افتح TERRAVOLT من الأيقونة</li></ul></div>
+        <div class="panel" data-p="ios"><span class="eyebrow">iphone · safari</span><h2>آيفون وآيباد</h2><ul class="notes"><li>افتح الرابط في Safari</li><li>اضغط زر المشاركة ⬆︎ تحت</li><li>اختر «إضافة إلى الشاشة الرئيسية»</li><li>اضغط «إضافة»</li></ul></div>
+        <div class="panel" data-p="pc"><span class="eyebrow">windows · mac · chrome</span><h2>الكمبيوتر</h2><ul class="notes"><li>افتح الرابط في Chrome</li><li>اضغط ⋮ ثم «حفظ ومشاركة» ثم «إنشاء اختصار…»</li><li>فعّل «فتح كنافذة» واضغط «إنشاء»</li><li>يطلع لك اختصار على سطح المكتب وفي قائمة البرامج</li></ul></div>
+      </div>
+      <div class="panel"><h3>اللعب بدون نت</h3><p class="muted" style="margin:0">لما تضغط «تثبيت» على أي إصدار، اللانشر يحفظ ملفات اللعبة داخل جهازك، فما يحمّلها مرة ثانية. اللانشر نفسه يحتاج نت عشان ينفتح.</p></div>
+    </section>
+
+    <section class="view" data-view="prefs" hidden>
+      <div class="sgrid">
+        <div class="panel"><span class="eyebrow">game</span><h2>إعدادات اللعبة</h2>
+          <div class="set"><div class="l">مسافة الرؤية<small>مثل الذاكرة في تي لانشر: كل ما زادت يبي جهاز أقوى</small></div><div class="seg" id="sVd"><button data-v="0">قليلة</button><button data-v="1">متوسطة</button><button data-v="2">عالية</button><button data-v="3">قصوى</button></div></div>
+          <div class="set"><div class="l">مجال الرؤية (FOV)<small id="fovL">80°</small></div><input type="range" id="sFov" min="60" max="110" step="1"></div>
+          <div class="set"><div class="l">الظلال</div><input type="checkbox" class="tog" id="sSh"></div>
+          <div class="set"><div class="l">لغة اللعبة</div><div class="seg" id="sLang"><button data-v="ar">العربية</button><button data-v="en">English</button></div></div>
+        </div>
+        <div class="panel"><span class="eyebrow">launcher</span><h2>إعدادات اللانشر</h2>
+          <div class="set"><div class="l">ملء الشاشة عند التشغيل</div><input type="checkbox" class="tog" id="sFs"></div>
+          <div class="set"><div class="l">التحقق من التحديثات عند الفتح</div><input type="checkbox" class="tog" id="sAuto"></div>
+          <div class="set"><div class="l">إظهار الإصدارات القديمة</div><input type="checkbox" class="tog" id="sOld"></div>
+          <div class="set"><div class="l">إظهار الإصدارات المحلية<small>اللي ثبّتها بالنسخ واللصق</small></div><input type="checkbox" class="tog" id="sLoc"></div>
+          <div class="set"><div class="l">إظهار السجل</div><input type="checkbox" class="tog" id="sCon"></div>
+          <div class="row" style="margin-top:12px"><button class="btn" id="sReset">الإعدادات الافتراضية</button></div>
+        </div>
+      </div>
+    </section>
+  </div></main>
+
+  <footer class="bar">
+    <div class="prog"><i id="prog"></i></div>
+    <div class="profile"><canvas id="head" width="8" height="8" aria-hidden="true"></canvas><div class="vsel" style="flex:1"><small>اسم اللاعب</small><input type="text" id="nick" maxlength="16" dir="auto"></div></div>
+    <div class="vsel"><small>الإصدار</small><select id="ver" aria-label="الإصدار"></select></div>
+    <label class="chk"><input type="checkbox" id="force">تحديث إجباري</label>
+    <button class="play" id="play"><span id="playT">ادخل اللعبة</span><small id="playS"></small></button>
+    <div class="tools">
+      <button class="ib" id="tFolder" title="ملفات اللعبة" aria-label="ملفات اللعبة"><svg viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v11H3z"/></svg></button>
+      <button class="ib" id="tRefresh" title="تحديث القائمة" aria-label="تحديث القائمة"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></button>
+      <button class="ib" id="tLog" title="السجل" aria-label="السجل"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM7 9l3 3-3 3M12 15h5"/></svg></button>
+      <button class="ib" id="tSet" title="الإعدادات" aria-label="الإعدادات"><svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></button>
+    </div>
+    <div class="status"><span id="stL">جاهز</span><span id="stR"></span></div>
+  </footer>
+</div>
+
+<div class="console" id="console" hidden><header><span>TERRAVOLT Launcher · log</span><button id="conX" aria-label="إغلاق السجل">✕</button></header><div class="log" id="log"></div></div>
+<div class="toast" id="toast" role="status"></div>
+<div class="confirm" id="confirm" hidden><div class="panel"><h2 id="cfT"></h2><p class="muted" id="cfP"></p><div class="row"><button class="btn bad" id="cfOk">تأكيد</button><button class="btn" id="cfNo">إلغاء</button></div></div></div>
+<div id="game" hidden></div>
+<div id="boot" hidden><b>TERRAVOLT</b><div class="bb"><i id="bootBar"></i></div><span id="bootTxt">جاري التشغيل…</span></div>
+
+<script>
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const AR=n=>String(n);
+const fmtMB=b=>'\u2066'+(b/1048576).toFixed(b>1048576*10?0:1)+' MB\u2069';
+const vkey=id=>id.split('.').map(Number);
+const vcmp=(a,b)=>{ const A=vkey(a),B=vkey(b); for(let i=0;i<3;i++){ if((A[i]||0)!==(B[i]||0)) return (A[i]||0)-(B[i]||0); } return 0; };
+const TYPE={release:['b-release','إصدار'],beta:['b-beta','تجريبي'],local:['b-local','محلي']};
+const BRIDGE="<script>/*TV-BRIDGE*/(function(){try{if(window.parent!==window&&parent.TVL){window.TV_LAUNCHER=parent.TVL;if(!('claude' in window)&&parent.claude)Object.defineProperty(window,'claude',{configurable:true,get:function(){return parent.claude}});}}catch(e){}})();<\/script>\n";
+const QUIT_OLD="  confirmFn=()=>{ try{ save(); }catch(e){} const d=document.createElement('div');";
+const QUIT_NEW="  confirmFn=()=>{ try{ save(); }catch(e){} if(window.TV_LAUNCHER){ try{ window.TV_LAUNCHER.exitGame(); }catch(e){} return; } const d=document.createElement('div');";
+
+// ---------- launcher settings (per viewer, safe storage) ----------
+const LS={ get(k,d){ try{ const v=localStorage.getItem(k); return v==null?d:JSON.parse(v); }catch(e){ return d; } }, set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} } };
+const DEF={nick:'Player',ver:null,fs:true,auto:true,old:true,loc:true,con:false,lastSeen:null};
+const S=Object.assign({},DEF,LS.get('tv-launcher',{}));
+const saveS=()=>LS.set('tv-launcher',S);
+const G=()=>LS.get('qitaa-settings',{});              // the game's own settings: one source of truth
+const setG=patch=>{ const g=G(); Object.assign(g,patch); LS.set('qitaa-settings',g); };
+
+// ---------- log + toast ----------
+const logEl=$('#log');
+function log(msg,cls=''){ const d=document.createElement('div'); const t=new Date().toTimeString().slice(0,8); d.innerHTML=`<span class="t">[${t}]</span> `; const s=document.createElement('span'); s.className=cls; s.textContent=msg; d.appendChild(s); logEl.appendChild(d); while(logEl.children.length>300) logEl.firstChild.remove(); logEl.scrollTop=logEl.scrollHeight; }
+let toastT=0; function toast(t){ const e=$('#toast'); e.textContent=t; e.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(()=>e.classList.remove('on'),2600); }
+function status(l,r){ if(l!=null) $('#stL').innerHTML=l; if(r!=null) $('#stR').textContent=r; }
+function ask(title,text,ok){ $('#cfT').textContent=title; $('#cfP').textContent=text; $('#confirm').hidden=false; $('#cfOk').onclick=()=>{ $('#confirm').hidden=true; ok(); }; }
+$('#cfNo').onclick=()=>{ $('#confirm').hidden=true; };
+
+// ---------- local file store: IndexedDB with an in-memory fallback ----------
+const MEM={files:new Map(),local:new Map()};
+let DB=null;
+function openDB(){ return new Promise(res=>{ try{ const r=indexedDB.open('tv-launcher',1);
+  r.onupgradeneeded=()=>{ const d=r.result; if(!d.objectStoreNames.contains('files')) d.createObjectStore('files'); if(!d.objectStoreNames.contains('local')) d.createObjectStore('local'); };
+  r.onsuccess=()=>{ DB=r.result; res(true); }; r.onerror=()=>res(false); r.onblocked=()=>res(false); }catch(e){ res(false); } }); }
+function tx(store,mode,fn){ return new Promise((res,rej)=>{ if(!DB){ try{ res(fn(null)); }catch(e){ rej(e); } return; } try{ const t=DB.transaction(store,mode), st=t.objectStore(store); const r=fn(st); t.oncomplete=()=>res(r&&'result' in r?r.result:r); t.onerror=()=>rej(t.error); t.onabort=()=>rej(t.error); }catch(e){ rej(e); } }); }
+const fs={
+  get:k=>DB?tx('files','readonly',s=>s.get(k)):Promise.resolve(MEM.files.get(k)),
+  put:(k,v)=>DB?tx('files','readwrite',s=>s.put(v,k)):Promise.resolve(MEM.files.set(k,v)),
+  del:k=>DB?tx('files','readwrite',s=>s.delete(k)):Promise.resolve(MEM.files.delete(k)),
+  keys:()=>DB?tx('files','readonly',s=>s.getAllKeys()):Promise.resolve([...MEM.files.keys()]),
+  localAll:()=>DB?tx('local','readonly',s=>s.getAll()):Promise.resolve([...MEM.local.values()]),
+  localPut:v=>DB?tx('local','readwrite',s=>s.put(v,v.id)):Promise.resolve(MEM.local.set(v.id,v)),
+  localDel:id=>DB?tx('local','readwrite',s=>s.delete(id)):Promise.resolve(MEM.local.delete(id))
+};
+
+// ---------- versions ----------
+let MAN={versions:[]}, LOCAL=[], KEYS=new Set(), SIZES=new Map();
+const allVersions=()=>[...MAN.versions,...LOCAL.map(v=>Object.assign({},v,{type:'local'}))].sort((a,b)=>vcmp(b.id,a.id));
+const visible=()=>{ const all=allVersions(), latest=MAN.latest; return all.filter(v=>(v.type!=='local'||S.loc)&&(S.old||v.id===latest||v.type==='local')); };
+const findV=id=>allVersions().find(v=>v.id===id);
+const filesOf=v=>v.type==='local'?[`local/${v.id}/game.html`]:[...v.files.map(f=>v.base+f),...v.assets];
+// on the desktop app the versions come from the update server and live in %APPDATA%\.terravolt (like .minecraft)
+const DESKC=window.TVDESK&&window.TVDESK.cdn; let INST=new Set();
+const isInstalled=v=>DESKC?INST.has(v.id):filesOf(v).every(k=>KEYS.has(k));
+async function loadManifest(fresh){
+  if(DESKC){ try{ const m=await DESKC.manifest(fresh); MAN={name:'TERRAVOLT',latest:(m.latest&&m.latest.release)||(m.versions[0]&&m.versions[0].id),versions:m.versions.map(v=>({id:v.id,type:v.type==='snapshot'?'beta':'release',date:(v.releaseTime||v.time||'').slice(0,10),title:v.title||'',notes:v.notes||[],size:v.size||0,files:[],assets:[],base:''}))}; log(`version_manifest_v2.json: ${MAN.versions.length} versions, latest ${MAN.latest}`,'g'); }
+    catch(e){ log('manifest: '+e.message,'e'); }
+    try{ INST=new Set(await DESKC.installed()); }catch(e){ INST=new Set(); } LOCAL=[]; return; }
+  try{ const r=await fetch('launcher/versions.json',{cache:fresh?'no-store':'default'}); if(!r.ok) throw new Error('HTTP '+r.status); MAN=await r.json(); log(`versions.json: ${MAN.versions.length} versions, latest ${MAN.latest}`,'g'); }
+  catch(e){ log('could not read versions.json: '+e.message,'e'); toast('ما قدرت أقرأ قائمة الإصدارات، تأكد من الاتصال'); }
+  try{ LOCAL=(await fs.localAll())||[]; }catch(e){ LOCAL=[]; }
+  try{ KEYS=new Set(await fs.keys()); }catch(e){ KEYS=new Set(); }
+}
+const nextVersion=()=>{ const all=allVersions(); const top=all.length?all[0].id:'0.00.0'; const k=vkey(top); return `${k[0]}.${String(k[1]).padStart(2,'0')}.${(k[2]||0)+1}`; };
+
+// ---------- download with progress (TLauncher style) ----------
+let busy=false;
+function setProg(f){ $('#prog').style.width=(Math.max(0,Math.min(1,f))*100).toFixed(1)+'%'; }
+async function fetchText(url,onBytes){ const r=await fetch(url,{cache:'no-store'}); if(!r.ok) throw new Error(url+' → HTTP '+r.status);
+  if(!r.body||!r.body.getReader){ const t=await r.text(); onBytes(t.length); return t; }
+  const rd=r.body.getReader(), parts=[]; let n=0; for(;;){ const {done,value}=await rd.read(); if(done) break; parts.push(value); n+=value.length; onBytes(value.length); }
+  const all=new Uint8Array(n); let o=0; for(const p of parts){ all.set(p,o); o+=p.length; } return new TextDecoder().decode(all); }
+async function install(v,force){
+  if(v.type==='local') return true;
+  if(DESKC){ if(!force&&INST.has(v.id)) return true; let last=0; log(`installing ${v.id} from the update server`,'g'); status(`<b>جاري تحميل ${v.id}</b>`,'0%');
+    DESKC.onProgress((id,p)=>{ const f=p.total?p.got/p.total:0; setProg(f); const now=performance.now(); if(now-last>120||p.done){ last=now; status(null,`${Math.round(f*100)}% · ${fmtMB(p.got)} / ${fmtMB(p.total)}`); $('#playS').textContent=`جاري التحميل ${Math.round(f*100)}%`; } });
+    await DESKC.install(v.id,!!force); INST.add(v.id); setProg(1); setTimeout(()=>setProg(0),700); log(`${v.id} installed (sha1 verified)`,'g'); return true; }
+  const need=filesOf(v).filter(k=>force||!KEYS.has(k)); if(!need.length) return true;
+  const total=Math.max(1,v.size||1); let got=0, last=0;
+  log(`installing ${v.id}: ${need.length} files`,'g'); status(`<b>جاري تثبيت ${v.id}</b> · ${need.length} ملفات`, '0%');
+  for(const k of need){ log('download '+k);
+    const t=await fetchText(k,b=>{ got+=b; const f=Math.min(.99,got/total); setProg(f); const now=performance.now(); if(now-last>120){ last=now; status(null,`${Math.round(f*100)}% · ${fmtMB(got)} / ${fmtMB(total)}`); $('#playS').textContent=`جاري التحميل ${Math.round(f*100)}%`; } });
+    await fs.put(k,t); KEYS.add(k); }
+  setProg(1); setTimeout(()=>setProg(0),700); log(`${v.id} installed`,'g'); return true; }
+// build one self-contained document from the installed files
+const resolve=(base,rel)=>new URL(rel,'https://x/'+base).pathname.slice(1);
+async function assemble(v){
+  if(v.type==='local') return await fs.get(`local/${v.id}/game.html`);
+  let html=await fs.get(v.base+'game.html');
+  const cssM=[...html.matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].filter(m=>!/^https?:/.test(m[1]));
+  for(const m of cssM){ const css=await fs.get(resolve(v.base,m[1])); html=html.replace(m[0],()=>'<style>'+css+'</style>'); }
+  const jsM=[...html.matchAll(/<script src="([^"]+)"><\/script>/g)].filter(m=>!/^https?:/.test(m[1]));
+  for(const m of jsM){ const js=await fs.get(resolve(v.base,m[1])); html=html.replace(m[0],()=>'<script>'+js.replace(/<\/script/gi,'<\\/script')+'<\/script>'); }
+  return html; }
+
+// ---------- launching ----------
+const TVL=window.TVL={ version:'1.1.0', exitGame(){ closeGame(); }, relaunch(){ const b=$('#game'); b.innerHTML=''; setTimeout(()=>play(),60); }, nick:()=>S.nick };
+let gameV=null;
+async function play(){
+  if(busy) return; const v=findV($('#ver').value); if(!v){ toast('اختر إصدار'); return; }
+  busy=true; $('#play').disabled=true;
+  try{
+    if(!isInstalled(v)||$('#force').checked){ $('#playT').textContent='جاري التثبيت'; await install(v,$('#force').checked); $('#force').checked=false; }
+    $('#playT').textContent='جاري التشغيل'; $('#playS').textContent=v.id; status(`<b>تشغيل TERRAVOLT ${v.id}</b>`, '');
+    const html=DESKC?'':await assemble(v); if(!DESKC&&(!html||html.length<1000)) throw new Error('ملف اللعبة ناقص، جرّب تحديث إجباري');
+    S.ver=v.id; if(!S.lastSeen||vcmp(v.id,S.lastSeen)>0) S.lastSeen=v.id; saveS(); log(`launch ${v.id} as ${S.nick} (${fmtMB(html.length)})`,'g');
+    $('#boot').hidden=false; $('#bootTxt').textContent=`TERRAVOLT ${v.id} · ${S.nick}`; $('#bootBar').style.width='30%';
+    if(S.fs){ try{ await document.documentElement.requestFullscreen(); }catch(e){} }
+    const box=$('#game'); box.innerHTML=''; box.hidden=false;
+    const f=document.createElement('iframe'); f.setAttribute('allow','fullscreen; autoplay; gamepad; pointer-lock'); f.setAttribute('allowfullscreen',''); f.title='TERRAVOLT '+v.id; box.appendChild(f);
+    gameV=v; if(DESKC){ f.src=`app://terravolt/game/${encodeURIComponent(v.id)}/game.html`; } else { const d=f.contentDocument; d.open(); d.write(html); d.close(); }
+    $('#bootBar').style.width='100%'; setTimeout(()=>{ $('#boot').hidden=true; },900);
+    try{ f.contentWindow.addEventListener('error',e=>log('game: '+(e.message||'error'),'e')); }catch(e){}
+    f.focus();
+  }catch(e){ log('launch failed: '+e.message,'e'); toast('ما اشتغلت اللعبة: '+e.message); $('#boot').hidden=true; }
+  busy=false; $('#play').disabled=false; refreshPlay(); }
+function closeGame(){ const box=$('#game'); box.innerHTML=''; box.hidden=true; $('#boot').hidden=true; try{ if(document.fullscreenElement) document.exitFullscreen(); }catch(e){} log(`game ${gameV?gameV.id:''} closed`,'w'); gameV=null; renderAll(); toast('رجعت للانشر · كل شي محفوظ'); }
+
+// ---------- paste an update ----------
+let pending=null; // {html, meta}
+function parseUpdate(text){
+  text=(text||'').replace(/^﻿/,'');
+  const t=text.trim(); if(!t) return {err:'ما فيه شي ملصوق'};
+  if(t[0]==='{'){ let o; try{ o=JSON.parse(t); }catch(e){ return {err:'ملف JSON غير صالح'}; }
+    const html=o.html||o.game||''; if(!/<script/i.test(html)) return {err:'الحزمة ما فيها ملف اللعبة'}; return {html, meta:{id:o.version||o.id||'',title:o.title||'',notes:Array.isArray(o.notes)?o.notes:(o.notes?String(o.notes).split('\n'):[])}}; }
+  if(/<script/i.test(t)&&/<\/script>/i.test(t)){ let html=t;
+    if(/^<!doctype/i.test(html)&&/<body>/i.test(html)){ /* artifact read or saved page: keep it whole */ }
+    return {html, meta:{id:'',title:'',notes:[]}}; }
+  return {err:'هذا مو تحديث للعبة. الصق ملف اللعبة كامل (HTML) أو حزمة تحديث JSON'}; }
+function stage(text,src){
+  const r=parseUpdate(text); const drop=$('#drop');
+  if(r.err){ pending=null; drop.classList.remove('ok'); $('#dropBig').textContent='الصق التحديث هنا (Ctrl+V)'; $('#dropSub').textContent=r.err; $('#upInstall').disabled=true; toast(r.err); log('update rejected: '+r.err,'w'); return; }
+  const isGame=/TERRAVOLT|qitaa/i.test(r.html);
+  pending=r; drop.classList.add('ok'); $('#dropBig').textContent=`تم ${src} ✓ · ${fmtMB(r.html.length)}`; $('#dropSub').textContent=isGame?'ملف TERRAVOLT سليم وجاهز للتثبيت':'تنبيه: ما لقيت اسم TERRAVOLT في الملف، تأكد أنه ملف اللعبة';
+  $('#upVer').value=r.meta.id&&/^\d+\.\d{2}\.\d+$/.test(r.meta.id)&&!findV(r.meta.id)?r.meta.id:nextVersion();
+  $('#upTitle').value=r.meta.title||''; $('#upNotes').value=(r.meta.notes||[]).join('\n'); $('#upInstall').disabled=false;
+  log(`update staged (${src}): ${fmtMB(r.html.length)} → ${$('#upVer').value}`,'g'); }
+const drop=$('#drop');
+drop.addEventListener('paste',e=>{ e.preventDefault(); const t=e.clipboardData&&e.clipboardData.getData('text'); stage(t,'اللصق'); });
+document.addEventListener('paste',e=>{ if(curView!=='updates'||e.target.closest('input,textarea')) return; e.preventDefault(); stage(e.clipboardData&&e.clipboardData.getData('text'),'اللصق'); });
+drop.addEventListener('dragover',e=>{ e.preventDefault(); drop.classList.add('over'); });
+drop.addEventListener('dragleave',()=>drop.classList.remove('over'));
+drop.addEventListener('drop',e=>{ e.preventDefault(); drop.classList.remove('over'); const f=e.dataTransfer.files&&e.dataTransfer.files[0]; if(f) readFile(f); else stage(e.dataTransfer.getData('text'),'الإفلات'); });
+$('#pickFile').onclick=()=>$('#fileIn').click();
+$('#fileIn').onchange=()=>{ const f=$('#fileIn').files[0]; if(f) readFile(f); $('#fileIn').value=''; };
+function readFile(f){ const r=new FileReader(); r.onload=()=>stage(String(r.result),'الملف «'+f.name+'»'); r.onerror=()=>toast('ما قدرت أقرأ الملف'); r.readAsText(f); }
+$('#upClear').onclick=()=>{ pending=null; drop.classList.remove('ok'); $('#dropBig').textContent='الصق التحديث هنا (Ctrl+V)'; $('#dropSub').textContent='أو اسحب الملف وأفلته · يقبل ملف اللعبة HTML أو حزمة تحديث JSON'; $('#upVer').value=''; $('#upTitle').value=''; $('#upNotes').value=''; $('#upInstall').disabled=true; };
+$('#upInstall').onclick=async()=>{
+  if(!pending) return; const id=$('#upVer').value.trim();
+  if(!/^\d+\.\d{2}\.\d+$/.test(id)){ toast('رقم الإصدار لازم يكون مثل 0.00.4'); return; }
+  const doIt=async()=>{
+    let html=pending.html;
+    if(/^<!doctype/i.test(html)===false){ html='<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}[hidden]{display:none!important}</style></head><body>\n'+html+'</body></html>'; }
+    if(!html.includes('TV-BRIDGE')) html=html.replace(/<body>/i,m=>m+'\n'+BRIDGE);
+    if(html.includes(QUIT_OLD)) html=html.replace(QUIT_OLD,QUIT_NEW);
+    const meta={id,title:$('#upTitle').value.trim()||'تحديث محلي',notes:$('#upNotes').value.split('\n').map(s=>s.trim()).filter(Boolean),date:new Date().toISOString().slice(0,10),size:html.length};
+    try{ await fs.put(`local/${id}/game.html`,html); await fs.localPut(meta); KEYS.add(`local/${id}/game.html`); LOCAL=LOCAL.filter(v=>v.id!==id).concat(meta);
+      log(`local version ${id} installed (${fmtMB(html.length)})`,'g'); toast(`تم تثبيت ${id} ✓ تقدر تشغله الحين`); S.ver=id; S.loc=true; saveS(); $('#upClear').click(); selV=id; renderAll(); }
+    catch(e){ log('install failed: '+e.message,'e'); toast('ما قدرت أحفظ التحديث في جهازك: '+e.message); } };
+  if(findV(id)) ask(`الإصدار ${id} موجود`,'تبي تستبدله بهذا التحديث؟',doIt); else doIt(); };
+
+// ---------- views ----------
+let curView='news', selV=null;
+function show(v){ curView=v; $$('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.v===v?'true':'false')); $$('.view').forEach(s=>s.hidden=s.dataset.view!==v); if(v==='files') renderFiles(); if(v==='prefs') renderSettings(); if(v==='install') renderInstall(); try{ history.replaceState(null,'','#'+v); }catch(e){} }
+$$('.tab').forEach(t=>t.onclick=()=>show(t.dataset.v));
+const noteList=a=>'<ul class="notes">'+(a||[]).map(n=>'<li></li>').join('')+'</ul>';
+function fillNotes(ul,a){ [...ul.children].forEach((li,i)=>li.textContent=a[i]); }
+function badge(v){ const [c,n]=TYPE[v.type]||TYPE.release; return `<span class="badge ${c}">${n}</span>`; }
+function renderHero(){ const v=allVersions().find(x=>x.id===MAN.latest)||allVersions()[0]; const h=$('#hero'); if(!v){ h.innerHTML='<h2>ما فيه إصدارات</h2>'; return; }
+  h.innerHTML=`<span class="eyebrow">latest release · ${v.date||''}</span><div class="vnum">${v.id}</div><h2></h2>${noteList(v.notes)}<div class="row"><button class="btn go" id="heroPlay">العب ${v.id}</button><button class="btn" id="heroUp">كل التحديثات</button></div>`;
+  h.querySelector('h2').textContent=v.title||''; fillNotes(h.querySelector('.notes'),v.notes||[]);
+  $('#heroPlay').onclick=()=>{ $('#ver').value=v.id; refreshPlay(); play(); }; $('#heroUp').onclick=()=>show('updates'); }
+function worldsInfo(){ const L=LS.get('qitaa-worlds',null), list=(L&&L.list)||[]; let bytes=0; const out=list.map(w=>{ let n=0; try{ n=(localStorage.getItem('qitaa-w-'+w.id)||'').length; }catch(e){} bytes+=n; return {name:w.name,mode:w.mode,t:w.t,n}; }); return {list:out,bytes}; }
+function renderStats(){ const W=worldsInfo(), inst=allVersions().filter(isInstalled), g=G();
+  let disk=0; for(const v of inst) disk+=v.size||0;
+  $('#stats').innerHTML=`<div class="stat"><b>${inst.length}/${allVersions().length}</b><span>إصدارات مثبتة</span></div><div class="stat"><b>${W.list.length}</b><span>عوالم محفوظة</span></div><div class="stat"><b>${AR(g.cubes||0)}</b><span>مكعبات (عملة اللعبة)</span></div><div class="stat"><b>${fmtMB(W.bytes)}</b><span>حجم العوالم</span></div>`;
+  const ws=$('#worlds'); ws.innerHTML=''; if(!W.list.length){ ws.innerHTML='<div class="muted" style="font-size:13px">ما عندك عوالم للحين. ادخل اللعبة وسو أول عالم.</div>'; return; }
+  for(const w of W.list.slice(0,6)){ const d=document.createElement('div'); d.className='world'; const a=document.createElement('span'); a.textContent=w.name+(w.mode==='c'?' · إبداعي':' · نجاة'); const b=document.createElement('span'); b.textContent=fmtMB(w.n); d.append(a,b); ws.appendChild(d); } }
+function renderVlist(){ const box=$('#vlist'); box.innerHTML=''; for(const v of allVersions()){ const c=document.createElement('div'); c.className='vcard'; c.innerHTML=`<div class="id">${v.id}</div><div class="row"><span class="t"></span>${badge(v)}${isInstalled(v)?'<span class="badge b-inst">مثبت</span>':''}<span class="m">${v.date||''}</span></div><div class="m"></div>`; c.querySelector('.t').textContent=v.title||''; c.querySelector('div.m').textContent=(v.notes||[]).join(' · '); box.appendChild(c); } }
+function renderVsel(){ const sel=$('#ver'), vis=visible(); const cur=sel.value||S.ver; sel.innerHTML='';
+  for(const v of vis){ const o=document.createElement('option'); o.value=v.id; o.textContent=`${v.type==='local'?'Local':v.type==='beta'?'Beta':'Release'} ${v.id}${v.id===MAN.latest?'  (latest)':''}`; sel.appendChild(o); }
+  const want=vis.find(v=>v.id===cur)?cur:(MAN.latest&&vis.find(v=>v.id===MAN.latest)?MAN.latest:(vis[0]&&vis[0].id)); if(want) sel.value=want; refreshPlay(); }
+function refreshPlay(){ const v=findV($('#ver').value); if(busy) return;
+  if(!v){ $('#playT').textContent='ادخل اللعبة'; $('#playS').textContent='ما فيه إصدار'; return; }
+  const inst=isInstalled(v); $('#playT').textContent=inst&&!$('#force').checked?'ادخل اللعبة':'تثبيت وتشغيل'; $('#playS').textContent=`${v.id} · ${inst?'مثبت':fmtMB(v.size||0)}`;
+  status(`الإصدار المختار: <b>${v.id}</b> ${v.title?'· '+v.title.replace(/[<>&]/g,''):''}`, inst?'جاهز للعب':'يحتاج تحميل'); }
+$('#ver').onchange=()=>{ S.ver=$('#ver').value; saveS(); refreshPlay(); };
+$('#force').onchange=refreshPlay;
+function renderPick(){ const box=$('#vpick'); box.innerHTML=''; const all=allVersions(); if(!selV||!findV(selV)) selV=($('#ver').value||MAN.latest);
+  for(const v of all){ const b=document.createElement('button'); b.className='vitem'; b.setAttribute('aria-pressed',v.id===selV?'true':'false'); b.innerHTML=`<span class="n">${v.id}</span><span class="row" style="gap:6px">${badge(v)}${isInstalled(v)?'<span class="badge b-inst">مثبت</span>':''}</span>`; b.onclick=()=>{ selV=v.id; renderPick(); }; box.appendChild(b); }
+  renderDetail(); }
+function renderDetail(){ const v=findV(selV), d=$('#vdetail'); if(!v){ d.innerHTML='<p class="muted">اختر إصدار</p>'; return; }
+  const inst=isInstalled(v);
+  d.innerHTML=`<div class="row" style="justify-content:space-between"><div><span class="eyebrow">${v.type} · ${v.date||''}</span><h2 style="margin:4px 0 0;direction:ltr;text-align:right">TERRAVOLT ${v.id}</h2></div><div class="row">${badge(v)}${inst?'<span class="badge b-inst">مثبت</span>':''}</div></div><h3 style="margin-top:10px"></h3>${noteList(v.notes)}<p class="muted" style="font-size:13px;margin:10px 0">الحجم ${fmtMB(v.size||0)}${v.type==='local'?' · ثبّته بالنسخ واللصق':''}</p><div class="row"><button class="btn go" data-a="play">تشغيل ${v.id}</button>${v.type!=='local'?`<button class="btn" data-a="inst">${inst?'إعادة التثبيت':'تثبيت فقط'}</button>`:''}${inst?'<button class="btn bad" data-a="del">حذف</button>':''}</div>`;
+  d.querySelector('h3').textContent=v.title||''; fillNotes(d.querySelector('.notes'),v.notes||[]);
+  d.querySelector('[data-a=play]').onclick=()=>{ if(!visible().find(x=>x.id===v.id)){ S.old=true; S.loc=true; saveS(); renderVsel(); } $('#ver').value=v.id; S.ver=v.id; saveS(); refreshPlay(); play(); };
+  const ib=d.querySelector('[data-a=inst]'); if(ib) ib.onclick=async()=>{ if(busy) return; busy=true; try{ await install(v,true); toast(`تم تثبيت ${v.id} ✓`); }catch(e){ log(e.message,'e'); toast('فشل التثبيت: '+e.message); } busy=false; renderAll(); };
+  const db=d.querySelector('[data-a=del]'); if(db) db.onclick=()=>ask(`حذف ${v.id}؟`,'ينحذف الإصدار من جهازك. عوالمك ما تتأثر.',()=>removeVersion(v)); }
+async function removeVersion(v){ const others=allVersions().filter(x=>x.id!==v.id&&isInstalled(x)); const keep=new Set(others.flatMap(filesOf));
+  for(const k of filesOf(v)) if(!keep.has(k)){ try{ await fs.del(k); }catch(e){} KEYS.delete(k); }
+  if(v.type==='local'){ try{ await fs.localDel(v.id); }catch(e){} LOCAL=LOCAL.filter(x=>x.id!==v.id); }
+  log(`removed ${v.id}`,'w'); toast(`انحذف ${v.id}`); renderAll(); }
+function renderFiles(){ const all=allVersions(), W=worldsInfo();
+  const lines=[]; const ok=(b)=>b?'<span class="ok">✓ installed</span>':'<span class="no">· not installed</span>';
+  lines.push('<span class="d">TERRAVOLT/</span>');
+  lines.push(' ├─ <span class="d">launcher/</span>'); lines.push(' │   └─ versions.json            '+`<span class="no">${MAN.versions.length} versions · latest ${MAN.latest||'-'}</span>`);
+  const assets=[...new Set(MAN.versions.flatMap(v=>v.assets||[]))]; lines.push(' ├─ <span class="d">assets/</span>            <span class="no">shared by all versions</span>');
+  assets.forEach((a,i)=>lines.push(` │   ${i===assets.length-1?'└':'├'}─ ${a.split('/').pop().padEnd(26)} ${ok(KEYS.has(a))}`));
+  lines.push(' ├─ <span class="d">versions/</span>');
+  all.forEach((v,i)=>{ const last=i===all.length-1, p=last?'    ':' │  '; lines.push(` │   ${last?'└':'├'}─ <span class="${v.type==='local'?'lc':'d'}">${v.id}/</span>  ${ok(isInstalled(v))}`);
+    const fl=v.type==='local'?['game.html']:v.files; fl.forEach((f,j)=>lines.push(` │   ${p}${j===fl.length-1?'└':'├'}─ ${f}`)); });
+  lines.push(' ├─ <span class="d">saves/</span>             <span class="no">'+W.list.length+' worlds · '+fmtMB(W.bytes)+'</span>');
+  W.list.forEach((w,i)=>{ const s=document.createElement('span'); s.textContent=w.name; lines.push(` │   ${i===W.list.length-1?'└':'├'}─ ${s.innerHTML}`); });
+  lines.push(' └─ settings.json');
+  $('#tree').innerHTML=lines.join('\n');
+  const fl=$('#flist'); fl.innerHTML=''; for(const v of all){ const inst=isInstalled(v); const r=document.createElement('div'); r.className='fitem'; r.innerHTML=`<div class="row"><span class="n">${v.id}</span>${badge(v)}<span class="muted" style="font-size:13px">${inst?fmtMB(v.size||0):'غير مثبت'}</span></div><div class="row"></div>`;
+    const acts=r.lastChild; const mk=(t,cls,fn)=>{ const b=document.createElement('button'); b.className='btn '+cls; b.textContent=t; b.onclick=fn; acts.appendChild(b); };
+    if(!inst&&v.type!=='local') mk('تثبيت','go',async()=>{ if(busy) return; busy=true; try{ await install(v,false); toast(`تم تثبيت ${v.id} ✓`); }catch(e){ toast('فشل التثبيت: '+e.message); } busy=false; renderAll(); });
+    if(inst) mk('حذف','bad',()=>ask(`حذف ${v.id}؟`,'ينحذف الإصدار من جهازك. عوالمك ما تتأثر.',()=>removeVersion(v)));
+    fl.appendChild(r); } }
+// saves backup / restore through the clipboard (downloads are blocked in the viewer)
+$('#bkCopy').onclick=async()=>{ const o={tv:'saves',date:new Date().toISOString(),data:{}}; try{ for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(/^qitaa-/.test(k)) o.data[k]=localStorage.getItem(k); } }catch(e){}
+  const t=JSON.stringify(o); try{ await navigator.clipboard.writeText(t); toast(`انسخت النسخة الاحتياطية (${fmtMB(t.length)}) · احفظها في ملاحظاتك`); log('saves copied to clipboard','g'); }
+  catch(e){ const b=$('#bkBox'); b.hidden=false; b.value=t; b.select(); toast('حددت النسخة، انسخها يدويًا (Ctrl+C)'); } };
+$('#bkPaste').onclick=()=>{ const b=$('#bkBox'); b.hidden=false; b.value=''; b.focus(); $('#bkDo').hidden=false; };
+$('#bkDo').onclick=()=>{ let o; try{ o=JSON.parse($('#bkBox').value); }catch(e){ toast('النسخة غير صالحة'); return; } if(!o||o.tv!=='saves'||!o.data){ toast('هذي مو نسخة احتياطية من اللانشر'); return; }
+  ask('استرجاع النسخة؟','بتنكتب العوالم والإعدادات اللي في النسخة فوق الحالية.',()=>{ try{ for(const k in o.data) if(/^qitaa-/.test(k)) localStorage.setItem(k,o.data[k]); toast('تم الاسترجاع ✓'); log('saves restored','g'); $('#bkBox').hidden=true; $('#bkDo').hidden=true; renderAll(); }catch(e){ toast('ما قدرت أسترجع: '+e.message); } }); };
+
+// ---------- settings ----------
+function seg(el,val,fn){ $$(el+' button').forEach(b=>{ b.setAttribute('aria-pressed',b.dataset.v===String(val)?'true':'false'); b.onclick=()=>{ fn(b.dataset.v); renderSettings(); }; }); }
+function renderSettings(){ const g=G();
+  seg('#sVd',g.vd??((matchMedia('(pointer:coarse)').matches)?1:2),v=>setG({vd:+v}));
+  $('#sFov').value=g.fov||80; $('#fovL').textContent=(g.fov||80)+'°';
+  $('#sSh').checked=g.shadows!==false; seg('#sLang',g.lang||'ar',v=>setG({lang:v}));
+  $('#sFs').checked=S.fs; $('#sAuto').checked=S.auto; $('#sOld').checked=S.old; $('#sLoc').checked=S.loc; $('#sCon').checked=S.con; }
+$('#sFov').oninput=()=>{ setG({fov:+$('#sFov').value}); $('#fovL').textContent=$('#sFov').value+'°'; };
+$('#sSh').onchange=()=>setG({shadows:$('#sSh').checked});
+for(const [id,k] of [['#sFs','fs'],['#sAuto','auto'],['#sOld','old'],['#sLoc','loc'],['#sCon','con']]) $(id).onchange=()=>{ S[k]=$(id).checked; saveS(); if(k==='con') $('#console').hidden=!S.con; renderVsel(); };
+$('#sReset').onclick=()=>ask('الإعدادات الافتراضية؟','ترجع إعدادات اللانشر للأصل. عوالمك ما تتأثر.',()=>{ const nick=S.nick; Object.assign(S,DEF,{nick}); saveS(); setG({vd:matchMedia('(pointer:coarse)').matches?1:2,fov:80,shadows:true}); renderSettings(); renderVsel(); $('#console').hidden=!S.con; toast('رجعت الإعدادات الافتراضية'); });
+
+// ---------- profile head (drawn from the game character colours) ----------
+function drawHead(){ const ch=(G().char)||{}, c=$('#head').getContext('2d'), hex=n=>'#'+(n>>>0).toString(16).padStart(6,'0').slice(-6);
+  const skin=hex(ch.skin??0xe0b48c), hair=hex(ch.hair??0x2a1c12); c.fillStyle=skin; c.fillRect(0,0,8,8); c.fillStyle=hair; c.fillRect(0,0,8,2); c.fillRect(0,2,1,2); c.fillRect(7,2,1,2);
+  c.fillStyle='#fff'; c.fillRect(1,4,2,1); c.fillRect(5,4,2,1); c.fillStyle='#3b5bdb'; c.fillRect(2,4,1,1); c.fillRect(5,4,1,1); c.fillStyle='rgba(0,0,0,.25)'; c.fillRect(3,5,2,1); c.fillStyle='#6b3a2a'; c.fillRect(2,6,4,1); }
+$('#nick').value=S.nick; $('#nick').oninput=()=>{ S.nick=$('#nick').value.trim()||'Player'; saveS(); };
+
+// ---------- install on the device ----------
+const LAUNCHER_URL='https://claude.ai/artifact/XM3Xv1zRjp7P39ubyz83Ew';
+function renderInstall(){ if(window.TVDESK){ $('#deskOk').hidden=false; } $('#lnk').value=LAUNCHER_URL; const ua=navigator.userAgent, p=/iPhone|iPad|iPod/.test(ua)||(/Mac/.test(ua)&&navigator.maxTouchPoints>1)?'ios':/Android/.test(ua)?'android':'pc';
+  $$('#plat .panel').forEach(x=>{ x.style.boxShadow=x.dataset.p===p?'inset 0 0 0 2px var(--grass),0 10px 30px rgba(0,0,0,.35)':''; const e=x.querySelector('.eyebrow'); e.textContent=e.textContent.replace(' · جهازك','')+(x.dataset.p===p?' · جهازك':''); }); }
+$('#lnkCopy').onclick=async()=>{ try{ await navigator.clipboard.writeText(LAUNCHER_URL); toast('انسخ الرابط ✓ افتحه في Chrome'); }catch(e){ const i=$('#lnk'); i.focus(); i.select(); toast('حددت الرابط، انسخه (Ctrl+C)'); } };
+// ---------- tools ----------
+$('#tFolder').onclick=()=>show('files'); $('#tSet').onclick=()=>show('prefs');
+$('#tLog').onclick=()=>{ S.con=!S.con; saveS(); $('#console').hidden=!S.con; $('#tLog').classList.toggle('on',S.con); };
+$('#conX').onclick=()=>{ S.con=false; saveS(); $('#console').hidden=true; $('#tLog').classList.remove('on'); };
+async function checkUpdates(manual){ status('<b>جاري التحقق من التحديثات…</b>',''); await loadManifest(true); renderAll();
+  const nv=MAN.latest&&(!S.lastSeen||vcmp(MAN.latest,S.lastSeen)>0); const v=findV(MAN.latest);
+  if(v&&(nv||!isInstalled(v))){ $('#newBanner').hidden=false; $('#newTxt').textContent=`TERRAVOLT ${v.id} · ${v.title||''}${isInstalled(v)?'':' · '+fmtMB(v.size||0)}`; $('#tabUp').innerHTML='التحديثات<span class="dot"></span>'; }
+  else { $('#newBanner').hidden=true; $('#tabUp').textContent='التحديثات'; if(manual) toast('عندك آخر إصدار ✓'); } }
+$('#tRefresh').onclick=()=>checkUpdates(true); $('#checkUp').onclick=()=>checkUpdates(true);
+$('#newGo').onclick=async()=>{ const v=findV(MAN.latest); if(!v||busy) return; busy=true; try{ await install(v,false); S.lastSeen=v.id; S.ver=v.id; saveS(); toast(`تم تثبيت ${v.id} ✓`); $('#newBanner').hidden=true; $('#tabUp').textContent='التحديثات'; }catch(e){ toast('فشل التثبيت: '+e.message); } busy=false; renderAll(); $('#ver').value=v.id; refreshPlay(); };
+$('#play').onclick=play;
+
+function updateBanner(){ const v=findV(MAN.latest); if(v&&isInstalled(v)&&S.lastSeen&&vcmp(S.lastSeen,v.id)>=0){ $('#newBanner').hidden=true; $('#tabUp').textContent='التحديثات'; } }
+function renderAll(){ updateBanner(); renderHero(); renderStats(); renderVlist(); renderVsel(); renderPick(); if(curView==='files') renderFiles(); if(curView==='prefs') renderSettings(); drawHead(); }
+
+// ---------- pixel landscape background ----------
+(function bg(){ const cv=$('#bg'), W=320, H=180; cv.width=W; cv.height=H; const c=cv.getContext('2d'); let seed=7; const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const noise=(x,s)=>{ let v=0,a=1,f=1/60; for(let o=0;o<3;o++){ const i=Math.floor(x*f+s*7.3), t=x*f+s*7.3-i, h=k=>{ let n=Math.sin(k*127.1+s*311.7)*43758.5453; return n-Math.floor(n); }; v+=a*(h(i)+(h(i+1)-h(i))*(t*t*(3-2*t))); a*=.5; f*=2.1; } return v/1.75; };
+  const sky=c.createLinearGradient(0,0,0,H); sky.addColorStop(0,'#3f7fc4'); sky.addColorStop(.55,'#8cc4ea'); sky.addColorStop(1,'#cfe8f5');
+  const clouds=[]; for(let i=0;i<9;i++) clouds.push({x:rnd()*W,y:8+rnd()*40,w:14+rnd()*30,s:.02+rnd()*.04});
+  const layers=[{base:96,amp:40,col:['#6f8fa8','#7d9db4'],s:1},{base:116,amp:30,col:['#4d7d3b','#3c6530'],s:2,tree:.06},{base:138,amp:22,col:['#5fae3a','#3a7a1f'],s:3,tree:.1}];
+  const hm=layers.map(L=>{ const a=[]; for(let x=0;x<W;x++) a.push(Math.round(L.base-noise(x,L.s)*L.amp)); return a; });
+  const trees=layers.map((L,li)=>{ const t=[]; if(L.tree) for(let x=4;x<W-4;x++) if(rnd()<L.tree&&x%3===0) t.push(x); return t; });
+  let t=0; const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function draw(){ c.fillStyle=sky; c.fillRect(0,0,W,H); c.fillStyle='#fff3c2'; c.fillRect(248,24,14,14); c.fillStyle='rgba(255,243,194,.25)'; c.fillRect(244,20,22,22);
+    c.fillStyle='rgba(255,255,255,.92)'; for(const k of clouds){ const x=((k.x+t*k.s)%(W+60))-30; c.fillRect(Math.round(x),Math.round(k.y),Math.round(k.w),4); c.fillRect(Math.round(x+4),Math.round(k.y-3),Math.round(k.w*.5),3); }
+    layers.forEach((L,li)=>{ const h=hm[li];
+      for(let x=0;x<W;x++){ const y=h[x]; c.fillStyle=L.col[0]; c.fillRect(x,y,1,H-y); if(li>0){ c.fillStyle=li===2?'#8fd85e':'#5f9a4a'; c.fillRect(x,y,1,1); c.fillStyle=li===2?'#7a5232':'#4a3a2a'; c.fillRect(x,y+3,1,H); } }
+      for(const x of trees[li]){ const y=h[x]; c.fillStyle='#5a3a22'; c.fillRect(x,y-6,1,6); c.fillStyle=li===2?'#2f6b22':'#2a5a22'; c.fillRect(x-2,y-10,5,4); c.fillRect(x-1,y-12,3,2); } });
+    c.fillStyle='#2f6fb0'; for(let x=0;x<W;x++){ if(hm[2][x]>150){ c.fillRect(x,150,1,H-150); } } }
+  function loop(){ t+=1; draw(); if(!reduce) setTimeout(()=>requestAnimationFrame(loop),80); }
+  loop(); })();
+
+// ---------- boot ----------
+(async()=>{
+  log('TERRAVOLT Launcher 1.0.0 starting'); const ok=await openDB(); log(ok?'local storage: IndexedDB ready':'local storage: memory only (files won\'t stay after closing)',ok?'g':'w');
+  $('#console').hidden=!S.con; $('#tLog').classList.toggle('on',S.con);
+  await loadManifest(false);
+  if(S.lastSeen&&!findV(S.lastSeen)){ S.lastSeen=null; saveS(); }
+  // always start on the newest release (like the Minecraft launcher's "latest release")
+  if(MAN.latest&&(!S.ver||vcmp(MAN.latest,S.ver)>0)){ S.ver=MAN.latest; saveS(); log('selected latest '+MAN.latest,'g'); }
+  // clean files that no version uses any more (for example after a renumbering)
+  try{ const used=new Set(allVersions().flatMap(filesOf)); for(const k of [...KEYS]) if(!used.has(k)){ await fs.del(k); KEYS.delete(k); log('removed unused file '+k,'w'); } }catch(e){}
+  if(window.TVDESK){ document.body.classList.add('desk'); $('.lver').textContent='Desktop · Windows'; }
+  renderAll();
+  const h=(location.hash||'').slice(1); if(['news','updates','files','prefs','install'].includes(h)) show(h);
+  if(S.auto) checkUpdates(false);
+  addEventListener('hashchange',()=>{ const h=(location.hash||'').slice(1); if(['news','updates','files','prefs','install'].includes(h)&&h!==curView) show(h); });
+})();
+})();
+</script>
+</body></html>

@@ -1,0 +1,349 @@
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<script>/*TV-BRIDGE*/(function(){try{if(window.parent!==window&&parent.TVL){window.TV_LAUNCHER=parent.TVL;if(!('claude' in window)&&parent.claude)Object.defineProperty(window,'claude',{configurable:true,get:function(){return parent.claude}});}}catch(e){}})();</script>
+<title>TERRAVOLT</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="game.css">
+
+<canvas id="c"></canvas>
+
+<div id="vig"></div>
+<div id="hud" dir="rtl" hidden>
+  <div id="touch"></div>
+  <div id="cross"></div>
+  <div id="target"></div>
+  <div id="top">
+    <button id="bMenu" class="hb" aria-label="القائمة"><span></span></button>
+    <div class="hbs"><button id="bBuild" class="hb ic" aria-label="إعدادات البناء"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2l9 5v10l-9 5-9-5V7zm0 2.3L5.5 8 12 11.7 18.5 8zM5 9.7v6.1l6 3.4v-6.1zm14 0l-6 3.4v6.1l6-3.4z"/></svg></button><button id="bMap" class="hb ic" aria-label="الخريطة"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zm6 0v14l6 2V7z"/></svg></button><button id="bCam" class="hb ic" aria-label="تبديل المنظور"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 5c5 0 9 4.5 10 7-1 2.5-5 7-10 7S3 14.5 2 12c1-2.5 5-7 10-7zm0 3a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4z"/></svg></button>
+    <div id="gearBox" hidden><button id="gDown" class="hb">−</button><span id="gNow">1</span><button id="gUp" class="hb">+</button></div>
+    <button id="bEngine" class="hb eng" hidden><i></i><span>تشغيل المحرك</span></button>
+    <button id="bThrow" class="hb" hidden>ارمِ</button>
+    <button id="bBag" class="hb ic" aria-label="الحقيبة"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M9 3h6v2h3a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h3V3zm2 2h2V4h-2v1zM8 11v3h8v-3H8zm0 5v2h8v-2H8z"/></svg></button></div>
+  </div>
+  <div id="clock"></div>
+  <div id="slotName"></div>
+  <div id="trash" hidden>أفلت هنا لإفراغ الخانة</div>
+  <div id="bar" role="group" aria-label="الأغراض"></div>
+  <div id="joyHint">حرّك من هنا</div>
+  <div id="joy" hidden><div id="knob"></div></div>
+  <div id="acts">
+    <button id="bFly" class="ab">طيران</button>
+    <button id="bRide" class="ab" hidden>اركب</button>
+    <button id="bPlace" class="ab">ضع</button>
+    <button id="bBreak" class="ab">اكسر</button>
+    <button id="bUp" class="ab" hidden>صعود</button>
+    <button id="bDown" class="ab" hidden>نزول</button>
+    <button id="bJump" class="ab">قفز</button>
+    <button id="bRot" class="ab" hidden>لف</button>
+    <button id="bHorn" class="ab" hidden>بوق</button>
+    <button id="bCpl" class="ab" hidden>وصلات</button>
+    <button id="bEat" class="ab" hidden>كُل</button>
+    <button id="bDrink" class="ab" hidden>اشرب</button>
+  </div>
+  <div id="keys" hidden></div>
+  <div id="trkTip" hidden></div>
+  <div id="dash" hidden><canvas id="dashC" width="300" height="300"></canvas><div class="dSh"><button id="dUp" class="btn">▲</button><button id="dDn" class="btn">▼</button><button id="dMd" class="btn">◀▶</button></div></div>
+  <div id="cplP"><div class="cpH"><b>عربات القطار</b><button id="cplX" class="btn">✕</button></div><div id="cplTop"></div><div id="cplList"></div><div class="cpN">G أو ✕ يقفل القائمة<br>للشبك: قرّب طرف القطار من العربة تحت 5 كم/س لين تلتصق، وبعدين «اشبك»<br>«فصل من هنا» يفصل العربة وكل اللي بعدها، والقطار لازم يكون واقف</div></div>
+  <div id="mini"><canvas id="miniCv" width="240" height="240"></canvas><div id="coords"></div></div>
+  <div id="jmMini" hidden><canvas></canvas><div class="jmMiniTx"><b></b><span></span></div></div>
+  <div id="jmLbl"></div>
+  <div id="gunHud" hidden></div><div id="hitMark"></div><div id="scope" hidden><i></i></div>
+  <div id="netLbl"></div>
+  <div id="chat"><div id="chatLog"></div><input id="chatIn" hidden maxlength="200" placeholder="اكتب رسالة… (Enter يرسل)" autocomplete="off"></div>
+  <div id="devBar" hidden><b>وضع المبرمج · اضغط ☰ أو Esc للخيارات</b></div>
+  <div id="stats" hidden>
+    <div class="st hp"><i><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21l-8-8a5 5 0 017-7l1 1 1-1a5 5 0 017 7z"/></svg></i><b><u></u></b></div>
+    <div class="st fd"><i><svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 3a7 7 0 016 9l-6 6-3-3-4 4-3-3 4-4-3-3 6-6a7 7 0 013 0z"/></svg></i><b><u></u></b></div>
+    <div class="st wt"><i><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2s7 8 7 13a7 7 0 01-14 0c0-5 7-13 7-13z"/></svg></i><b><u></u></b></div>
+    <div class="st sa"><i><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13 2L4 14h7l-2 8 9-12h-7z"/></svg></i><b><u></u></b></div>
+    <div class="st pe" title="المثانة (U للحمام)"><i>💦</i><b><u></u></b></div>
+    <div class="st po" title="البطن (U للحمام)"><i>💩</i><b><u></u></b></div>
+  </div>
+  <div id="hurt"></div>
+  <div id="toast"></div>
+  <div id="remote" hidden><span class="rl">جهاز التحكم</span><button id="rUp" class="rb">▲<small>ارفع</small></button><span id="rH"></span><button id="rDown" class="rb">▼<small>نزّل</small></button><button id="rFree" class="rfree">فصل المركبة</button></div>
+  <div id="buildMenu" hidden>
+    <div class="card bmCard">
+      <div class="bagHead"><h2>إعدادات البناء</h2><button id="bmClose" class="btn wood">إغلاق (C)</button></div>
+      <div class="edRow"><h4>حجم القطعة</h4><div id="sizes" role="group" aria-label="حجم القطعة"></div></div>
+      <div class="edRow"><h4>طريقة الالتصاق</h4><div class="opts">
+        <button class="chip snapB" data-snap="free">حر</button><button class="chip snapB" data-snap="grid">شبكة بحجم القطعة</button></div>
+        <p class="hint" id="snapHint"></p></div>
+      <div class="edRow" hidden><h4>شكل القطعة</h4><div class="opts">
+        <button class="chip shapeB" data-shape="cube">مكعب</button><button class="chip shapeB" data-shape="wedge">مثلث (منحدر)</button></div>
+        <p class="hint">المثلث يرتفع بعيدًا عنك، فاستدر لتغيّر اتجاهه.</p></div>
+    </div>
+  </div>
+  <div id="mapView" hidden>
+    <canvas id="mapCv"></canvas>
+    <div id="jmBar" class="jmBar">
+      <button data-m="auto" title="تلقائي">◐<small>تلقائي</small></button><button data-m="day" title="نهار">☀<small>نهار</small></button><button data-m="night" title="ليل">☾<small>ليل</small></button><button data-m="topo" title="تضاريس">⛰<small>تضاريس</small></button><button data-m="cave" title="كهوف">⛏<small>كهوف</small></button>
+      <span class="jmSep"></span><button id="jmFollow" title="تتبعني">◎<small>تتبعني</small></button><button id="jmWp" title="نقاط الطريق">⚑<small>نقاط</small></button><button id="jmTerr" title="الحدود والدول">🏳<small>حدود</small></button>
+      <button id="jmGrid" title="الشبكة">▦<small>شبكة</small></button><button id="jmMobs" title="الكائنات">●<small>كائنات</small></button><button id="jmOpt" title="إعدادات">⚙<small>إعدادات</small></button>
+      <span class="jmSep"></span><button id="jmIn" title="تكبير">+</button><button id="jmOut" title="تصغير">−</button><button id="mapClose" title="إغلاق (J)">✕</button>
+    </div>
+    <div id="jmSide" class="jmSide" hidden></div>
+    <div id="jmDraw" class="jmDraw" hidden></div>
+    <div id="jmCtx" class="jmCtx" hidden></div>
+    <span id="mapInfo"></span>
+  </div>
+  <div id="bag" hidden>
+    <div class="card bagCard">
+      <div class="bagHead"><div><h2>الحقيبة</h2><p>اسحب أي مادة وأفلتها في أي خانة من الشريط بالأسفل.</p></div><button id="bagCraft" class="btn leaf" hidden>الصناعة</button><button id="bagClose" class="btn wood">إغلاق</button></div>
+      <div class="bagWrap">
+        <aside class="bagAside" id="bagMe"><div id="charBox"><canvas id="charCv"></canvas></div><p class="hint">اسحب لتدوير شخصيتك</p></aside>
+        <section class="bagMain"><div class="tabs" id="bagTabs"></div><div id="bagBody"></div></section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="chestUI" dir="rtl" hidden><div class="stCard"><div class="stHead"><h2>الصندوق</h2><button class="btn" id="chClose">إغلاق</button></div><p class="chNote">اضغط على غرض عشان تنقله كامل، أو مع Shift تنقل واحد</p><div class="chCols"><div><h3>في الصندوق</h3><div id="chIn" class="chGrid"></div></div><div><h3>حقيبتك</h3><div id="chMe" class="chGrid"></div></div></div></div></div>
+<div id="sleepFx" hidden></div>
+<div id="mccCur" hidden></div>
+<div id="station" dir="rtl" hidden><div class="stCard"><div class="stHead"><h2 id="stT"></h2><button class="btn" id="stClose">إغلاق</button></div><p id="stNote"></p><div id="stList"></div></div></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="pix" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feFlood x="1" y="1" width="1" height="1"/><feComposite width="2" height="2"/><feTile result="a"/><feComposite in="SourceGraphic" in2="a" operator="in"/><feMorphology operator="dilate" radius="1"/></filter></svg>
+<div id="dead" dir="rtl" hidden><div><h2>مُتّ</h2><p id="deadWhy"></p><button id="bRespawn" class="btn big">عُد للحياة</button></div></div>
+
+<div id="prevBar" dir="rtl" hidden><button class="hb" data-go="top">القائمة</button><button class="hb" data-go="dirt">التراب</button><button class="hb" data-go="cave">الكهف</button><button class="hb" data-go="right">الشخصية</button><button class="hb" data-go="left">طريقة اللعب</button><button id="prevBack" class="hb">رجوع للتعديل</button></div>
+<div id="shop" hidden><div class="shutter"><div class="shIn">
+  <div class="shH"><div class="shTitle">ماركت بلايس</div><div class="shBal"><i class="cube"></i><b id="shCubes">0</b><small>كيوب</small></div><button id="shX" class="btn">✕ إغلاق</button></div>
+  <div class="shTabs"><button data-t="out" class="on">الأزياء</button><button data-t="veh">المركبات</button><button data-t="part">قطع مميزة</button><button data-t="add">إضافات</button><button data-t="mod">المودات</button><button data-t="buy">شراء كيوب</button></div>
+  <div id="shList"></div><div class="shNote" id="shNote"></div></div></div></div>
+<div id="bigLogo" class="off"><div class="t">TERRAVOLT</div><div class="s">ابنِ · ركّب · انطلق</div></div>
+<div id="cornerIco" class="pixIco"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div id="musNow"></div>
+<pre id="dbgInfo" hidden></pre>
+<div id="rebaseOv" hidden><div><i></i><b>جارٍ تحميل المنطقة…</b></div></div>
+<div id="splash"><canvas></canvas><div class="spSub">STUDIOS</div><div class="spBar"><i></i></div></div>
+<div id="loadScr" hidden><div class="lsStory"><canvas class="stBg"></canvas><div class="stLogo"><b>TERRAVOLT</b><i>BUILD · RIDE · GO</i></div><div class="stSpin"><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u></div><div class="stTxt">جارٍ الاتصال</div><div class="stSub">يتحقق من الإضافات…</div></div><div class="lsBig">TERRAVOLT</div><div class="lsBox"><div class="lsLogo">TERRAVOLT</div><div class="lsName"></div><div class="lsBar"><i></i></div><div class="lsTxt">جارٍ التحميل…</div><div class="lsTip"></div></div></div>
+<div id="lore" hidden><button id="loreX" aria-label="إغلاق">✕</button><div class="lb"><div class="ly">١ يناير ٣٠٠١ · بعد الحرب الأخيرة</div><p>انتهت الحرب العالمية الأخيرة في ثلاثة أيام: نووي فوق المدن، وسلاح بيولوجي أكل الباقي.</p><p>السماء رمادية، والرماد ما وقف ينزل. والمخلوقات اللي بقت… ما عادت مثل قبل.</p><p>أنت من آخر الناجين. اجمع، اصنع سلاحك، ابنِ ملجأك… وابقَ حي.</p><button class="btn pri" id="loreGo">ابدأ</button><div class="lk">أو اضغط Enter / Esc</div></div></div>
+<div id="menu" class="lobby" dir="rtl"><div id="mfade"></div><div id="m3d"><div id="m3cam"></div></div>
+  <div class="card" id="pMain">
+    <h1 class="logo"><canvas id="logoCv" width="160" height="34" aria-label="TERRAVOLT"></canvas></h1>
+    <p class="tag">بعد الحرب الأخيرة · ابنِ · انجُ · قاتل</p>
+    <h3 id="pauseT">قائمة اللعبة</h3>
+    <div class="btns">
+      <button id="mResume" class="btn pri big" hidden>استئناف</button>
+      <button id="mPlay" class="btn pri big">لاعب</button>
+      <button id="mNet" class="btn pri">اللعب عبر الشبكة</button>
+      <button id="mHost" class="btn" hidden>فتح للشبكة (هوست)</button>
+      <button id="mSave" class="btn" hidden>حفظ</button>
+      <button id="mChar" class="btn">شخصيتي</button>
+      <button id="mShop" class="btn">ماركت بلايس</button>
+      <button id="mSet" class="btn">الإعدادات</button>
+      <button id="mHelp" class="btn">طريقة اللعب</button>
+      <button id="mEv" class="btn">الفعاليات</button>
+      <button id="mTop" class="btn">أفضل اللاعبين</button>
+      <button id="mCred" class="btn">الكريدت</button>
+      <button id="mMore" class="btn" hidden>المزيد من الخيارات</button>
+      <button id="mExit" class="btn bad" hidden>حفظ والخروج للقائمة</button>
+      <button id="mQuit" class="btn">مغادرة اللعبة</button>
+    </div>
+    <p class="foot" id="mInfo">جارٍ التحميل…</p>
+    <p class="tip" id="mTip"></p>
+  </div>
+  <div class="card" id="pDev"><button id="mDev" class="btn">المبرمج</button><p class="foot">عدّل خلفية القائمة</p></div>
+  <div class="card" id="pMore" hidden>
+    <h2>المزيد من الخيارات</h2>
+    <div class="btns">
+      <button id="dvCam" class="btn" data-w="__menu">ثبّت الكاميرا هنا</button>
+      <button class="btn" data-prev="top" data-w="__menu">شوف القائمة</button>
+      <button class="btn" data-prev="dirt" data-w="__menu">شوف التراب</button>
+      <button class="btn" data-prev="cave" data-w="__menu">شوف الكهف</button>
+      <button id="dvSave" class="btn pri" data-w="__menu">احفظ الخلفية</button>
+      <button id="dvReset" class="btn bad" data-w="__menu">رجّع الافتراضي</button>
+      <button id="chSave" class="btn pri" data-w="__char">احفظ الشخصية</button>
+      <button id="chClear" class="btn bad" data-w="__char">ابدأ من جديد</button>
+      <button id="dvDone" class="btn">خروج</button>
+      <button class="btn" data-back>رجوع</button>
+    </div>
+  </div>
+  <div class="card" id="pTop" hidden>
+    <h2>أفضل اللاعبين</h2>
+    <p class="foot" id="topMe"></p>
+    <div id="topList"></div>
+    <p class="foot">النقاط: الكسر والبناء نقطة، الشجرة 10، الخروف 5، وكل دقيقة لعب نقطتين.</p>
+    <button class="btn" data-back>رجوع</button>
+  </div>
+  <div class="card" id="pNet" hidden>
+    <h2>اللعب عبر الشبكة</h2>
+    <div class="nwTabs"><button class="btn nTab on" data-t="lan">ألعاب الشبكة</button><button class="btn nTab" data-t="ip">إضافة بالعنوان</button><button class="btn nTab" data-t="srv">السيرفرات</button></div>
+    <div class="nPg" data-p="lan"><div id="nList" class="netList"></div><p class="foot">الألعاب المفتوحة في شبكتك تطلع هنا تلقائيًا.</p></div>
+    <div class="nPg" data-p="ip" hidden><div class="field"><label for="nAddr">العنوان (IP:المنفذ)</label><input id="nAddr" placeholder="192.168.1.5:47800" autocomplete="off" dir="ltr"></div><div class="field"><label for="nPass">كلمة السر (إذا فيه)</label><input id="nPass" type="password" autocomplete="off"></div><button id="nJoin" class="btn pri">اتصال</button></div>
+    <div class="nPg" data-p="srv" hidden><div class="netList"><div class="netGame off"><div><b>السيرفرات المخصصة</b><small>سيرفرات تشتغل 24 ساعة · قريبًا</small></div><button class="btn" disabled>دخول</button></div></div><button class="btn" disabled>إضافة سيرفر (قريبًا)</button><p class="foot">السيرفرات المخصصة ما تشتغل للحين.</p></div>
+    <p class="foot" id="nStat"></p>
+    <button class="btn" data-back>رجوع</button>
+  </div>
+  <div class="card" id="pHost" hidden>
+    <h2>فتح للشبكة</h2>
+    <div id="hForm">
+      <div class="field"><label for="hName">اسم اللعبة</label><input id="hName" maxlength="40" autocomplete="off"></div>
+      <div class="field"><label for="hMax">أقصى عدد لاعبين</label><input id="hMax" type="number" min="2" max="16" value="8"></div>
+      <div class="field"><label for="hPass">كلمة سر (اختياري)</label><input id="hPass" type="password" maxlength="32" autocomplete="off"></div>
+      <div class="field"><label for="hPort">المنفذ</label><input id="hPort" type="number" min="1024" max="65535" value="47800" dir="ltr"></div>
+      <label class="netChk"><input id="hPub" type="checkbox" checked> افتح المنفذ في الراوتر تلقائيًا عشان يدخلون من الإنترنت</label>
+      <button id="hStart" class="btn pri big">بدء الاستضافة</button>
+    </div>
+    <div id="hLive" hidden>
+      <p class="netOn">🌐 لعبتك أونلاين · اللاعبين <b id="hCount"></b></p>
+      <p class="foot" id="hAddr"></p>
+      <div id="hPlayers" class="netList"></div>
+      <p class="foot">إذا قفلت عالمك أو طلعت، اللعبة تنقفل عند الكل.</p>
+      <button id="hStop" class="btn bad">إيقاف الاستضافة</button>
+    </div>
+    <p class="foot" id="hStat"></p>
+    <button class="btn" data-back>رجوع</button>
+  </div>
+  <div class="card" id="pWorlds" hidden>
+    <h2>اختر العالم</h2>
+    <input id="wSearch" placeholder="ابحث عن عالم…" autocomplete="off">
+    <div id="wList"></div>
+    <p class="foot">عدد العوالم: <span id="wCount"></span></p>
+    <div class="wBtns"><button id="wPlay" class="btn" disabled>العب العالم المحدد</button><button id="wNew" class="btn pri">إنشاء عالم جديد</button>
+      <button id="wRen" class="btn" disabled>تعديل الاسم</button><button id="wDelB" class="btn" disabled>حذف</button><button class="btn" data-back>إلغاء</button></div>
+  </div>
+  <div class="card" id="pNewW" hidden>
+    <h2>إنشاء عالم جديد</h2>
+    <div class="nwTabs"><button class="btn nwT on" data-t="g">اللعبة</button><button class="btn nwT" data-t="w">العالم</button></div>
+    <div class="nwPg" data-p="g">
+      <div class="field"><label for="wName">اسم العالم</label><input id="wName" maxlength="24" autocomplete="off"></div>
+      <button class="btn nwC" id="nwMode"></button>
+      <p class="nwD" id="gmDesc"></p>
+    </div>
+    <div class="nwPg" data-p="w" hidden>
+      <button class="btn nwC" id="nwShape"></button>
+      <p class="nwD" id="nwShapeD"></p>
+      <button class="btn nwC" id="nwSize"></button>
+      <div class="field"><label for="wSeed">البذرة (السيد)</label><input id="wSeed" maxlength="32" autocomplete="off" placeholder="اتركها فاضية لبذرة عشوائية"></div>
+    </div>
+    <div class="nwBtm"><button id="wCreate" class="btn pri">إنشاء العالم</button><button class="btn" data-back="#pWorlds">إلغاء</button></div>
+  </div>
+  <div class="card" id="pEvents" hidden>
+    <h2>الفعاليات</h2>
+    <div id="evList"></div>
+    <div class="nwBtm"><button class="btn" data-back>رجوع</button></div>
+  </div>
+  <div class="card" id="pCred" hidden>
+    <h2>الكريدت</h2>
+    <div id="credBox"><div id="credRoll"></div></div>
+    <div class="nwBtm"><button class="btn" data-back>رجوع</button></div>
+  </div>
+
+  <div class="card" id="pHelp" hidden>
+    <h2>طريقة اللعب</h2>
+    <h3>القصة</h3>
+    <p>اليوم ١ يناير سنة ٣٠٠١. انتهت «الحرب العالمية الأخيرة» في ثلاثة أيام: صواريخ نووية فوق المدن، وسلاح بيولوجي أكل ما بقي. السماء صارت رمادية، والرماد ما وقف ينزل من وقتها. كل يوم يمر في اللعبة يتقدم التاريخ يوم.</p>
+    <p>أنت من الناجين القلائل. صحيت في ملجأ تحت الأرض، والأرض فوقك فاضية إلا من مخلوقات تغيّرت بالإشعاع، وبقايا مخازن السلاح القديمة. اجمع، اصنع، ابنِ ملجأك، ولا تقترب من مناطق الإشعاع الخضراء.</p>
+    <h3>الأسلحة</h3>
+    <ul>
+      <li>فيه 100 سلاح حقيقي في خانة «الأسلحة»: مسدسات، ماغنوم، رشاشات خفيفة، بنادق هجومية (M4، AK-47…)، بنادق قنص، شوزن، رشاشات ثقيلة، وقواذف RPG وغيرها.</li>
+      <li>كل سلاح له ذخيرته الحقيقية (مثل 9×19 ملم، 5.56×45 ملم، 7.62×39 ملم، 12 جيج، .50 BMG). تنصنع من طاولة الصنع بالنحاس والبارود، وتطيح من الوحوش.</li>
+      <li>الزر الأيسر يطلق، والأيمن للتصويب من النيشان. R تعبئة، وN تغيّر وضع الإطلاق (آلي، طلقة، رشقة).</li>
+      <li>القواذف: RPG-7 تاخذ PG-7V أو PG-7VR الترادفية أو TBG-7V الحرارية أو OG-7V الشظايا. اضغط N تغيّر نوع القذيفة.</li>
+      <li>الارتداد يرفع السلاح وينزل لحاله. اقعد (Shift) عشان يقل، وتثبت يدك على المنظار.</li>
+    </ul>
+    <h3>الحركة والبناء</h3>
+    <ul>
+      <li>على الجوال: اسحب يسار الشاشة للمشي، واسحب يمينها لتلتفت.</li>
+      <li>وجّه العلامة الوسطى إلى قطعة، ثم «اكسر» أو «ضع».</li>
+      <li>اضغط C (أو زر المكعب على الجوال) لتختار حجم القطعة من 20 إلى 100 سم، وطريقة الالتصاق: حر أو شبكة بحجم القطعة.</li>
+      <li>افتح «الحقيبة» واسحب أي مادة إلى خانة في الشريط. اسحب خانة من الشريط خارجه لتفرغها، أو إلى خانة أخرى لتبادل مكانهما.</li>
+      <li>طولك 1.8 م وعرضك 80 سم، وتصعد الدرجات حتى 40 سم بلا قفز.</li>
+      <li>زر «طيران» يساعدك في البناء العالي، وزر العين يبدّل بين منظور الشخص الأول والمنظور الخلفي.</li>
+    </ul>
+    <h3>المركبات</h3>
+    <ul>
+      <li>ضع «رافعة هيدروليكية» على الأرض أولًا (حجمها متر)، وستجد واحدة جاهزة بجانبك. ترتفع من متر حتى 10 أمتار.</li>
+      <li>ابنِ مركبتك فوق الرافعة: «كرسي» واتجاهه هو اتجاه نظرك عند وضعه، ثم هيكل متصل، ثم «عجلة» للسير أو «مروحة» للطيران.</li>
+      <li>عندما تضع الرافعة يحل مكانها في الشريط جهاز تحكم لاسلكي. اختره واضغط ▲ أو ▼ لرفعها أو تنزيلها من أي مكان. وعند كسر الرافعة يرجع الجهاز رافعة.</li>
+      <li>اكسر الرافعة، أو اضغط «فصل المركبة» في جهاز التحكم (G على الكمبيوتر)، فتصبح القطع التي فوقها مركبة واحدة.</li>
+      <li>وأنت تقود ترى مربعًا أصفر شفافًا فوق كل رافعة. قف بالمركبة داخله، وأطفئ المحرك، ثم اضغط حرف G لتعود قطعًا فوقها وتعدّل عليها.</li>
+      <li>وجّه العلامة إلى كرسي المركبة واضغط «اركب». تبقى المركبة مركبة بعد النزول، وتستطيع إضافة قطع إليها أو كسر قطع منها.</li>
+    </ul>
+    <h3>الكمبيوتر</h3>
+    <p>اضغط على الشاشة لتثبيت الفأرة. WASD للحركة، المسافة للقفز (مرتين للطيران)، يسار الفأرة للكسر ويمينها للوضع، العجلة أو 0 إلى 9 لخانات الشريط، C لإعدادات البناء (الحجم وطريقة الالتصاق)، Z وX للحجم، E للحقيبة، M للخريطة، وعند مسك جهاز الرافعة: الزر الأيمن أو السهم ↑ للرفع، والأيسر أو ↓ للتنزيل، F للركوب، Esc للقائمة.</p>
+    <button class="btn" data-back>رجوع</button>
+  </div>
+
+  <div class="card" id="pChar" hidden>
+    <div class="bagHead"><h2>شخصيتي</h2><button class="btn wood" data-back>رجوع</button></div>
+    <div class="charLayout"><div id="meStage"></div><div id="meEd"></div></div>
+  </div>
+  <div class="card" id="pSet" hidden>
+    <h2>الإعدادات</h2>
+    <div class="setWrap">
+      <div class="setNav">
+        <button class="btn sgB" data-g="gfx">الرسومات</button>
+        <button class="btn sgB" data-g="snd">الصوت</button>
+        <button class="btn sgB" data-g="ctl">التحكم</button>
+        <button class="btn sgB" data-g="env">الطقس والوقت</button>
+        <button class="btn sgB" data-g="lng">اللغة</button>
+        <button class="btn" data-back>رجوع</button>
+      </div>
+      <div class="setBody">
+        <div class="sg" data-g="gfx">
+          <div class="field"><label>مسافة الرؤية</label><div class="opts"><button class="chip vdB" data-v="0">3 شنك</button><button class="chip vdB" data-v="1">4 شنك</button><button class="chip vdB" data-v="2">6 شنك</button><button class="chip vdB" data-v="3">8 شنك</button></div><div class="hint">كل شنك 16 × 16 م. الأبعد أجمل بس يحتاج جهاز أقوى</div></div>
+          <div class="field"><label>دقة بكسلات البلوكات</label><div class="opts"><button class="chip texB" data-v="16">16×16</button><button class="chip texB" data-v="32">32×32</button><button class="chip texB" data-v="64">64×64</button><button class="chip texB" data-v="128">128×128</button><button class="chip texB" data-v="256">256×256</button><button class="chip texB" data-v="512">512×512</button></div><div class="hint" id="texHint">الأساسي 16×16 مثل ماينكرافت. الأعلى أنعم بس ياكل ذاكرة كرت الشاشة، و256 و512 ثقيلة جدًا. تتطبق بعد إعادة تشغيل اللعبة</div></div>
+          <div class="field"><label>مؤثرات الصورة السينمائية</label><div class="opts"><button class="chip fxB" data-v="1">تشتغل</button><button class="chip fxB" data-v="0">طافية</button></div><div class="hint">توهج الأضواء والانفجارات، ألوان عالم ما بعد الحرب، وتغبيش الأطراف</div></div>
+          <div class="field"><label>الرماد في الجو</label><div class="opts"><button class="chip ashB" data-v="1">يطلع</button><button class="chip ashB" data-v="0">مخفي</button></div></div>
+          <div class="field"><label>حدود الشنك</label><div class="opts"><button class="chip" id="cbTog">إظهار</button></div><div class="hint">على الكمبيوتر: F3 + G، و F3 لمعلومات الشنك</div></div>
+          <div class="field"><label for="sFov">زاوية الرؤية <output id="oFov"></output></label><input id="sFov" type="range" min="60" max="110" step="1"></div>
+          <div class="field"><label>الظلال</label><div class="opts"><button class="chip shB" data-v="1">تشغيل</button><button class="chip shB" data-v="0">إيقاف</button></div></div>
+        </div>
+        <div class="sg" data-g="snd">
+          <div class="field"><label for="sVol">الصوت <output id="oVol"></output></label><input id="sVol" type="range" min="0" max="1" step="0.05"></div><div class="field"><label for="sMus">الموسيقى <output id="oMus"></output></label><input id="sMus" type="range" min="0" max="1" step="0.05"></div>
+        </div>
+        <div class="sg" data-g="ctl">
+          <div class="field"><label for="sSens">حساسية الالتفات <output id="oSens"></output></label><input id="sSens" type="range" min="0.4" max="2.5" step="0.1"></div>
+        </div>
+        <div class="sg" data-g="env">
+          <div class="field"><label>الطقس</label><div class="opts">
+            <button class="chip wxB" data-w="auto">تلقائي</button><button class="chip wxB" data-w="clear">صافٍ</button><button class="chip wxB" data-w="cloudy">غائم</button><button class="chip wxB" data-w="rain">ممطر</button><button class="chip wxB" data-w="storm">عاصفة</button><button class="chip wxB" data-w="fog">ضباب</button></div></div>
+          <div class="field"><label>الوقت</label><div class="opts">
+            <button class="chip tmB" data-t="auto">يتغير تلقائيًا</button><button class="chip tmB" data-t="0.27">فجر</button><button class="chip tmB" data-t="0.35">صباح</button><button class="chip tmB" data-t="0.5">ظهر</button><button class="chip tmB" data-t="0.73">مغرب</button><button class="chip tmB" data-t="0.95">ليل</button></div></div>
+          <div class="field"><label for="sTime">الساعة <output id="oTime"></output></label><input id="sTime" type="range" min="0" max="23.75" step="0.25"></div>
+        </div>
+        <div class="sg" data-g="lng">
+          <div class="field"><label>اللغة</label><div class="opts"><button class="chip lgB" data-l="ar">العربية</button><button class="chip lgB" data-l="en">English</button></div></div>
+          <div class="field"><label>اللهجة</label><div class="opts" id="diaOpts"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="pConfirm" hidden>
+    <h2 id="cT">حذف العالم؟</h2>
+    <p id="cP"></p>
+    <div class="row">
+      <button id="cYes" class="btn bad">نعم، احذفه</button>
+      <button class="btn" data-back="#pWorlds">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(()=>{ const coarse=matchMedia('(pointer:coarse)').matches; if(!coarse) return;
+  const de=document.documentElement, W0=Object.getOwnPropertyDescriptor(window,'innerWidth')||{get:()=>de.clientWidth}, H0=Object.getOwnPropertyDescriptor(window,'innerHeight')||{get:()=>de.clientHeight};
+  const rw=()=>W0.get.call(window), rh=()=>H0.get.call(window); let ROT=false;
+  const upd=()=>{ const r=rh()>rw(); if(r!==ROT){ ROT=r; de.classList.toggle('rot',r); dispatchEvent(new Event('resize')); } };
+  Object.defineProperty(window,'innerWidth',{configurable:true,get:()=>ROT?rh():rw()});
+  Object.defineProperty(window,'innerHeight',{configurable:true,get:()=>ROT?rw():rh()});
+  for(const P of [MouseEvent.prototype,(window.Touch||function(){}).prototype]){ const dx=Object.getOwnPropertyDescriptor(P,'clientX'), dy=Object.getOwnPropertyDescriptor(P,'clientY'); if(!dx||!dy) continue;
+    Object.defineProperty(P,'clientX',{configurable:true,get(){ return ROT?dy.get.call(this):dx.get.call(this); }});
+    Object.defineProperty(P,'clientY',{configurable:true,get(){ return ROT?rw()-dx.get.call(this):dy.get.call(this); }}); }
+  const efp=Document.prototype.elementFromPoint; Document.prototype.elementFromPoint=function(x,y){ return ROT?efp.call(this,rw()-y,x):efp.call(this,x,y); };
+  const gbr=Element.prototype.getBoundingClientRect; Element.prototype.getBoundingClientRect=function(){ const r=gbr.call(this); if(!ROT) return r; const W=rw(); const x=r.top, y=W-r.right; return {x,y,left:x,top:y,width:r.height,height:r.width,right:x+r.height,bottom:y+r.width,toJSON(){return this;}}; };
+  addEventListener('resize',()=>setTimeout(upd,0),true); addEventListener('orientationchange',()=>setTimeout(upd,150)); upd();
+  // try the real thing too: fullscreen + landscape lock on the first touch (Android)
+  const lock=()=>{ try{ const p=de.requestFullscreen?de.requestFullscreen({navigationUI:'hide'}):null; if(p&&p.then) p.then(()=>{ try{ screen.orientation.lock('landscape').catch(()=>{}); }catch(e){} }).catch(()=>{}); }catch(e){} };
+  addEventListener('pointerdown',lock,{once:true,capture:true});
+})();
+</script>
+<script src="../../assets/three-a13f10ad8e.js"></script>
+<script src="../../assets/music-9ff2127909.js"></script>
+<script src="../../assets/earth-85775052c4.js"></script>
+<script src="../../assets/three-a13f10ad8e.js"></script>
+<script src="game.js"></script>
+</body></html>
