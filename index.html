@@ -186,7 +186,10 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
       else { b.href='#buy'; delete b.dataset.get; b.setAttribute('aria-disabled','true'); b.textContent='الشراء قريباً'; } });
     try{ window.createLemonSqueezy&&window.createLemonSqueezy(); }catch(e){} }
   window.TV_RENDER=()=>render();
-  $('#promo').addEventListener('submit',async ev=>{ ev.preventDefault(); const c=$('#promoIn').value.trim().toUpperCase(), m=$('#promoMsg');
+  const normCode=t=>{ t=String(t||'').normalize('NFKC').replace(/[​-‏‪-‮⁦-⁩\s]/g,'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+    if(/[؀-ۿ]/.test(t)){ const K={'ض':'q','ص':'w','ث':'e','ق':'r','ف':'t','غ':'y','ع':'u','ه':'i','خ':'o','ح':'p','ش':'a','س':'s','ي':'d','ب':'f','ل':'g','ا':'h','ت':'j','ن':'k','م':'l','ئ':'z','ء':'x','ؤ':'c','ر':'v','ى':'n','ة':'m','أ':'h','إ':'y','آ':'n'}; t=t.replace(/لا/g,'b').replace(/[؀-ۿ]/g,c=>K[c]||c); }
+    return t.toUpperCase(); };
+  $('#promo').addEventListener('submit',async ev=>{ ev.preventDefault(); const c=normCode($('#promoIn').value), m=$('#promoMsg');
     if(!c){ CODE=''; DEAL=null; m.textContent=''; m.className=''; render(); return; }
     m.className=''; m.textContent='جاري التحقق…';
     const d=SHOP&&SHOP.codes&&SHOP.codes[await sha(c)], dl=window.TV_CHECK?await window.TV_CHECK(c):false;
@@ -208,6 +211,9 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
     for(const k of P.enc.keys){ try{ const kek=await crypto.subtle.deriveKey({name:'PBKDF2',hash:'SHA-256',salt:b64(k.salt),iterations:P.enc.iter},base,{name:'AES-GCM',length:256},false,['decrypt']);
         const raw=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},kek,b64(k.wk)); return await crypto.subtle.importKey('raw',raw,'AES-GCM',false,['decrypt']); }catch(e){} } return null; }
   window.TV_CHECK=async code=>!!(await keyFor(String(code||'').trim().toUpperCase()));
+  window.TV_NORM=t=>{ t=String(t||'').normalize('NFKC').replace(/[​-‏‪-‮⁦-⁩\s]/g,'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+    if(/[؀-ۿ]/.test(t)){ const K={'ض':'q','ص':'w','ث':'e','ق':'r','ف':'t','غ':'y','ع':'u','ه':'i','خ':'o','ح':'p','ش':'a','س':'s','ي':'d','ب':'f','ل':'g','ا':'h','ت':'j','ن':'k','م':'l','ئ':'z','ء':'x','ؤ':'c','ر':'v','ى':'n','ة':'m','أ':'h','إ':'y','آ':'n'}; t=t.replace(/لا/g,'b').replace(/[؀-ۿ]/g,c=>K[c]||c); }
+    return t.toUpperCase(); };
   function need(){ const m=document.getElementById('promoMsg'), i=document.getElementById('promoIn'); document.getElementById('buy').scrollIntoView({behavior:'smooth'});
     if(m){ m.className='bad'; m.textContent='التحميل حالياً متاح بكود فقط. اكتب الكود واضغط تطبيق.'; } setTimeout(()=>i&&i.focus(),400); }
   async function download(a){ if(a._busy) return; const code=window.TV_CODE; if(!code){ need(); return; } a._busy=1; const t0=a.innerHTML, bufs=[]; let got=0;
