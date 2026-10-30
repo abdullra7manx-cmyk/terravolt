@@ -1,24 +1,38 @@
 {
  "name": "TERRAVOLT-Launcher-Windows.zip",
- "size": 115212797,
- "sha1": "7429870b1b8d6f1dd9d96609398768d334761618",
+ "size": 115213019,
+ "zipSize": 115213003,
+ "sha1": "a0d0738e3ec45239915145a1f1c0562e62c25cec",
  "version": "01.06.00",
+ "enc": {
+  "alg": "AES-GCM",
+  "iv": "3LXwM+KI78qAq8Bb",
+  "kdf": "PBKDF2-SHA256",
+  "iter": 250000,
+  "keys": [
+   {
+    "salt": "usnX+zn2ESgFEE0ZvFjGgA==",
+    "iv": "6mih4oU5S0Ou5oYx",
+    "wk": "jdQ39xQp7xdQdC1DOi67i2tDYKYts9APaMYlzaK6SRsvfo7OEB70nusY1XYyQhzb"
+   }
+  ]
+ },
  "parts": [
   {
-   "url": "dl/part0.bin?v=7429870b",
+   "url": "dl/part0.bin?v=a83bdcad",
    "size": 29000000
   },
   {
-   "url": "dl/part1.bin?v=7429870b",
+   "url": "dl/part1.bin?v=a83bdcad",
    "size": 29000000
   },
   {
-   "url": "dl/part2.bin?v=7429870b",
+   "url": "dl/part2.bin?v=a83bdcad",
    "size": 29000000
   },
   {
-   "url": "dl/part3.bin?v=7429870b",
-   "size": 28212797
+   "url": "dl/part3.bin?v=a83bdcad",
+   "size": 28213019
   }
  ]
 }

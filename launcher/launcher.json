@@ -3,19 +3,19 @@
  "files": [
   {
    "path": "index.html",
-   "sha1": "250964f7a1c33d6520837007fcfd4c798337e450",
-   "size": 584275,
-   "url": "launcher/objects/250964f7a1c33d6520837007fcfd4c798337e450/index.html"
+   "sha1": "b9013aa354879c514f4b89a7439ac2804efcf0f0",
+   "size": 584302,
+   "url": "launcher/objects/b9013aa354879c514f4b89a7439ac2804efcf0f0/index.html"
   }
  ],
  "app": {
-  "version": "1.5.0",
+  "version": "1.5.1",
   "files": [
    {
     "path": "main.js",
-    "sha1": "177a13b20f51eb43a374fe13c8523b8cd1758f93",
-    "size": 23048,
-    "url": "launcher/app/177a13b20f51eb43a374fe13c8523b8cd1758f93/main.js"
+    "sha1": "c4618de796eba7c3c94b8e2e311dcb35d49fef7c",
+    "size": 23690,
+    "url": "launcher/app/c4618de796eba7c3c94b8e2e311dcb35d49fef7c/main.js"
    },
    {
     "path": "preload.js",

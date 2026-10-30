@@ -68,7 +68,7 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 .plan ul{margin:0;padding:0 18px 0 0;color:var(--mut);font-size:14px;flex:1}.plan .btn{justify-content:center}
 .plan.gold{box-shadow:inset 0 0 0 2px #b58a10,0 0 30px rgba(255,200,60,.15)}.plan.gold h3,.plan.gold .pr{color:var(--sun)}
 .plan .tag{position:absolute;top:-14px;left:16px;background:var(--sun);color:#1a1300;font:700 12px 'IBM Plex Sans Arabic';padding:3px 10px;border:2px solid #000}
-.plan.free-now{outline:3px solid var(--grn2)}
+.plan .soon{opacity:.55;cursor:not-allowed}.plan.free-now{outline:3px solid var(--grn2)}
 .promo{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .promo input{flex:0 1 260px;padding:12px 14px;font:700 16px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;direction:ltr;background:#0b0c0e;color:#fff;border:3px solid #000;box-shadow:inset 0 0 0 2px var(--line)}
 .promo .btn{padding:10px 20px;font-size:15px;background:#2a2d31;box-shadow:inset 0 -4px 0 #15171a,0 0 0 3px #000}
@@ -114,18 +114,18 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 <section id="buy">
   <h2>النسخ والأسعار</h2>
   <div class="plans">
-    <div class="plan" data-ed="demo"><h3>TERRAVOLT Demo</h3><div class="pr" data-p>$0</div><ul><li>نسخة مجانية للتجربة</li><li>تحميل اللانشر مباشرة</li></ul><a class="btn dl" href="#">تحميل مجاني</a></div>
+    <div class="plan" data-ed="demo"><h3>TERRAVOLT Demo</h3><div class="pr" data-p>$0</div><ul><li>نسخة مجانية للتجربة</li></ul><a class="btn soon" href="#buy" aria-disabled="true">قريباً</a></div>
     <div class="plan" data-ed="std"><h3>TERRAVOLT</h3><div class="pr" data-p>$39.99</div><ul><li>اللعبة الكاملة</li><li>كود تفعيل يوصلك على الإيميل</li><li>كل التحديثات</li></ul><a class="btn buy" href="#">شراء</a></div>
     <div class="plan gold" data-ed="gold"><span class="tag">GOLD</span><h3>TERRAVOLT Gold</h3><div class="pr" data-p>$99.99</div><ul><li>اللعبة الكاملة بنسخة Gold</li><li>كود تفعيل يوصلك على الإيميل</li><li>كل التحديثات</li></ul><a class="btn buy" href="#">شراء</a></div>
   </div>
   <form class="promo" id="promo" autocomplete="off"><input id="promoIn" placeholder="كود الخصم" maxlength="32" aria-label="كود الخصم"><button class="btn" type="submit">تطبيق</button><span id="promoMsg" role="status"></span></form>
-  <div class="buynote">الدفع آمن عن طريق Lemon Squeezy (فيزا، مدى، Apple Pay، PayPal). بعد الدفع يوصلك كود التفعيل على الإيميل، حمّل اللانشر واضغط «تفعيل كود الشراء» واكتبه.</div>
+  <div class="buynote">الدفع آمن عن طريق Lemon Squeezy (فيزا، مدى، Apple Pay، PayPal). التحميل حالياً متاح بكود فقط.</div>
 </section>
 
 <section id="install">
   <h2>التثبيت</h2>
   <div class="steps">
-    <div class="card"><h3>حمّل اللانشر</h3><p>اضغط «تحميل لويندوز» وبينزل لك ملف zip.</p></div>
+    <div class="card"><h3>حمّل اللانشر</h3><p>اكتب كود التحميل في خانة الكود، بعدها اضغط «تحميل» وبينزل لك ملف zip.</p></div>
     <div class="card"><h3>افتحه وثبّت</h3><p>فك الضغط وشغّل TERRAVOLT.exe، واختر «تثبيت». بتطلع لك أيقونة على سطح المكتب.</p></div>
     <div class="card"><h3>العب</h3><p>اللانشر يحمّل آخر إصدار من السيرفر ويتأكد من كل ملف. وكل ما نزل تحديث، يحمّله لحاله.</p></div>
   </div>
@@ -162,31 +162,44 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
   function render(){ document.querySelectorAll('.plan').forEach(p=>{ const ed=p.dataset.ed, e=SHOP&&SHOP.editions[ed]; if(!e) return; const pr=p.querySelector('[data-p]'), hit=DEAL&&DEAL.ed.includes(ed);
       const now=hit?Math.max(0,e.price*(1-DEAL.off/100)):e.price; pr.innerHTML=(hit&&e.price?'<s>'+fmt(e.price)+'</s>':'')+fmt(now); p.classList.toggle('free-now',!!(hit&&now===0));
       const b=p.querySelector('.buy'); if(!b) return; const u=link(ed);
-      if(u){ b.href=u; b.classList.add('lemonsqueezy-button'); b.removeAttribute('aria-disabled'); b.textContent=hit&&now===0?'احصل عليها مجاناً':'شراء'; }
-      else { b.href='#buy'; b.setAttribute('aria-disabled','true'); b.textContent='الشراء قريباً'; } });
+      if(u&&!(hit&&now===0&&window.TV_CODE)){ delete b.dataset.get; b.href=u; b.classList.add('lemonsqueezy-button'); b.removeAttribute('aria-disabled'); b.textContent=hit&&now===0?'احصل عليها مجاناً':'شراء'; }
+      else if(hit&&window.TV_CODE){ b.href='#buy'; b.removeAttribute('aria-disabled'); b.dataset.get='1'; b.textContent='تحميل '+e.name; }
+      else { b.href='#buy'; delete b.dataset.get; b.setAttribute('aria-disabled','true'); b.textContent='الشراء قريباً'; } });
     try{ window.createLemonSqueezy&&window.createLemonSqueezy(); }catch(e){} }
   $('#promo').addEventListener('submit',async ev=>{ ev.preventDefault(); const c=$('#promoIn').value.trim().toUpperCase(), m=$('#promoMsg');
     if(!c){ CODE=''; DEAL=null; m.textContent=''; m.className=''; render(); return; }
-    const d=SHOP&&SHOP.codes&&SHOP.codes[await sha(c)];
-    if(d){ CODE=c; DEAL=d; m.className='ok'; m.textContent='✓ تم تطبيق الكود: '+(d.off>=100?'مجاناً':'خصم '+d.off+'%')+' على '+d.ed.map(x=>SHOP.editions[x].name).join(' و '); }
+    m.className=''; m.textContent='جاري التحقق…';
+    const d=SHOP&&SHOP.codes&&SHOP.codes[await sha(c)], dl=window.TV_CHECK?await window.TV_CHECK(c):false;
+    window.TV_CODE=dl?c:'';
+    if(d){ CODE=c; DEAL=d; m.className='ok'; m.textContent='✓ تم تطبيق الكود: '+(d.off>=100?'مجاناً':'خصم '+d.off+'%')+' على '+d.ed.map(x=>SHOP.editions[x].name).join(' و ')+(dl?' · التحميل صار متاح':''); }
+    else if(dl){ CODE=''; DEAL=null; m.className='ok'; m.textContent='✓ الكود صحيح، التحميل صار متاح'; }
     else { CODE=''; DEAL=null; m.className='bad'; m.textContent='الكود غير صحيح'; } render(); });
-  document.addEventListener('click',e=>{ const b=e.target.closest('.buy[aria-disabled]'); if(b){ e.preventDefault(); const m=$('#promoMsg'); m.className='bad'; m.textContent='الشراء بيفتح قريباً'; } });
+  document.addEventListener('click',e=>{ const b=e.target.closest('.buy[data-get]'); if(b&&window.TV_DOWNLOAD){ e.preventDefault(); window.TV_DOWNLOAD(b); } });
+  document.addEventListener('click',e=>{ const b=e.target.closest('.buy[aria-disabled],.soon'); if(b){ e.preventDefault(); const m=$('#promoMsg'); m.className='bad'; m.textContent='قريباً'; } });
   fetch('shop.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{ SHOP=j; render(); }).catch(()=>{});
 })();
 </script>
 <script>
-// where the launcher is downloaded from: the latest GitHub release of this site's repository (owner.github.io/repo)
+// download: the launcher zip is stored encrypted next to this page; only a valid access code opens it
 (function(){
-  const h=location.hostname, seg=location.pathname.split('/').filter(Boolean);
-  let dl=document.body.dataset.dl||'';
-  if(/\.github\.io$/.test(h)){ const owner=h.split('.')[0], repo=seg[0]||(owner+'.github.io'); dl=`https://github.com/${owner}/${repo}/releases/latest/download/TERRAVOLT-Launcher-Windows.zip`; }
-  document.querySelectorAll('a.dl').forEach(a=>{ if(dl){ a.href=dl; } else { a.href='#install'; } });
-  // no GitHub release here: the launcher is stored in pieces next to this page; put them back together and save
-  fetch('dl/parts.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(P=>{ if(!P) return;
-    document.querySelectorAll('a.dl').forEach(a=>a.addEventListener('click',async e=>{ e.preventDefault(); if(a._busy) return; a._busy=1; const t0=a.innerHTML, bufs=[]; let got=0;
-      try{ for(const part of P.parts){ const r=await fetch(part.url); if(!r.ok) throw new Error(r.status); const rd=r.body.getReader(); for(;;){ const {done,value}=await rd.read(); if(done) break; bufs.push(value); got+=value.length; a.textContent='جاري التحميل '+Math.round(got/P.size*100)+'%'; } }
-        const url=URL.createObjectURL(new Blob(bufs,{type:'application/zip'})); const x=document.createElement('a'); x.href=url; x.download=P.name; document.body.appendChild(x); x.click(); x.remove(); setTimeout(()=>URL.revokeObjectURL(url),60000); a.innerHTML=t0; }
-      catch(err){ a.innerHTML=t0; alert('ما اكتمل التحميل، جرّب مرة ثانية'); } a._busy=0; })); });
+  const b64=t=>Uint8Array.from(atob(t),c=>c.charCodeAt(0)); let P=null;
+  fetch('dl/parts.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{ P=j; }).catch(()=>{});
+  async function keyFor(code){ if(!P||!P.enc) return null; const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveKey']);
+    for(const k of P.enc.keys){ try{ const kek=await crypto.subtle.deriveKey({name:'PBKDF2',hash:'SHA-256',salt:b64(k.salt),iterations:P.enc.iter},base,{name:'AES-GCM',length:256},false,['decrypt']);
+        const raw=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(k.iv)},kek,b64(k.wk)); return await crypto.subtle.importKey('raw',raw,'AES-GCM',false,['decrypt']); }catch(e){} } return null; }
+  window.TV_CHECK=async code=>!!(await keyFor(String(code||'').trim().toUpperCase()));
+  function need(){ const m=document.getElementById('promoMsg'), i=document.getElementById('promoIn'); document.getElementById('buy').scrollIntoView({behavior:'smooth'});
+    if(m){ m.className='bad'; m.textContent='التحميل حالياً متاح بكود فقط. اكتب الكود واضغط تطبيق.'; } setTimeout(()=>i&&i.focus(),400); }
+  async function download(a){ if(a._busy) return; const code=window.TV_CODE; if(!code){ need(); return; } a._busy=1; const t0=a.innerHTML, bufs=[]; let got=0;
+    try{ a.textContent='جاري التحقق…'; if(!P) P=await (await fetch('dl/parts.json',{cache:'no-store'})).json(); const K=await keyFor(code); if(!K){ a.innerHTML=t0; a._busy=0; window.TV_CODE=''; need(); return; }
+      for(const part of P.parts){ const r=await fetch(part.url); if(!r.ok) throw new Error(r.status); const rd=r.body.getReader(); for(;;){ const {done,value}=await rd.read(); if(done) break; bufs.push(value); got+=value.length; a.textContent='جاري التحميل '+Math.round(got/P.size*100)+'%'; } }
+      a.textContent='جاري التجهيز…'; const all=new Uint8Array(got); let o=0; for(const x of bufs){ all.set(x,o); o+=x.length; }
+      const zip=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(P.enc.iv)},K,all);
+      const url=URL.createObjectURL(new Blob([zip],{type:'application/zip'})); const x=document.createElement('a'); x.href=url; x.download=P.name; document.body.appendChild(x); x.click(); x.remove(); setTimeout(()=>URL.revokeObjectURL(url),60000); a.innerHTML=t0; }
+    catch(err){ a.innerHTML=t0; alert('ما اكتمل التحميل، جرّب مرة ثانية'); } a._busy=0; }
+  window.TV_DOWNLOAD=download;
+  document.addEventListener('click',e=>{ const a=e.target.closest('a.dl'); if(!a) return; e.preventDefault(); download(a); });
+  document.querySelectorAll('a.dl').forEach(a=>a.href='#buy');
   const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   fetch('mc/game/version_manifest_v2.json',{cache:'no-store'}).then(r=>r.json()).then(m=>{
     document.getElementById('latest').innerHTML='آخر إصدار: <b>'+esc(m.latest.release)+'</b>';
