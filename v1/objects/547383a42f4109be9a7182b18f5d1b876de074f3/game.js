@@ -3655,7 +3655,7 @@ const CHM=CS*C; const ckey=(cx,cz)=>isEarth()?(cx+GOX/CHM)*1e7+(cz+GOZ/CHM):cx*1
 const CELLS=CS*CS*HC;
 const chunkArr=new Array(NCW*NCW).fill(null);
 const slots=new Array(1024).fill(null); const freeSlots=[]; for(let i=1023;i>=1;i--) freeSlots.push(i);
-const NET_VER='00.01.07';
+const NET_VER='00.00.17';
 const NET={on:false,role:null,id:0,peers:new Map(),rx:false,ops:[],pend:new Map(),sendT:0,timeT:0,info:null,lanT:0,lan:[],name:'',max:8,pass:'',clientWorld:null,joinTo:null,chatOpen:false,claims:[]};
 let loaded=new Set(), seed=1, genMode=false, edits=new Map(), GENV=2;
 const dirty=new Set();

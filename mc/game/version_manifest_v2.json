@@ -1,16 +1,16 @@
 {
  "latest": {
-  "release": "00.01.07",
-  "snapshot": "00.01.07"
+  "release": "00.00.17",
+  "snapshot": "00.00.17"
  },
  "versions": [
   {
-   "id": "00.01.07",
+   "id": "00.00.17",
    "type": "release",
-   "url": "v1/packages/79e4f61c77d58b37917afd0a9468fcc5a75fe5d6/00.01.07.json",
+   "url": "v1/packages/7bfc163819dea00095e1f608b73501815cfc7fd6/00.00.17.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "79e4f61c77d58b37917afd0a9468fcc5a75fe5d6",
+   "sha1": "7bfc163819dea00095e1f608b73501815cfc7fd6",
    "complianceLevel": 1,
    "title": "أرقام الإصدارات الجديدة",
    "notes": [
@@ -19,12 +19,12 @@
    "size": 6670828
   },
   {
-   "id": "00.01.06",
+   "id": "00.00.16",
    "type": "release",
-   "url": "v1/packages/fd707c0a32ce003a323047a8ece8e4b573b3d82f/00.01.06.json",
+   "url": "v1/packages/fc0117d66acf219f06ed5be7e339239f7d035569/00.00.16.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "fd707c0a32ce003a323047a8ece8e4b573b3d82f",
+   "sha1": "fc0117d66acf219f06ed5be7e339239f7d035569",
    "complianceLevel": 1,
    "title": "لانشر حقيقي",
    "notes": [
@@ -36,12 +36,12 @@
    "size": 6670826
   },
   {
-   "id": "00.01.05",
+   "id": "00.00.15",
    "type": "release",
-   "url": "v1/packages/fda848adde319e999bd5646f3a75e3af9145e547/00.01.05.json",
+   "url": "v1/packages/97f94aa0126bc2b4d83fde8678a2f18ba0103d7d/00.00.15.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "fda848adde319e999bd5646f3a75e3af9145e547",
+   "sha1": "97f94aa0126bc2b4d83fde8678a2f18ba0103d7d",
    "complianceLevel": 1,
    "title": "الشنطة",
    "notes": [
@@ -53,12 +53,12 @@
    "size": 6670628
   },
   {
-   "id": "00.01.04",
+   "id": "00.00.14",
    "type": "release",
-   "url": "v1/packages/580703e697d0888f7241ad3a90ac914559748e4b/00.01.04.json",
+   "url": "v1/packages/352dcc8a0434d2bac5d6577bc5676cd20c1879a7/00.00.14.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "580703e697d0888f7241ad3a90ac914559748e4b",
+   "sha1": "352dcc8a0434d2bac5d6577bc5676cd20c1879a7",
    "complianceLevel": 1,
    "title": "إصلاح الزومبي + أيقونة",
    "notes": [
@@ -69,12 +69,12 @@
    "size": 6667732
   },
   {
-   "id": "00.01.03",
+   "id": "00.00.13",
    "type": "release",
-   "url": "v1/packages/20cf3248a9b139a7a62bdeb402554abd8a9278ba/00.01.03.json",
+   "url": "v1/packages/918b35136718b1ccb8a584fb61bc0206de039ed2/00.00.13.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "20cf3248a9b139a7a62bdeb402554abd8a9278ba",
+   "sha1": "918b35136718b1ccb8a584fb61bc0206de039ed2",
    "complianceLevel": 1,
    "title": "بيض المخلوقات + إصلاحات",
    "notes": [
@@ -89,12 +89,12 @@
    "size": 6667655
   },
   {
-   "id": "00.01.02",
+   "id": "00.00.12",
    "type": "release",
-   "url": "v1/packages/c982e936a03e0511d8427d7d766b816b283e6ec7/00.01.02.json",
+   "url": "v1/packages/6cf77e4203f57c560022eb9f8ed235c9e9f269ea/00.00.12.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "c982e936a03e0511d8427d7d766b816b283e6ec7",
+   "sha1": "6cf77e4203f57c560022eb9f8ed235c9e9f269ea",
    "complianceLevel": 1,
    "title": "الزومبي",
    "notes": [
@@ -112,12 +112,12 @@
    "size": 6663682
   },
   {
-   "id": "00.01.01",
+   "id": "00.00.11",
    "type": "release",
-   "url": "v1/packages/6503277f1faff81aeed82275a05218e7a0bd3121/00.01.01.json",
+   "url": "v1/packages/6e7e1a3e0661c9ac7b0851dfa612531f2d956936/00.00.11.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "6503277f1faff81aeed82275a05218e7a0bd3121",
+   "sha1": "6e7e1a3e0661c9ac7b0851dfa612531f2d956936",
    "complianceLevel": 1,
    "title": "أسلحة بكسل + مخزون ماينكرافت",
    "notes": [
@@ -133,12 +133,12 @@
    "size": 6635085
   },
   {
-   "id": "00.01.00",
+   "id": "00.00.10",
    "type": "release",
-   "url": "v1/packages/c7a69642de18a8ce55ba5d758d2f09ab3f86c3e2/00.01.00.json",
+   "url": "v1/packages/08caf448348eb86caa3c754c055dee0f49654d13/00.00.10.json",
    "time": "2026-10-30T12:00:00+03:00",
    "releaseTime": "2026-10-30T12:00:00+03:00",
-   "sha1": "c7a69642de18a8ce55ba5d758d2f09ab3f86c3e2",
+   "sha1": "08caf448348eb86caa3c754c055dee0f49654d13",
    "complianceLevel": 1,
    "title": "100 سلاح حقيقي",
    "notes": [
