@@ -1,27 +1,27 @@
 {
- "version": "1.2.0",
+ "version": "1.3.0",
  "files": [
   {
    "path": "index.html",
-   "sha1": "a1c998859bd9a0cacc9c261058a1c978061418e7",
-   "size": 252439,
-   "url": "launcher/objects/a1c998859bd9a0cacc9c261058a1c978061418e7/index.html"
+   "sha1": "e2f4c32a7db6da2d23f8e1ddad857eaefb98f93f",
+   "size": 254530,
+   "url": "launcher/objects/e2f4c32a7db6da2d23f8e1ddad857eaefb98f93f/index.html"
   }
  ],
  "app": {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "files": [
    {
     "path": "main.js",
-    "sha1": "a00fb17807171edb16fe33506fec7cc992fccf2d",
-    "size": 14509,
-    "url": "launcher/app/a00fb17807171edb16fe33506fec7cc992fccf2d/main.js"
+    "sha1": "3005930a35552ab12edae73ab61223c200e4b756",
+    "size": 17889,
+    "url": "launcher/app/3005930a35552ab12edae73ab61223c200e4b756/main.js"
    },
    {
     "path": "preload.js",
-    "sha1": "9c8861ec34e794dba709d0e334c52fe71404942f",
-    "size": 1391,
-    "url": "launcher/app/9c8861ec34e794dba709d0e334c52fe71404942f/preload.js"
+    "sha1": "667ab4d89af049a545c58cb11f0def9f23b29c12",
+    "size": 2010,
+    "url": "launcher/app/667ab4d89af049a545c58cb11f0def9f23b29c12/preload.js"
    },
    {
     "path": "net.js",
