@@ -3,18 +3,18 @@
  "storeId": 0,
  "editions": {
   "demo": {
-   "name": "TERRAVOLT Demo",
+   "name": "BLOCKFALL 3001 Demo",
    "price": 0
   },
   "std": {
-   "name": "TERRAVOLT",
+   "name": "BLOCKFALL 3001",
    "price": 39.99,
    "productId": 0,
    "variantId": 0,
    "checkout": ""
   },
   "gold": {
-   "name": "TERRAVOLT Gold",
+   "name": "BLOCKFALL 3001 Gold",
    "price": 99.99,
    "productId": 0,
    "variantId": 0,

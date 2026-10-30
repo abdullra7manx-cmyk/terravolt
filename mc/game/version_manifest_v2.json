@@ -1,9 +1,24 @@
 {
  "latest": {
-  "release": "00.00.18",
-  "snapshot": "00.00.18"
+  "release": "00.00.19",
+  "snapshot": "00.00.19"
  },
  "versions": [
+  {
+   "id": "00.00.19",
+   "type": "release",
+   "url": "v1/packages/c352dde82238abffb0c2bdfd7e84522ba5df133c/00.00.19.json",
+   "time": "2026-10-30T12:00:00+03:00",
+   "releaseTime": "2026-10-30T12:00:00+03:00",
+   "sha1": "c352dde82238abffb0c2bdfd7e84522ba5df133c",
+   "complianceLevel": 1,
+   "title": "الاسم الجديد: BLOCKFALL 3001",
+   "notes": [
+    "اسم اللعبة صار BLOCKFALL 3001",
+    "شعار وشاشة بداية جديدة بالاسم الجديد"
+   ],
+   "size": 6672649
+  },
   {
    "id": "00.00.18",
    "type": "release",

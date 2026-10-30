@@ -1,38 +1,38 @@
 {
- "name": "TERRAVOLT-Launcher-Windows.zip",
- "size": 115213019,
- "zipSize": 115213003,
- "sha1": "a0d0738e3ec45239915145a1f1c0562e62c25cec",
- "version": "01.06.00",
+ "name": "BLOCKFALL3001-Launcher-Windows.zip",
+ "size": 115214001,
+ "zipSize": 115213985,
+ "sha1": "994bb35c9509c5009e5cf4a6de7109bde40c19f8",
+ "version": "01.07.00",
  "enc": {
   "alg": "AES-GCM",
-  "iv": "3LXwM+KI78qAq8Bb",
+  "iv": "bLXPmTLYiO9NdRQN",
   "kdf": "PBKDF2-SHA256",
   "iter": 250000,
   "keys": [
    {
-    "salt": "usnX+zn2ESgFEE0ZvFjGgA==",
-    "iv": "6mih4oU5S0Ou5oYx",
-    "wk": "jdQ39xQp7xdQdC1DOi67i2tDYKYts9APaMYlzaK6SRsvfo7OEB70nusY1XYyQhzb"
+    "salt": "9UMLX1SEuBxRrJ2elzIFQw==",
+    "iv": "s8lpzifN1nhgJhIk",
+    "wk": "at72JpY/39V5n1qcS85pY4kv2XAVEydWOSZN0xCFZXdlpJi8MqsYw7Ey4sz/s4cl"
    }
   ]
  },
  "parts": [
   {
-   "url": "dl/part0.bin?v=a83bdcad",
+   "url": "dl/part0.bin?v=6be067fd",
    "size": 29000000
   },
   {
-   "url": "dl/part1.bin?v=a83bdcad",
+   "url": "dl/part1.bin?v=6be067fd",
    "size": 29000000
   },
   {
-   "url": "dl/part2.bin?v=a83bdcad",
+   "url": "dl/part2.bin?v=6be067fd",
    "size": 29000000
   },
   {
-   "url": "dl/part3.bin?v=a83bdcad",
-   "size": 28213019
+   "url": "dl/part3.bin?v=6be067fd",
+   "size": 28214001
   }
  ]
 }
