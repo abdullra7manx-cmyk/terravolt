@@ -1,0 +1,40 @@
+{
+ "id": "00.00.26",
+ "type": "release",
+ "time": "2026-10-31T12:00:00+03:00",
+ "releaseTime": "2026-10-31T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "0b57dbc4f4a495a7a3c3fe519eb1474c64d146ea",
+   "size": 38580,
+   "url": "v1/objects/0b57dbc4f4a495a7a3c3fe519eb1474c64d146ea/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d7d68f4d73f4c55709fd6ae3db9829d877a9365f",
+   "size": 118043,
+   "url": "v1/objects/d7d68f4d73f4c55709fd6ae3db9829d877a9365f/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "6dea9094d5445c24ccd9fb0d0d85bf1ec43dd49c",
+   "size": 1209683,
+   "url": "v1/objects/6dea9094d5445c24ccd9fb0d0d85bf1ec43dd49c/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "القائمة الرئيسية الجديدة",
+ "notes": [
+  "الأزرار نزلت تحت، وفوقها مربع إعلانات يتبدل كل 6 ثواني (طور القصة، النسخة الذهبية، البناء السريع، يد التحكم)",
+  "قائمة الإيقاف بنفس الترتيب: استئناف فوق، والأزرار أزواج، والخروج تحت"
+ ],
+ "size": 6891841
+}
