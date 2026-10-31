@@ -1,0 +1,39 @@
+{
+ "id": "00.00.25",
+ "type": "release",
+ "time": "2026-10-31T12:00:00+03:00",
+ "releaseTime": "2026-10-31T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "0b57dbc4f4a495a7a3c3fe519eb1474c64d146ea",
+   "size": 38580,
+   "url": "v1/objects/0b57dbc4f4a495a7a3c3fe519eb1474c64d146ea/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d7d68f4d73f4c55709fd6ae3db9829d877a9365f",
+   "size": 118043,
+   "url": "v1/objects/d7d68f4d73f4c55709fd6ae3db9829d877a9365f/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "0c39755ec31b79654a479f6c777051823ba67ef8",
+   "size": 1106620,
+   "url": "v1/objects/0c39755ec31b79654a479f6c777051823ba67ef8/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "ترتيب القائمة الرئيسية",
+ "notes": [
+  "طور القصة فوق، وتحته الأزرار أزواج: لاعب واللعب عبر الشبكة، شخصيتي والماركت، الإعدادات وطريقة اللعب، الفعاليات وأفضل اللاعبين، وتحتهم الكريدت والمغادرة"
+ ],
+ "size": 6788778
+}
