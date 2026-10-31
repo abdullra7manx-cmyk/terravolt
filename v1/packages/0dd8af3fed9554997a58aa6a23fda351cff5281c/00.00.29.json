@@ -1,0 +1,41 @@
+{
+ "id": "00.00.29",
+ "type": "release",
+ "time": "2026-10-31T12:00:00+03:00",
+ "releaseTime": "2026-10-31T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "0b57dbc4f4a495a7a3c3fe519eb1474c64d146ea",
+   "size": 38580,
+   "url": "v1/objects/0b57dbc4f4a495a7a3c3fe519eb1474c64d146ea/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "b64534195d2fe344a5e01ff5d3e5499b5208eecd",
+   "size": 118472,
+   "url": "v1/objects/b64534195d2fe344a5e01ff5d3e5499b5208eecd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "2edb6fe9bb9c05f70a7ead2ae06cc5812c9b3b4e",
+   "size": 1210120,
+   "url": "v1/objects/2edb6fe9bb9c05f70a7ead2ae06cc5812c9b3b4e/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "قائمة الإيقاف",
+ "notes": [
+  "شلت الكريدت والفعاليات من قائمة الإيقاف",
+  "قائمة الإيقاف بنفس حجم أزرار وصورة القائمة الرئيسية",
+  "الأزرار أطول شوي"
+ ],
+ "size": 6892707
+}
