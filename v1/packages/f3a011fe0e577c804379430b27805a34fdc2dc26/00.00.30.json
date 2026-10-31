@@ -1,0 +1,42 @@
+{
+ "id": "00.00.30",
+ "type": "release",
+ "time": "2026-10-31T12:00:00+03:00",
+ "releaseTime": "2026-10-31T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "e4c664bb7224a04cba97201c2ea27b7666e69618",
+   "size": 38579,
+   "url": "v1/objects/e4c664bb7224a04cba97201c2ea27b7666e69618/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "2490993f8abde1271176104686aadaeba24e4c5c",
+   "size": 118429,
+   "url": "v1/objects/2490993f8abde1271176104686aadaeba24e4c5c/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "0c825af580cb51ca356fc0af6cd89f0354c5bb19",
+   "size": 1216537,
+   "url": "v1/objects/0c825af580cb51ca356fc0af6cd89f0354c5bb19/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "Premium Studio + سيارة جديدة",
+ "notes": [
+  "اسم الاستديو: Premium Studio",
+  "سيارة 4x4 جديدة بالكامل في خلفية القائمة بكفرات حجمها حقيقي",
+  "ما فيه مخلوقات تتحرك خلف القائمة الرئيسية",
+  "خيارات قائمة ستارت نفس حجم القائمة الرئيسية"
+ ],
+ "size": 6899080
+}
