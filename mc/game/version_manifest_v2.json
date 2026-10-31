@@ -1,9 +1,24 @@
 {
  "latest": {
-  "release": "00.00.26",
-  "snapshot": "00.00.26"
+  "release": "00.00.27",
+  "snapshot": "00.00.27"
  },
  "versions": [
+  {
+   "id": "00.00.27",
+   "type": "release",
+   "url": "v1/packages/ad4dd6509130ca1bd922ad4e859aa00f1314591a/00.00.27.json",
+   "time": "2026-10-31T12:00:00+03:00",
+   "releaseTime": "2026-10-31T12:00:00+03:00",
+   "sha1": "ad4dd6509130ca1bd922ad4e859aa00f1314591a",
+   "complianceLevel": 1,
+   "title": "تعديل القائمة الرئيسية",
+   "notes": [
+    "الأزرار ارتفعت شوي عن تحت",
+    "القائمة صارت أعرض"
+   ],
+   "size": 6892038
+  },
   {
    "id": "00.00.26",
    "type": "release",
