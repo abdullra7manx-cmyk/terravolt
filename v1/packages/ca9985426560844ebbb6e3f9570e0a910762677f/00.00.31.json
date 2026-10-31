@@ -1,0 +1,42 @@
+{
+ "id": "00.00.31",
+ "type": "release",
+ "time": "2026-10-31T12:00:00+03:00",
+ "releaseTime": "2026-10-31T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "e4c664bb7224a04cba97201c2ea27b7666e69618",
+   "size": 38579,
+   "url": "v1/objects/e4c664bb7224a04cba97201c2ea27b7666e69618/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "2490993f8abde1271176104686aadaeba24e4c5c",
+   "size": 118429,
+   "url": "v1/objects/2490993f8abde1271176104686aadaeba24e4c5c/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "5ffbb3d6e02eb22c13aa24072f8b4a39b3a7ee20",
+   "size": 1225897,
+   "url": "v1/objects/5ffbb3d6e02eb22c13aa24072f8b4a39b3a7ee20/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "بيكب جديد + قائمة ستارت",
+ "notes": [
+  "سيارة بيكب دبل قمارة جديدة بتفاصيل كاملة في خلفية القائمة",
+  "قائمة ستارت صارت على اليسار أكثر",
+  "صورة الإعلان أصغر والخيارات أعلى",
+  "ما يبقى زر لحاله في سطر"
+ ],
+ "size": 6908440
+}
