@@ -1,0 +1,42 @@
+{
+ "id": "00.00.32",
+ "type": "release",
+ "time": "2026-10-31T12:00:00+03:00",
+ "releaseTime": "2026-10-31T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "e4c664bb7224a04cba97201c2ea27b7666e69618",
+   "size": 38579,
+   "url": "v1/objects/e4c664bb7224a04cba97201c2ea27b7666e69618/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "2490993f8abde1271176104686aadaeba24e4c5c",
+   "size": 118429,
+   "url": "v1/objects/2490993f8abde1271176104686aadaeba24e4c5c/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "6d839dbcb9e59a7aff7ab76a67f2eb8ffd48e39f",
+   "size": 1235962,
+   "url": "v1/objects/6d839dbcb9e59a7aff7ab76a67f2eb8ffd48e39f/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "رافعة جديدة",
+ "notes": [
+  "شكل جديد للرافعة: سطح حديد بمربع أزرق مضيء وأجنحة جانبية وعمود ثماني",
+  "لما تحطها تنفتح وتتركب قطعة قطعة",
+  "هولوغرام أزرق وأنت ماسكها",
+  "أصوات جديدة: تركيب وقفل وهيدروليك"
+ ],
+ "size": 6918505
+}
