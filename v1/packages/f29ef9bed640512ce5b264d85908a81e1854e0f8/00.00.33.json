@@ -1,0 +1,43 @@
+{
+ "id": "00.00.33",
+ "type": "release",
+ "time": "2026-11-03T12:00:00+03:00",
+ "releaseTime": "2026-11-03T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "07aebbec1b4e3aa73f69b24fb0e4e795dc0dbe43",
+   "size": 131531,
+   "url": "v1/objects/07aebbec1b4e3aa73f69b24fb0e4e795dc0dbe43/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "5fe69736a3f98ffe44e714d9b248236e7ac2e158",
+   "size": 1247761,
+   "url": "v1/objects/5fe69736a3f98ffe44e714d9b248236e7ac2e158/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "إصلاح الأونلاين والحقيبة",
+ "notes": [
+  "الهوست صار يقبل الانضمام حتى لو نسختكم مختلفة (ما دام الأونلاين نفسه)",
+  "سيرفرات ربط احتياطية أكثر لما الشبكة تمنع الاتصال المباشر",
+  "وقت انتظار أطول للانضمام",
+  "الحقيبة أخف وأنعم: شلنا الليد والزجاج المغبش والحركات",
+  "الأيقونات صارت تتحمل أسرع"
+ ],
+ "size": 7024737
+}
