@@ -203,7 +203,7 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
 })();
 </script>
 <script>
-// download: the launcher zip is stored encrypted next to this page; only a valid access code opens it
+// download: the launcher zip next to this page (if parts.json has an `enc` block, a valid access code is needed to open it)
 (function(){
   const b64=t=>Uint8Array.from(atob(t),c=>c.charCodeAt(0)); let P=null;
   fetch('dl/parts.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{ P=j; }).catch(()=>{});
@@ -216,11 +216,11 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:30px 16px}
     return t.toUpperCase(); };
   function need(){ const m=document.getElementById('promoMsg'), i=document.getElementById('promoIn'); document.getElementById('buy').scrollIntoView({behavior:'smooth'});
     if(m){ m.className='bad'; m.textContent='التحميل حالياً متاح بكود فقط. اكتب الكود واضغط تطبيق.'; } setTimeout(()=>i&&i.focus(),400); }
-  async function download(a){ if(a._busy) return; const code=window.TV_CODE; if(!code){ need(); return; } a._busy=1; const t0=a.innerHTML, bufs=[]; let got=0;
-    try{ a.textContent='جاري التحقق…'; if(!P) P=await (await fetch('dl/parts.json',{cache:'no-store'})).json(); const K=await keyFor(code); if(!K){ a.innerHTML=t0; a._busy=0; window.TV_CODE=''; need(); return; }
+  async function download(a){ if(a._busy) return; if(!P){ try{ P=await (await fetch('dl/parts.json',{cache:'no-store'})).json(); }catch(e){} } const code=window.TV_CODE; if(!code && !(P&&!P.enc)){ need(); return; } a._busy=1; const t0=a.innerHTML, bufs=[]; let got=0;
+    try{ a.textContent='جاري التحقق…'; if(!P) P=await (await fetch('dl/parts.json',{cache:'no-store'})).json(); const K=P.enc?await keyFor(code):null; if(P.enc&&!K){ a.innerHTML=t0; a._busy=0; window.TV_CODE=''; need(); return; }
       for(const part of P.parts){ const r=await fetch(part.url); if(!r.ok) throw new Error(r.status); const rd=r.body.getReader(); for(;;){ const {done,value}=await rd.read(); if(done) break; bufs.push(value); got+=value.length; a.textContent='جاري التحميل '+Math.round(got/P.size*100)+'%'; } }
       a.textContent='جاري التجهيز…'; const all=new Uint8Array(got); let o=0; for(const x of bufs){ all.set(x,o); o+=x.length; }
-      const zip=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(P.enc.iv)},K,all);
+      const zip=P.enc?await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(P.enc.iv)},K,all):all;
       const url=URL.createObjectURL(new Blob([zip],{type:'application/zip'})); const x=document.createElement('a'); x.href=url; x.download=P.name; document.body.appendChild(x); x.click(); x.remove(); setTimeout(()=>URL.revokeObjectURL(url),60000); a.innerHTML=t0; }
     catch(err){ a.innerHTML=t0; alert('ما اكتمل التحميل، جرّب مرة ثانية'); } a._busy=0; }
   window.TV_DOWNLOAD=download;
