@@ -1,15 +1,15 @@
 {
- "version": "01.08.00",
+ "version": "01.08.01",
  "files": [
   {
    "path": "index.html",
-   "sha1": "1c9b66a570491ab6ee0a4eec29888d5da2cdcb4f",
-   "size": 605759,
-   "url": "launcher/objects/1c9b66a570491ab6ee0a4eec29888d5da2cdcb4f/index.html"
+   "sha1": "85876a7ee1ccb39b577d84aa0a60b30a099dfb7c",
+   "size": 605112,
+   "url": "launcher/objects/85876a7ee1ccb39b577d84aa0a60b30a099dfb7c/index.html"
   }
  ],
  "app": {
-  "version": "1.7.1",
+  "version": "1.7.2",
   "files": [
    {
     "path": "main.js",
@@ -31,9 +31,9 @@
    },
    {
     "path": "servers.js",
-    "sha1": "9584e465af807e1c1e20f1042451d35ed1ae097e",
-    "size": 22127,
-    "url": "launcher/app/9584e465af807e1c1e20f1042451d35ed1ae097e/servers.js"
+    "sha1": "776daf9ac3615d1037e20da34b0952695c8a831b",
+    "size": 22274,
+    "url": "launcher/app/776daf9ac3615d1037e20da34b0952695c8a831b/servers.js"
    },
    {
     "path": "icon.ico",
