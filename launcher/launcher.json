@@ -9,13 +9,13 @@
   }
  ],
  "app": {
-  "version": "1.7.8",
+  "version": "1.7.9",
   "files": [
    {
     "path": "main.js",
-    "sha1": "719d05f130f6b9d7dc759799141d27e68b8cb164",
-    "size": 29926,
-    "url": "launcher/app/719d05f130f6b9d7dc759799141d27e68b8cb164/main.js"
+    "sha1": "6061744650104473e195d1325dd221dddfa01cb6",
+    "size": 30518,
+    "url": "launcher/app/6061744650104473e195d1325dd221dddfa01cb6/main.js"
    },
    {
     "path": "preload.js",
