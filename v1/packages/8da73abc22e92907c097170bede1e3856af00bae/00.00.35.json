@@ -1,0 +1,44 @@
+{
+ "id": "00.00.35",
+ "type": "release",
+ "time": "2026-11-05T12:00:00+03:00",
+ "releaseTime": "2026-11-05T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "35bd6930815376945c0c35fe0e5eb2f88e37e69a",
+   "size": 131411,
+   "url": "v1/objects/35bd6930815376945c0c35fe0e5eb2f88e37e69a/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "1e92b2262760ccd89953e77c82ff9647b18b163a",
+   "size": 1258861,
+   "url": "v1/objects/1e92b2262760ccd89953e77c82ff9647b18b163a/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "السيرفرات",
+ "notes": [
+  "سيرفرات BLOCKFALL: سوّ سيرفرك وأدره من اللانشر (تبويب السيرفرات)",
+  "فريق ورتب: مالك، مدير، مشرف، عضو",
+  "أي عضو عنده صلاحية يشغل السيرفر على جهازه والعالم ينحفظ في السحابة",
+  "قائمة السيرفرات داخل اللعبة: اللعب عبر الشبكة ← السيرفرات",
+  "حظر اللاعبين والسيرفرات الخاصة",
+  "اسمك في اللعبة صار من حساب Premium Studio"
+ ],
+ "size": 7035717
+}
