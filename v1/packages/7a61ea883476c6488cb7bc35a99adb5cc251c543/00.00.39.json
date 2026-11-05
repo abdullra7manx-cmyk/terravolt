@@ -1,0 +1,40 @@
+{
+ "id": "00.00.39",
+ "type": "release",
+ "time": "2026-11-05T12:00:00+03:00",
+ "releaseTime": "2026-11-05T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "26c08033b7c038d913c9319a965642c8cb20d20b",
+   "size": 131809,
+   "url": "v1/objects/26c08033b7c038d913c9319a965642c8cb20d20b/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "191c101dffd33c1961d9371e23998a52e43ba8f5",
+   "size": 1261187,
+   "url": "v1/objects/191c101dffd33c1961d9371e23998a52e43ba8f5/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "قائمة الشبكة",
+ "notes": [
+  "«اللعب عبر الشبكة» و«فتح للشبكة» صاروا لوحات ثابتة في المشهد مثل باقي الخيارات",
+  "الكاميرا تروح لها بنفس الحركة، وزر الرجوع يرجعك"
+ ],
+ "size": 7038441
+}
