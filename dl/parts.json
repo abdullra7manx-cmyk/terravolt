@@ -1,38 +1,38 @@
 {
  "name": "BLOCKFALL3001-Launcher-Windows.zip",
- "size": 115228751,
- "zipSize": 115228735,
- "sha1": "8cc7816c22e4f331608c0b1e42eb755cead98ec3",
+ "size": 115229032,
+ "zipSize": 115229016,
+ "sha1": "73e54a183966dda2373b66ef38b73d8a8bbada96",
  "version": "01.08.00",
  "enc": {
   "alg": "AES-GCM",
-  "iv": "H7C0b/pgh23ZXbMf",
+  "iv": "4yQ+8ZP0wz+LUr/c",
   "kdf": "PBKDF2-SHA256",
   "iter": 250000,
   "keys": [
    {
-    "salt": "SASXmlOVJDYmrVAa8gMSjQ==",
-    "iv": "o2Z0URvJOxaIO2wX",
-    "wk": "9NrpgYqyhrhcyIjGKhi837w+HbVn4k5GOVNB04rUiEp7QVuIdgzgTSljH4GeqkiE"
+    "salt": "uxTMNuvVVNX4Yywb4x0Rpw==",
+    "iv": "qx7GXR5Bp/yHXo1L",
+    "wk": "ZaN67HnjwNhOadspwyAXn118nGzmr5j6bhUUMP/DMm47y0H33tUA807rvAg2JKUT"
    }
   ]
  },
  "parts": [
   {
-   "url": "dl/part0.bin?v=13681303",
+   "url": "dl/part0.bin?v=27e28935",
    "size": 29000000
   },
   {
-   "url": "dl/part1.bin?v=13681303",
+   "url": "dl/part1.bin?v=27e28935",
    "size": 29000000
   },
   {
-   "url": "dl/part2.bin?v=13681303",
+   "url": "dl/part2.bin?v=27e28935",
    "size": 29000000
   },
   {
-   "url": "dl/part3.bin?v=13681303",
-   "size": 28228751
+   "url": "dl/part3.bin?v=27e28935",
+   "size": 28229032
   }
  ]
 }
