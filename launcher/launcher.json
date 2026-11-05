@@ -1,21 +1,21 @@
 {
- "version": "01.08.02",
+ "version": "01.08.03",
  "files": [
   {
    "path": "index.html",
-   "sha1": "d6c9d90dea165f59d3cd4bc785843556ce9b8bb7",
-   "size": 606383,
-   "url": "launcher/objects/d6c9d90dea165f59d3cd4bc785843556ce9b8bb7/index.html"
+   "sha1": "725add88f987d49d5d2f5c856e6bdb09c7c68779",
+   "size": 606418,
+   "url": "launcher/objects/725add88f987d49d5d2f5c856e6bdb09c7c68779/index.html"
   }
  ],
  "app": {
-  "version": "1.7.9",
+  "version": "1.8.0",
   "files": [
    {
     "path": "main.js",
-    "sha1": "6061744650104473e195d1325dd221dddfa01cb6",
-    "size": 30518,
-    "url": "launcher/app/6061744650104473e195d1325dd221dddfa01cb6/main.js"
+    "sha1": "28b47d38ed6d08454287838db83ecdd3d68b4d1f",
+    "size": 31705,
+    "url": "launcher/app/28b47d38ed6d08454287838db83ecdd3d68b4d1f/main.js"
    },
    {
     "path": "preload.js",

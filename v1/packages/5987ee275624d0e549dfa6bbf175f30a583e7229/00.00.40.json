@@ -1,0 +1,40 @@
+{
+ "id": "00.00.40",
+ "type": "release",
+ "time": "2026-11-05T13:40:00+03:00",
+ "releaseTime": "2026-11-05T13:40:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "064525d21fbbb4f02db6fc16bcfa6c98dafa39cf",
+   "size": 132140,
+   "url": "v1/objects/064525d21fbbb4f02db6fc16bcfa6c98dafa39cf/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "0b25e728ca91bfdd814242a0226a543eb99196f1",
+   "size": 1261340,
+   "url": "v1/objects/0b25e728ca91bfdd814242a0226a543eb99196f1/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "نسخة المبرمج",
+ "notes": [
+  "«المبرمج» (تعديل خلفية القائمة) صار نسخة خاصة اسمها BLOCKFALL 3001 المبرمج",
+  "انشال من Demo و Standard و Gold"
+ ],
+ "size": 7038925
+}
