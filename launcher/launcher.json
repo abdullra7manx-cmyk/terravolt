@@ -9,13 +9,13 @@
   }
  ],
  "app": {
-  "version": "1.7.6",
+  "version": "1.7.7",
   "files": [
    {
     "path": "main.js",
-    "sha1": "5edbd5c419b4325ac640e07952871afc3145c449",
-    "size": 31143,
-    "url": "launcher/app/5edbd5c419b4325ac640e07952871afc3145c449/main.js"
+    "sha1": "f4eb30890b11a47ef5c3b21c006e03cb1517a285",
+    "size": 29897,
+    "url": "launcher/app/f4eb30890b11a47ef5c3b21c006e03cb1517a285/main.js"
    },
    {
     "path": "preload.js",
@@ -36,6 +36,12 @@
     "url": "launcher/app/44d503814e15e6ee1f2fe55661c5ae73bbfde637/servers.js"
    },
    {
+    "path": "premium.js",
+    "sha1": "5238452d60c6b56c502d021073ff88027722b9b5",
+    "size": 7808,
+    "url": "launcher/app/5238452d60c6b56c502d021073ff88027722b9b5/premium.js"
+   },
+   {
     "path": "icon.ico",
     "sha1": "5ea266be2b6c2342eaf2496e1388eada82e87d73",
     "size": 103055,
@@ -46,12 +52,6 @@
     "sha1": "786940e19ac4da0f5410902d895c897ea0ee649c",
     "size": 242881,
     "url": "launcher/app/786940e19ac4da0f5410902d895c897ea0ee649c/icon.png"
-   },
-   {
-    "path": "premium.js",
-    "sha1": "5238452d60c6b56c502d021073ff88027722b9b5",
-    "size": 7808,
-    "url": "launcher/app/5238452d60c6b56c502d021073ff88027722b9b5/premium.js"
    }
   ]
  }
