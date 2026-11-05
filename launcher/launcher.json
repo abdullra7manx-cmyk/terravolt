@@ -9,7 +9,7 @@
   }
  ],
  "app": {
-  "version": "1.8.2",
+  "version": "1.8.3",
   "files": [
    {
     "path": "main.js",
@@ -37,9 +37,9 @@
    },
    {
     "path": "premium.js",
-    "sha1": "033320c2c45ad2157958d65066785676b9c9c765",
-    "size": 9781,
-    "url": "launcher/app/033320c2c45ad2157958d65066785676b9c9c765/premium.js"
+    "sha1": "eb4ed22961f7da8db4e2b574c2bd3d0e3fced120",
+    "size": 12165,
+    "url": "launcher/app/eb4ed22961f7da8db4e2b574c2bd3d0e3fced120/premium.js"
    },
    {
     "path": "icon.ico",
