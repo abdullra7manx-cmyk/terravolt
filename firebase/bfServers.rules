@@ -1,0 +1,41 @@
+    // ---------------- BLOCKFALL 3001 servers (written by the BLOCKFALL launcher) ----------------
+    // A server: owner + team (members map uid -> {name, role, at}), memberIds (for queries), fixed join code,
+    // host (who is running it now), world snapshot in /world/{n}. plan/paidUntil are set only by the admin (paid servers later).
+    function bfS(sid) { return get(/databases/$(database)/documents/bfServers/$(sid)).data; }
+    function bfRole(sid) { return signedIn() && request.auth.uid in bfS(sid).members ? bfS(sid).members[request.auth.uid].role : ''; }
+    function bfRoleIn(d) { return signedIn() && request.auth.uid in d.members ? d.members[request.auth.uid].role : ''; }
+    match /bfServers/{sid} {
+      allow read: if resource.data.public == true
+        || (signedIn() && request.auth.uid in resource.data.memberIds) || isAdmin();
+      allow create: if signedIn()
+        && request.resource.data.owner == request.auth.uid
+        && request.resource.data.memberIds == [request.auth.uid]
+        && request.resource.data.members.keys().hasOnly([request.auth.uid])
+        && request.resource.data.members[request.auth.uid].role == 'owner'
+        && request.resource.data.plan == 'free' && request.resource.data.paidUntil == null
+        && request.resource.data.name is string && request.resource.data.name.size() <= 32
+        && request.resource.data.code is string && request.resource.data.code.matches('^[A-Z0-9]{8}$');
+      // owner: anything except plan/paidUntil
+      allow update: if bfRoleIn(resource.data) == 'owner'
+        && !changed().hasAny(['plan', 'paidUntil', 'created'])
+        && request.resource.data.owner in request.resource.data.memberIds;
+      // admin: settings, team (not the owner), bans, hosting, world
+      allow update: if bfRoleIn(resource.data) == 'admin'
+        && !changed().hasAny(['plan', 'paidUntil', 'created', 'owner', 'ownerName'])
+        && request.resource.data.members[resource.data.owner].role == 'owner'
+        && resource.data.owner in request.resource.data.memberIds;
+      // mod: start/stop it on their PC, save the world, ban list
+      allow update: if bfRoleIn(resource.data) == 'mod'
+        && changed().hasOnly(['host', 'worldVer', 'worldSize', 'worldParts', 'updated', 'bans']);
+      // any member may leave (remove only themselves)
+      allow update: if signedIn() && request.auth.uid in resource.data.memberIds
+        && changed().hasOnly(['members', 'memberIds'])
+        && !(request.auth.uid in request.resource.data.memberIds)
+        && request.resource.data.memberIds.size() == resource.data.memberIds.size() - 1
+        && resource.data.members[request.auth.uid].role != 'owner';
+      allow update: if isAdmin();
+      allow delete: if bfRoleIn(resource.data) == 'owner' || isAdmin();
+      match /world/{part} {
+        allow read, write: if bfRole(sid) in ['owner', 'admin', 'mod'];
+      }
+    }
