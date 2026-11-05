@@ -1,0 +1,40 @@
+{
+ "id": "00.00.38",
+ "type": "release",
+ "time": "2026-11-05T12:00:00+03:00",
+ "releaseTime": "2026-11-05T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "26c08033b7c038d913c9319a965642c8cb20d20b",
+   "size": 131809,
+   "url": "v1/objects/26c08033b7c038d913c9319a965642c8cb20d20b/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "aa59e4cb4354508a27baeef4fb602ce4a1bc9b82",
+   "size": 1261127,
+   "url": "v1/objects/aa59e4cb4354508a27baeef4fb602ce4a1bc9b82/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "إصلاح الرجوع",
+ "notes": [
+  "زر الرجوع في «اللعب عبر الشبكة» صار يرجعك دايمًا للقائمة",
+  "Esc أو زر B في اليد يرجعك خطوة من أي صفحة في القائمة الرئيسية"
+ ],
+ "size": 7038381
+}
