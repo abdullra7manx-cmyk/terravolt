@@ -1,0 +1,41 @@
+{
+ "id": "00.00.47",
+ "type": "release",
+ "time": "2026-11-07T12:00:00+03:00",
+ "releaseTime": "2026-11-07T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "7f36e69e1e063b08150899e38e2f3d39d4fd28a1",
+   "size": 132027,
+   "url": "v1/objects/7f36e69e1e063b08150899e38e2f3d39d4fd28a1/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "487a201185327f31b888e6dbe5dfbe7af686f9be",
+   "size": 1373220,
+   "url": "v1/objects/487a201185327f31b888e6dbe5dfbe7af686f9be/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "شخصيتك 64 بكسل",
+ "notes": [
+  "شخصيتك صارت فعلاً 64 بكسل داخل اللعبة (كانت تنبني قبل ما يشتغل القوام الجديد)",
+  "يدك في منظور الشخص الأول صارت 64 بكسل",
+  "الشماغ صار 64 بكسل"
+ ],
+ "size": 7150692
+}
