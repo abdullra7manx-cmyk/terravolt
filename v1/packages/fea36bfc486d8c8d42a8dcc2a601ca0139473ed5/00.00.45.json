@@ -1,0 +1,44 @@
+{
+ "id": "00.00.45",
+ "type": "release",
+ "time": "2026-11-06T12:00:00+03:00",
+ "releaseTime": "2026-11-06T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "7f36e69e1e063b08150899e38e2f3d39d4fd28a1",
+   "size": 132027,
+   "url": "v1/objects/7f36e69e1e063b08150899e38e2f3d39d4fd28a1/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "a0c63850afb0bb81afbf9c02cf777929e8b03bcb",
+   "size": 1349814,
+   "url": "v1/objects/a0c63850afb0bb81afbf9c02cf777929e8b03bcb/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "الجني والبيض",
+ "notes": [
+  "مخلوق جديد: الجني، دخان أسود بعيون مثل الجمر يطفو فوق الأرض",
+  "ما يطلع إلا بالليل، وقبل ما يلاحظك يكون شبه مخفي",
+  "يهمس، وأحياناً يختفي ويطلع وراك فجأة",
+  "إذا طلعت الشمس عليه يختفي",
+  "بيض جديد في الحقيبة: جني، مرتزق، المدرّع، الذيب، حليف",
+  "الحين كل المخلوقات في اللعبة لها بيض"
+ ],
+ "size": 7127286
+}
