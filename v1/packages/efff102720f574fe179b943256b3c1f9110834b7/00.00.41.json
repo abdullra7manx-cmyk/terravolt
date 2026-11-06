@@ -1,0 +1,42 @@
+{
+ "id": "00.00.41",
+ "type": "release",
+ "time": "2026-11-06T12:00:00+03:00",
+ "releaseTime": "2026-11-06T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "7f36e69e1e063b08150899e38e2f3d39d4fd28a1",
+   "size": 132027,
+   "url": "v1/objects/7f36e69e1e063b08150899e38e2f3d39d4fd28a1/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "8cb8ad79c43f7ba2aff6cb734bec00c0759c83fc",
+   "size": 1269588,
+   "url": "v1/objects/8cb8ad79c43f7ba2aff6cb734bec00c0759c83fc/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "الكهرباء: السلك",
+ "notes": [
+  "سلك كهرباء ٥×٥ سم أسود بأربع أسلاك ملوّنة في طرفه",
+  "اضغط على سطح واسحب وفك، أو اضغط مرتين: السلك يمشي على السطح ويلف عند الزوايا",
+  "كسر السلك يرجعه لك",
+  "الصناعة: سبيكة نحاس + فحم = ٦ متر سلك"
+ ],
+ "size": 7047060
+}
