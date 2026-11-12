@@ -1,0 +1,43 @@
+{
+ "id": "00.00.49",
+ "type": "release",
+ "time": "2026-11-12T12:00:00+03:00",
+ "releaseTime": "2026-11-12T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "7f36e69e1e063b08150899e38e2f3d39d4fd28a1",
+   "size": 132027,
+   "url": "v1/objects/7f36e69e1e063b08150899e38e2f3d39d4fd28a1/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "aaf4d91a13c387c20a9f4953db5703acd1c718e5",
+   "size": 1404481,
+   "url": "v1/objects/aaf4d91a13c387c20a9f4953db5703acd1c718e5/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "الكابل الكبير",
+ "notes": [
+  "كابل كبير جديد بحجم 20×20 سم في قسم الكهرباء",
+  "أسود، وطرفه فيه ٩ مربعات صفراء ٣×٣",
+  "ينمد بنفس طريقة السلك الصغير: اضغط تبدأ، اضغط تضيف زاوية، اضغط على طرف جهاز تخلص",
+  "يتصنع من ٣ سبائك نحاس و٢ فحم (يطلع ٢)",
+  "ينحفظ في العالم ويطلع لكل اللاعبين أونلاين"
+ ],
+ "size": 7181953
+}
