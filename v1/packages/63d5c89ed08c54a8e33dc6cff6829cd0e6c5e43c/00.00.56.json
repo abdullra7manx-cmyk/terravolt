@@ -1,0 +1,40 @@
+{
+ "id": "00.00.56",
+ "type": "release",
+ "time": "2026-11-14T03:00:00+03:00",
+ "releaseTime": "2026-11-14T03:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "d428123460360bc84536d4bbbae0cf45c33132f7",
+   "size": 132247,
+   "url": "v1/objects/d428123460360bc84536d4bbbae0cf45c33132f7/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "6a7478bd13c13a69e428dfd77220dc4dc780e46f",
+   "size": 1494487,
+   "url": "v1/objects/6a7478bd13c13a69e428dfd77220dc4dc780e46f/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "إضاءة الأوجه وتسريع الكرافتنق",
+ "notes": [
+  "تظليل الأوجه مثل ماينكرافت: الوجه العلوي 100٪، الشمال والجنوب 80٪، الشرق والغرب 60٪، والسفلي 50٪",
+  "الكرافتنق يجرّب آخر وصفة استخدمتها أول، مثل ماينكرافت، فتطلع النتيجة أسرع"
+ ],
+ "size": 7272179
+}
