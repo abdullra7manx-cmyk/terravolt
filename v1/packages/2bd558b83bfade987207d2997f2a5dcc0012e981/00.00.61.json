@@ -1,0 +1,41 @@
+{
+ "id": "00.00.61",
+ "type": "release",
+ "time": "2026-11-14T12:00:00+03:00",
+ "releaseTime": "2026-11-14T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "aefe4868cfe32a3053c1de3786ca6979af48c983",
+   "size": 132514,
+   "url": "v1/objects/aefe4868cfe32a3053c1de3786ca6979af48c983/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d89258d3645679af16f01ae4ccef56459c070366",
+   "size": 119966,
+   "url": "v1/objects/d89258d3645679af16f01ae4ccef56459c070366/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "12946a73f552e2a8fde00c64cc2334652b36ab04",
+   "size": 1522218,
+   "url": "v1/objects/12946a73f552e2a8fde00c64cc2334652b36ab04/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "مسافة رؤية حتى 32 شنك",
+ "notes": [
+  "مسافة الرؤية من 2 إلى 32 شنك، والافتراضي 12",
+  "الأرض البعيدة تنرسم خفيفة عشان تشوف بعيد بدون ما يثقل الجهاز",
+  "بوابة التنين: ابنِها بنفسك بالشكل الصحيح في أي مكان وشغّلها بالبلورات"
+ ],
+ "size": 7300233
+}
