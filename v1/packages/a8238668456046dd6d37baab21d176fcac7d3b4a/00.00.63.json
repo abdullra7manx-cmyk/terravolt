@@ -1,0 +1,41 @@
+{
+ "id": "00.00.63",
+ "type": "release",
+ "time": "2026-11-15T12:00:00+03:00",
+ "releaseTime": "2026-11-15T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "7dacc9a33f26c8fde80b25fb2bbc85e9fc712cd4",
+   "size": 132722,
+   "url": "v1/objects/7dacc9a33f26c8fde80b25fb2bbc85e9fc712cd4/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "f56db2a4467c2571672fb1975d8e4f99f8007548",
+   "size": 120095,
+   "url": "v1/objects/f56db2a4467c2571672fb1975d8e4f99f8007548/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "508cd7df2b29ecadc8f0e2a885693e1813333c22",
+   "size": 1545465,
+   "url": "v1/objects/508cd7df2b29ecadc8f0e2a885693e1813333c22/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "التروفيات",
+ "notes": [
+  "100 تروفي في اللعبة، والبلاتينيوم لما تجمعها كلها",
+  "شاشة التروفيات من القائمة الرئيسية وقائمة اللعبة",
+  "تنبيه يطلع لك أول ما تحصل على تروفي"
+ ],
+ "size": 7323817
+}

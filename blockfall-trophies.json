@@ -1,0 +1,612 @@
+{
+ "game": "blockfall",
+ "count": 101,
+ "trophies": [
+  {
+   "id": "platinum",
+   "tier": "platinum",
+   "name": "بلاتينيوم BLOCKFALL",
+   "desc": "اجمع كل الـ 100 تروفي"
+  },
+  {
+   "id": "first_block",
+   "tier": "bronze",
+   "name": "أول بلوك",
+   "desc": "حط أول بلوك"
+  },
+  {
+   "id": "builder",
+   "tier": "bronze",
+   "name": "بنّاء",
+   "desc": "حط 1,000 بلوك"
+  },
+  {
+   "id": "architect",
+   "tier": "silver",
+   "name": "مهندس معماري",
+   "desc": "حط 10,000 بلوك"
+  },
+  {
+   "id": "b_city",
+   "tier": "gold",
+   "name": "مدينة كاملة",
+   "desc": "حط 50,000 بلوك"
+  },
+  {
+   "id": "first_break",
+   "tier": "bronze",
+   "name": "أول ضربة",
+   "desc": "اكسر أول بلوك"
+  },
+  {
+   "id": "miner",
+   "tier": "bronze",
+   "name": "عامل منجم",
+   "desc": "اكسر 500 بلوك"
+  },
+  {
+   "id": "digger",
+   "tier": "silver",
+   "name": "حفّار",
+   "desc": "اكسر 5,000 بلوك"
+  },
+  {
+   "id": "d_deep",
+   "tier": "gold",
+   "name": "حفّار الأعماق",
+   "desc": "اكسر 20,000 بلوك"
+  },
+  {
+   "id": "torch_10",
+   "tier": "bronze",
+   "name": "نوّر المكان",
+   "desc": "حط 10 مشاعل"
+  },
+  {
+   "id": "glass_100",
+   "tier": "bronze",
+   "name": "بيت زجاج",
+   "desc": "حط 100 بلوك زجاج"
+  },
+  {
+   "id": "lift_1",
+   "tier": "bronze",
+   "name": "الرافعة",
+   "desc": "ركّب مركبة على الرافعة"
+  },
+  {
+   "id": "first_tree",
+   "tier": "bronze",
+   "name": "أول شجرة",
+   "desc": "اقطع شجرة"
+  },
+  {
+   "id": "lumberjack",
+   "tier": "bronze",
+   "name": "حطّاب",
+   "desc": "اقطع 50 شجرة"
+  },
+  {
+   "id": "t_forest",
+   "tier": "silver",
+   "name": "آكل الغابات",
+   "desc": "اقطع 500 شجرة"
+  },
+  {
+   "id": "shepherd",
+   "tier": "bronze",
+   "name": "راعي",
+   "desc": "اصطد 10 خرفان"
+  },
+  {
+   "id": "sh_100",
+   "tier": "silver",
+   "name": "قطيع كامل",
+   "desc": "اصطد 100 خروف"
+  },
+  {
+   "id": "hunter_50",
+   "tier": "silver",
+   "name": "صياد",
+   "desc": "اصطد 50 حيوان"
+  },
+  {
+   "id": "craft_1",
+   "tier": "bronze",
+   "name": "أول صنعة",
+   "desc": "اصنع أول غرض"
+  },
+  {
+   "id": "crafter",
+   "tier": "bronze",
+   "name": "صانع",
+   "desc": "اصنع 25 غرض"
+  },
+  {
+   "id": "craft_250",
+   "tier": "silver",
+   "name": "حرفي",
+   "desc": "اصنع 250 غرض"
+  },
+  {
+   "id": "craft_1000",
+   "tier": "gold",
+   "name": "معلّم الصنعة",
+   "desc": "اصنع 1,000 غرض"
+  },
+  {
+   "id": "eat_50",
+   "tier": "bronze",
+   "name": "شبعان",
+   "desc": "كل 50 مرة في وضع البقاء"
+  },
+  {
+   "id": "t_10m",
+   "tier": "bronze",
+   "name": "البداية",
+   "desc": "العب 10 دقايق"
+  },
+  {
+   "id": "hour",
+   "tier": "bronze",
+   "name": "ساعة كاملة",
+   "desc": "العب ساعة"
+  },
+  {
+   "id": "t_5h",
+   "tier": "silver",
+   "name": "مدمن",
+   "desc": "العب 5 ساعات"
+  },
+  {
+   "id": "veteran",
+   "tier": "silver",
+   "name": "محارب قديم",
+   "desc": "العب 10 ساعات"
+  },
+  {
+   "id": "t_24h",
+   "tier": "gold",
+   "name": "يوم كامل",
+   "desc": "العب 24 ساعة"
+  },
+  {
+   "id": "night_1",
+   "tier": "bronze",
+   "name": "أول ليلة",
+   "desc": "انجُ من ليلة كاملة في وضع البقاء"
+  },
+  {
+   "id": "night_10",
+   "tier": "silver",
+   "name": "عشر ليالي",
+   "desc": "انجُ من 10 ليالي"
+  },
+  {
+   "id": "night_50",
+   "tier": "gold",
+   "name": "ابن الليل",
+   "desc": "انجُ من 50 ليلة"
+  },
+  {
+   "id": "world_1",
+   "tier": "bronze",
+   "name": "عالمي الأول",
+   "desc": "سوِّ عالم جديد"
+  },
+  {
+   "id": "explorer",
+   "tier": "bronze",
+   "name": "مستكشف",
+   "desc": "يكون عندك 3 عوالم"
+  },
+  {
+   "id": "world_10",
+   "tier": "silver",
+   "name": "صانع العوالم",
+   "desc": "سوِّ 10 عوالم"
+  },
+  {
+   "id": "events_2",
+   "tier": "silver",
+   "name": "ابن الفعاليات",
+   "desc": "العب فعاليتين مختلفتين"
+  },
+  {
+   "id": "k_z1",
+   "tier": "bronze",
+   "name": "أول زومبي",
+   "desc": "اقتل زومبي"
+  },
+  {
+   "id": "k_z50",
+   "tier": "bronze",
+   "name": "صيّاد الزومبي",
+   "desc": "اقتل 50 زومبي"
+  },
+  {
+   "id": "k_z250",
+   "tier": "silver",
+   "name": "مطهّر",
+   "desc": "اقتل 250 زومبي"
+  },
+  {
+   "id": "k_z1000",
+   "tier": "gold",
+   "name": "نهاية الوباء",
+   "desc": "اقتل 1,000 زومبي"
+  },
+  {
+   "id": "k_runner",
+   "tier": "bronze",
+   "name": "أسرع منه",
+   "desc": "اقتل 10 زومبي راكض"
+  },
+  {
+   "id": "k_crawler",
+   "tier": "bronze",
+   "name": "تحت رجولك",
+   "desc": "اقتل 10 زومبي زاحف"
+  },
+  {
+   "id": "k_brute1",
+   "tier": "bronze",
+   "name": "الضخم",
+   "desc": "اقتل زومبي ضخم"
+  },
+  {
+   "id": "k_brute25",
+   "tier": "silver",
+   "name": "قاهر العمالقة",
+   "desc": "اقتل 25 زومبي ضخم"
+  },
+  {
+   "id": "k_boomer",
+   "tier": "bronze",
+   "name": "قبل لا ينفجر",
+   "desc": "اقتل 10 زومبي متفجر"
+  },
+  {
+   "id": "k_archer",
+   "tier": "bronze",
+   "name": "قنّاص القنّاصين",
+   "desc": "اقتل 10 زومبي الأسهم"
+  },
+  {
+   "id": "k_raider1",
+   "tier": "bronze",
+   "name": "أول مرتزق",
+   "desc": "اقتل مرتزق"
+  },
+  {
+   "id": "k_raider50",
+   "tier": "silver",
+   "name": "ضد المرتزقة",
+   "desc": "اقتل 50 مرتزق"
+  },
+  {
+   "id": "k_heavy1",
+   "tier": "silver",
+   "name": "كسر الدرع",
+   "desc": "اقتل المدرّع"
+  },
+  {
+   "id": "k_heavy10",
+   "tier": "gold",
+   "name": "لا درع يحميهم",
+   "desc": "اقتل 10 مدرّعين"
+  },
+  {
+   "id": "shot_1",
+   "tier": "bronze",
+   "name": "أول طلقة",
+   "desc": "اطلق من سلاح"
+  },
+  {
+   "id": "shot_1000",
+   "tier": "silver",
+   "name": "رشّاش",
+   "desc": "اطلق 1,000 طلقة"
+  },
+  {
+   "id": "boom_10",
+   "tier": "bronze",
+   "name": "بووم",
+   "desc": "صير قريب من 10 انفجارات"
+  },
+  {
+   "id": "death_1",
+   "tier": "bronze",
+   "name": "أول موتة",
+   "desc": "مت مرة"
+  },
+  {
+   "id": "sleep_1",
+   "tier": "bronze",
+   "name": "تصبح على خير",
+   "desc": "نام في سرير"
+  },
+  {
+   "id": "sleep_30",
+   "tier": "silver",
+   "name": "نومة الهنا",
+   "desc": "نام 30 مرة"
+  },
+  {
+   "id": "swim_60",
+   "tier": "bronze",
+   "name": "سبّاح",
+   "desc": "اسبح دقيقة"
+  },
+  {
+   "id": "swim_600",
+   "tier": "silver",
+   "name": "حوت",
+   "desc": "اسبح 10 دقايق"
+  },
+  {
+   "id": "talk_1",
+   "tier": "bronze",
+   "name": "سلام عليكم",
+   "desc": "كلّم قروي"
+  },
+  {
+   "id": "trade_1",
+   "tier": "bronze",
+   "name": "أول صفقة",
+   "desc": "تاجر مع قروي"
+  },
+  {
+   "id": "trade_50",
+   "tier": "silver",
+   "name": "تاجر",
+   "desc": "سوِّ 50 صفقة"
+  },
+  {
+   "id": "trade_200",
+   "tier": "gold",
+   "name": "رجل أعمال",
+   "desc": "سوِّ 200 صفقة"
+  },
+  {
+   "id": "veh_drive",
+   "tier": "bronze",
+   "name": "على الطريق",
+   "desc": "اركب مركبة"
+  },
+  {
+   "id": "veh_10",
+   "tier": "silver",
+   "name": "مصنع مركبات",
+   "desc": "ركّب 10 مركبات على الرافعة"
+  },
+  {
+   "id": "veh_1km",
+   "tier": "bronze",
+   "name": "أول كيلو",
+   "desc": "سوق مسافة 1 كم"
+  },
+  {
+   "id": "veh_10km",
+   "tier": "silver",
+   "name": "سواق",
+   "desc": "سوق مسافة 10 كم"
+  },
+  {
+   "id": "veh_100km",
+   "tier": "gold",
+   "name": "رحّالة",
+   "desc": "سوق مسافة 100 كم"
+  },
+  {
+   "id": "eng_1",
+   "tier": "bronze",
+   "name": "ميكانيكي",
+   "desc": "ركّب قطعة على محرك"
+  },
+  {
+   "id": "eng_25",
+   "tier": "silver",
+   "name": "ورشة كاملة",
+   "desc": "ركّب 25 قطعة على المحركات"
+  },
+  {
+   "id": "jet",
+   "tier": "silver",
+   "name": "نفّاث",
+   "desc": "اركب مركبة فيها محرك نفاث شغّال"
+  },
+  {
+   "id": "boat_1",
+   "tier": "bronze",
+   "name": "قبطان",
+   "desc": "ركّب قارب في الماء"
+  },
+  {
+   "id": "boat_1km",
+   "tier": "bronze",
+   "name": "بحّار",
+   "desc": "أبحر 1 كم"
+  },
+  {
+   "id": "boat_10km",
+   "tier": "silver",
+   "name": "ذئب البحر",
+   "desc": "أبحر 10 كم"
+  },
+  {
+   "id": "walk_1km",
+   "tier": "bronze",
+   "name": "مشّاء",
+   "desc": "امشِ 1 كم"
+  },
+  {
+   "id": "walk_10km",
+   "tier": "silver",
+   "name": "رحلة طويلة",
+   "desc": "امشِ 10 كم"
+  },
+  {
+   "id": "walk_100km",
+   "tier": "gold",
+   "name": "حول العالم",
+   "desc": "امشِ 100 كم"
+  },
+  {
+   "id": "high",
+   "tier": "silver",
+   "name": "فوق الغيوم",
+   "desc": "وصّل ارتفاع 80 م"
+  },
+  {
+   "id": "deep",
+   "tier": "silver",
+   "name": "قاع العالم",
+   "desc": "انزل تحت مستوى −30 م"
+  },
+  {
+   "id": "sea_1",
+   "tier": "bronze",
+   "name": "ما رماه البحر",
+   "desc": "التقط غرض من البحر"
+  },
+  {
+   "id": "sea_50",
+   "tier": "silver",
+   "name": "صيّاد الكنوز",
+   "desc": "التقط 50 غرض من البحر"
+  },
+  {
+   "id": "sea_250",
+   "tier": "gold",
+   "name": "سيد المحيط",
+   "desc": "التقط 250 غرض من البحر"
+  },
+  {
+   "id": "portal_build",
+   "tier": "silver",
+   "name": "بنّاء البوابات",
+   "desc": "ابنِ بوابة التنين بنفسك"
+  },
+  {
+   "id": "crystal_4",
+   "tier": "bronze",
+   "name": "البلورات الأربع",
+   "desc": "حط 4 بلورات في قواعد البوابة"
+  },
+  {
+   "id": "portal_1",
+   "tier": "silver",
+   "name": "العبور",
+   "desc": "ادخل البوابة"
+  },
+  {
+   "id": "dragon_land",
+   "tier": "silver",
+   "name": "أرض التنين",
+   "desc": "وصّل أرض التنين"
+  },
+  {
+   "id": "dragon_1",
+   "tier": "gold",
+   "name": "قاتل التنين",
+   "desc": "اهزم التنين ذو الرؤوس الثلاثة"
+  },
+  {
+   "id": "dragon_3",
+   "tier": "gold",
+   "name": "أسطورة",
+   "desc": "اهزم التنين 3 مرات"
+  },
+  {
+   "id": "story_1",
+   "tier": "bronze",
+   "name": "البداية",
+   "desc": "خلّص الفصل الأول من القصة"
+  },
+  {
+   "id": "story_2",
+   "tier": "bronze",
+   "name": "الفصل الثاني",
+   "desc": "خلّص فصلين من القصة"
+  },
+  {
+   "id": "story_3",
+   "tier": "silver",
+   "name": "نص الطريق",
+   "desc": "خلّص 3 فصول من القصة"
+  },
+  {
+   "id": "story_4",
+   "tier": "silver",
+   "name": "قبل النهاية",
+   "desc": "خلّص 4 فصول من القصة"
+  },
+  {
+   "id": "story_5",
+   "tier": "gold",
+   "name": "النهاية",
+   "desc": "خلّص القصة كاملة"
+  },
+  {
+   "id": "wire_1",
+   "tier": "bronze",
+   "name": "كهربائي",
+   "desc": "مد أول سلك"
+  },
+  {
+   "id": "wire_100",
+   "tier": "silver",
+   "name": "شبكة كهرباء",
+   "desc": "مد 100 سلك"
+  },
+  {
+   "id": "link_10",
+   "tier": "silver",
+   "name": "كل شي موصول",
+   "desc": "وصّل 10 أجهزة ببعض"
+  },
+  {
+   "id": "carry_1",
+   "tier": "bronze",
+   "name": "على الكتف",
+   "desc": "شيل جثة على كتفك"
+  },
+  {
+   "id": "carry_500",
+   "tier": "silver",
+   "name": "نقّال",
+   "desc": "امشِ 500 م وأنت شايل جثة"
+  },
+  {
+   "id": "online_1",
+   "tier": "bronze",
+   "name": "مع الربع",
+   "desc": "العب أونلاين"
+  },
+  {
+   "id": "online_1h",
+   "tier": "silver",
+   "name": "ربع السهرة",
+   "desc": "العب أونلاين ساعة"
+  },
+  {
+   "id": "cubes_1k",
+   "tier": "bronze",
+   "name": "أول ألف",
+   "desc": "اكسب 1,000 كيوب"
+  },
+  {
+   "id": "cubes_10k",
+   "tier": "silver",
+   "name": "غني",
+   "desc": "اكسب 10,000 كيوب"
+  },
+  {
+   "id": "cubes_100k",
+   "tier": "gold",
+   "name": "مليونير المكعبات",
+   "desc": "اكسب 100,000 كيوب"
+  }
+ ]
+}
