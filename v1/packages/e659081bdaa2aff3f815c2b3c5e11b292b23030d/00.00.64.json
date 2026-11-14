@@ -1,0 +1,41 @@
+{
+ "id": "00.00.64",
+ "type": "release",
+ "time": "2026-11-15T12:00:00+03:00",
+ "releaseTime": "2026-11-15T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "b179a405973f4d11e3962a1775b7c19a8a68f282",
+   "size": 133531,
+   "url": "v1/objects/b179a405973f4d11e3962a1775b7c19a8a68f282/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "f56db2a4467c2571672fb1975d8e4f99f8007548",
+   "size": 120095,
+   "url": "v1/objects/f56db2a4467c2571672fb1975d8e4f99f8007548/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "43d076e021a43f5595fb7857fe831df39c36affd",
+   "size": 1589461,
+   "url": "v1/objects/43d076e021a43f5595fb7857fe831df39c36affd/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "نسخة المطور والمشاريع",
+ "notes": [
+  "نسخة المطور صارت لعبة منفصلة بلانشر خاص",
+  "زر «المطور» تحت يمين يفتح قائمة المطور",
+  "المشاريع: عدّل الكائنات والبلوكات كأنك تلعب، تطير وتكسر وتبني بمكعبات 1/64"
+ ],
+ "size": 7368622
+}
