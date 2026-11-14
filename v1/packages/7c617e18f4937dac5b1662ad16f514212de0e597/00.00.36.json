@@ -1,0 +1,41 @@
+{
+ "id": "00.00.36",
+ "type": "release",
+ "time": "2026-11-05T12:00:00+03:00",
+ "releaseTime": "2026-11-05T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "35bd6930815376945c0c35fe0e5eb2f88e37e69a",
+   "size": 131411,
+   "url": "v1/objects/35bd6930815376945c0c35fe0e5eb2f88e37e69a/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "c301968254d58ac743022fa4c6c7570feac9f5f3",
+   "size": 1260044,
+   "url": "v1/objects/c301968254d58ac743022fa4c6c7570feac9f5f3/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "الدخول بحساب Premium Games",
+ "notes": [
+  "الأونلاين والسيرفرات صارت تتحقق من حساب Premium Games لكل لاعب",
+  "ما أحد يقدر ينتحل اسم غيره",
+  "السيرفرات الخاصة تعرف أعضاءها بالحساب نفسه"
+ ],
+ "size": 7036900
+}
