@@ -1,0 +1,41 @@
+{
+ "id": "00.00.59",
+ "type": "release",
+ "time": "2026-11-14T12:00:00+03:00",
+ "releaseTime": "2026-11-14T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "a1f485155839e4f1f2b7e959c059f3b5432f893d",
+   "size": 132527,
+   "url": "v1/objects/a1f485155839e4f1f2b7e959c059f3b5432f893d/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "71b5e546d03308731ae703bedbf38a4101e194dd",
+   "size": 119910,
+   "url": "v1/objects/71b5e546d03308731ae703bedbf38a4101e194dd/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "9bb72c734c100286d061417c748fac2e17f1a009",
+   "size": 1512512,
+   "url": "v1/objects/9bb72c734c100286d061417c748fac2e17f1a009/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "إضاءة أدق",
+ "notes": [
+  "أزلنا خط الإضاءة عند أطراف البلوكات",
+  "الغرف المغلقة صارت مظلمة ولا يضيئها إلا المشاعل والمصابيح",
+  "أشعة الشمس"
+ ],
+ "size": 7290484
+}
