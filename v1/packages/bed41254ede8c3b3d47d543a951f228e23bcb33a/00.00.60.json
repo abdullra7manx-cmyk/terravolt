@@ -1,0 +1,43 @@
+{
+ "id": "00.00.60",
+ "type": "release",
+ "time": "2026-11-14T12:00:00+03:00",
+ "releaseTime": "2026-11-14T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "a1f485155839e4f1f2b7e959c059f3b5432f893d",
+   "size": 132527,
+   "url": "v1/objects/a1f485155839e4f1f2b7e959c059f3b5432f893d/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d89258d3645679af16f01ae4ccef56459c070366",
+   "size": 119966,
+   "url": "v1/objects/d89258d3645679af16f01ae4ccef56459c070366/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "6fdf42438638864094b31301be1b3e53241cfa83",
+   "size": 1514511,
+   "url": "v1/objects/6fdf42438638864094b31301be1b3e53241cfa83/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "الجثث والحفر والخروج",
+ "notes": [
+  "الجثة ما عادت تتحرك وهي على الأرض",
+  "حمل الجثة صار على الكتف وثابت معك",
+  "أزلنا الطبقة البيضاء اللي تطلع لما تحفر",
+  "الخروج من العالم يمر بشاشة التحميل ثم القائمة",
+  "شاشة التحميل: ٨ مربعات"
+ ],
+ "size": 7292539
+}
