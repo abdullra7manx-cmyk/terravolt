@@ -1,0 +1,41 @@
+{
+ "id": "00.00.62",
+ "type": "release",
+ "time": "2026-11-15T12:00:00+03:00",
+ "releaseTime": "2026-11-15T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "aefe4868cfe32a3053c1de3786ca6979af48c983",
+   "size": 132514,
+   "url": "v1/objects/aefe4868cfe32a3053c1de3786ca6979af48c983/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "d89258d3645679af16f01ae4ccef56459c070366",
+   "size": 119966,
+   "url": "v1/objects/d89258d3645679af16f01ae4ccef56459c070366/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "3a8c8f2c0a124183217e16766619175f748da481",
+   "size": 1525971,
+   "url": "v1/objects/3a8c8f2c0a124183217e16766619175f748da481/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "مفاصل للمخلوقات",
+ "notes": [
+  "كل المخلوقات صار لها ركب وأكواع",
+  "الركبة تنثني لما ترفع رجلها وتمشي، والكوع فيه انثناءة طبيعية",
+  "الجثث ترتخي مفاصلها بشكل طبيعي"
+ ],
+ "size": 7303986
+}
