@@ -1,11 +1,11 @@
 {
- "version": "01.08.07",
+ "version": "01.08.08",
  "files": [
   {
    "path": "index.html",
-   "sha1": "2980527becba8075685026804ba60f9749be82fa",
-   "size": 610168,
-   "url": "launcher/objects/2980527becba8075685026804ba60f9749be82fa/index.html"
+   "sha1": "751897c7071400f708bcb3b1e412c763ccfc2240",
+   "size": 610754,
+   "url": "launcher/objects/751897c7071400f708bcb3b1e412c763ccfc2240/index.html"
   }
  ],
  "app": {
