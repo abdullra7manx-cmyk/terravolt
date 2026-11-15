@@ -1,0 +1,42 @@
+{
+ "id": "00.00.68",
+ "type": "release",
+ "time": "2026-11-15T12:00:00+03:00",
+ "releaseTime": "2026-11-15T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "4a0bc4a30fe0cb838d411810e264b4cdf38128e8",
+   "size": 133593,
+   "url": "v1/objects/4a0bc4a30fe0cb838d411810e264b4cdf38128e8/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "3738cfceac87cc42682fff74cebeaea0d82eae0e",
+   "size": 120288,
+   "url": "v1/objects/3738cfceac87cc42682fff74cebeaea0d82eae0e/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "9f7613980c300c47f94b44e8a008dbe4d6d29f3d",
+   "size": 1663470,
+   "url": "v1/objects/9f7613980c300c47f94b44e8a008dbe4d6d29f3d/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "تعديل الدنجن داخل اللعبة",
+ "notes": [
+  "البوابة النجمية في العوالم القديمة صارت مثل الجديدة (بدون زجاج)، وما يتأثر اللي بنيته حولها",
+  "نسخة المطور: الدنجن والبوابة النجمية تتعدل داخل اللعبة نفسها، بنفس البناء والتكسير والبلوكات الصغيرة",
+  "نسخة المطور: زر ⚙ في المشاريع لنسبة ظهور الدنجن والخامات",
+  "إصلاح: البلوك المنحوت (مثل العشب) كان يسبب لاق، صار يبان منحوت قريب منك ومن بعيد بلوك عادي"
+ ],
+ "size": 7442886
+}
