@@ -1,5 +1,5 @@
 {
- "version": "01.08.10",
+ "version": "01.08.11",
  "files": [
   {
    "path": "index.html",
@@ -9,7 +9,7 @@
   }
  ],
  "app": {
-  "version": "1.8.9",
+  "version": "1.9.0",
   "files": [
    {
     "path": "main.js",
@@ -19,9 +19,9 @@
    },
    {
     "path": "preload.js",
-    "sha1": "ba4c5fe1712dbf6d0b3bc2154718d146ba9d26e7",
-    "size": 4736,
-    "url": "launcher/app/ba4c5fe1712dbf6d0b3bc2154718d146ba9d26e7/preload.js"
+    "sha1": "2397a6e97e70def1c259e442d121c49eed8d7ded",
+    "size": 4903,
+    "url": "launcher/app/2397a6e97e70def1c259e442d121c49eed8d7ded/preload.js"
    },
    {
     "path": "net.js",
