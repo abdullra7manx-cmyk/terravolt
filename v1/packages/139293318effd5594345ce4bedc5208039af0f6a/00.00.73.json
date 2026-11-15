@@ -1,0 +1,41 @@
+{
+ "id": "00.00.73",
+ "type": "release",
+ "time": "2026-11-15T12:00:00+03:00",
+ "releaseTime": "2026-11-15T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "94d445b615d5160001e5049e072a02922240435e",
+   "size": 134171,
+   "url": "v1/objects/94d445b615d5160001e5049e072a02922240435e/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "3738cfceac87cc42682fff74cebeaea0d82eae0e",
+   "size": 120288,
+   "url": "v1/objects/3738cfceac87cc42682fff74cebeaea0d82eae0e/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "ba40a7cdb0c8cfdc15249ebfce532eeff6abefc7",
+   "size": 1785350,
+   "url": "v1/objects/ba40a7cdb0c8cfdc15249ebfce532eeff6abefc7/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "المركبات في قائمة المطور",
+ "notes": [
+  "تعدّل اسم أي مركبة وسعرها وتصميمها",
+  "تخترع مركبات جديدة جاهزة أو بالقطع",
+  "المركبات تنتقل في المكتبة والنسخة الأساسية"
+ ],
+ "size": 7565344
+}
