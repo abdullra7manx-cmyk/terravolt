@@ -1,5 +1,5 @@
 {
- "version": "01.08.08",
+ "version": "01.08.09",
  "files": [
   {
    "path": "index.html",
@@ -9,7 +9,7 @@
   }
  ],
  "app": {
-  "version": "1.8.7",
+  "version": "1.8.8",
   "files": [
    {
     "path": "main.js",
@@ -37,9 +37,9 @@
    },
    {
     "path": "premium.js",
-    "sha1": "cbd14556a861d022c592a4d8b30afad2d3cbea53",
-    "size": 12707,
-    "url": "launcher/app/cbd14556a861d022c592a4d8b30afad2d3cbea53/premium.js"
+    "sha1": "e23eef6e1867cdaf749c8d86a00b65a231e86d4f",
+    "size": 12715,
+    "url": "launcher/app/e23eef6e1867cdaf749c8d86a00b65a231e86d4f/premium.js"
    },
    {
     "path": "icon.ico",
