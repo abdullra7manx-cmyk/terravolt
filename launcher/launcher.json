@@ -1,5 +1,5 @@
 {
- "version": "01.08.11",
+ "version": "01.08.12",
  "files": [
   {
    "path": "index.html",
@@ -9,7 +9,7 @@
   }
  ],
  "app": {
-  "version": "1.9.0",
+  "version": "1.9.1",
   "files": [
    {
     "path": "main.js",
