@@ -1,0 +1,43 @@
+{
+ "id": "00.00.65",
+ "type": "release",
+ "time": "2026-11-15T12:00:00+03:00",
+ "releaseTime": "2026-11-15T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "b179a405973f4d11e3962a1775b7c19a8a68f282",
+   "size": 133531,
+   "url": "v1/objects/b179a405973f4d11e3962a1775b7c19a8a68f282/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "3738cfceac87cc42682fff74cebeaea0d82eae0e",
+   "size": 120288,
+   "url": "v1/objects/3738cfceac87cc42682fff74cebeaea0d82eae0e/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "5991d3f12d568adea6294a000b919fa3ff02db1e",
+   "size": 1602348,
+   "url": "v1/objects/5991d3f12d568adea6294a000b919fa3ff02db1e/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "ستيف والبلوكات المنحوتة",
+ "notes": [
+  "ستيف: الشخصية الأساسية بالأحجام الجديدة (200 سم) وتقدر تنحتها من المشاريع",
+  "البلوك المنحوت يطلع في العالم بشكله الحقيقي",
+  "الحدود: اللي تبنيه برّا حجم البلوك أو المخلوق شكل بس",
+  "امسك زر يمين واسحب عشان تبني جدار أو أرضية كاملة",
+  "شريط الخانات: تحديد واحد بس"
+ ],
+ "size": 7381702
+}
