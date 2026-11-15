@@ -1,0 +1,39 @@
+{
+ "id": "00.00.70",
+ "type": "release",
+ "time": "2026-11-15T12:00:00+03:00",
+ "releaseTime": "2026-11-15T12:00:00+03:00",
+ "mainClass": "game.html",
+ "files": [
+  {
+   "path": "game.html",
+   "sha1": "94d445b615d5160001e5049e072a02922240435e",
+   "size": 134171,
+   "url": "v1/objects/94d445b615d5160001e5049e072a02922240435e/game.html"
+  },
+  {
+   "path": "game.css",
+   "sha1": "3738cfceac87cc42682fff74cebeaea0d82eae0e",
+   "size": 120288,
+   "url": "v1/objects/3738cfceac87cc42682fff74cebeaea0d82eae0e/game.css"
+  },
+  {
+   "path": "game.js",
+   "sha1": "02ba8f602f4008c018da9c3549f743b293c863bf",
+   "size": 1713076,
+   "url": "v1/objects/02ba8f602f4008c018da9c3549f743b293c863bf/game.js"
+  }
+ ],
+ "assetIndex": {
+  "id": "tv-b8d8cdde",
+  "sha1": "b8d8cddec8d61c1728ccbf42782eed68187699a1",
+  "size": 293,
+  "totalSize": 5525535,
+  "url": "v1/packages/b8d8cddec8d61c1728ccbf42782eed68187699a1/tv-b8d8cdde.json"
+ },
+ "title": "شاشة المطور الجديدة",
+ "notes": [
+  "نسخة المطور: زر «المطور» يفتح شاشة محرر كاملة تنزل من فوق مثل باب الجراج: قائمة جانبية (المشاريع، المكتبة، الأدوات)، ومربعات المشاريع بصورها، وتفاصيل العنصر المختار مع إعدادات ظهوره"
+ ],
+ "size": 7493070
+}
