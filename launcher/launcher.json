@@ -1,5 +1,5 @@
 {
- "version": "01.08.09",
+ "version": "01.08.10",
  "files": [
   {
    "path": "index.html",
@@ -9,19 +9,19 @@
   }
  ],
  "app": {
-  "version": "1.8.8",
+  "version": "1.8.9",
   "files": [
    {
     "path": "main.js",
-    "sha1": "8890f6f2c4ca234bc8e104d47de999e75d2e837f",
-    "size": 36616,
-    "url": "launcher/app/8890f6f2c4ca234bc8e104d47de999e75d2e837f/main.js"
+    "sha1": "921bab8babe0bf072e3c69cc744351d9c660527b",
+    "size": 36701,
+    "url": "launcher/app/921bab8babe0bf072e3c69cc744351d9c660527b/main.js"
    },
    {
     "path": "preload.js",
-    "sha1": "53c53b1d404685d884c92139698818e3254f0784",
-    "size": 4255,
-    "url": "launcher/app/53c53b1d404685d884c92139698818e3254f0784/preload.js"
+    "sha1": "ba4c5fe1712dbf6d0b3bc2154718d146ba9d26e7",
+    "size": 4736,
+    "url": "launcher/app/ba4c5fe1712dbf6d0b3bc2154718d146ba9d26e7/preload.js"
    },
    {
     "path": "net.js",
