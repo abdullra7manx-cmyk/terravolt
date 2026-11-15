@@ -1,25 +1,25 @@
 {
  "name": "BLOCKFALL3001-Launcher-Windows.zip",
- "size": 115238503,
- "zipSize": 115238503,
- "sha1": "71da4f0da73d6510835b44a91d37a158867c5bc7",
+ "size": 115238613,
+ "zipSize": 115238613,
+ "sha1": "297fe81f1495e0ecae5e69392be8a54fd2aea483",
  "version": "01.08.08",
  "parts": [
   {
-   "url": "dl/part0.bin?v=71da4f0d",
+   "url": "dl/part0.bin?v=297fe81f",
    "size": 29000000
   },
   {
-   "url": "dl/part1.bin?v=71da4f0d",
+   "url": "dl/part1.bin?v=297fe81f",
    "size": 29000000
   },
   {
-   "url": "dl/part2.bin?v=71da4f0d",
+   "url": "dl/part2.bin?v=297fe81f",
    "size": 29000000
   },
   {
-   "url": "dl/part3.bin?v=71da4f0d",
-   "size": 28238503
+   "url": "dl/part3.bin?v=297fe81f",
+   "size": 28238613
   }
  ]
 }
